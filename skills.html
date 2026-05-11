@@ -5,192 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills - Mrinal Kanti Giri</title>
   <style>
+    :root {
+      --bg: #eef3fb;
+      --surface: rgba(255, 255, 255, 0.86);
+      --surface-solid: #ffffff;
+      --ink: #102033;
+      --muted: #637083;
+      --soft: #dce6f2;
+      --brand: #2457ff;
+      --brand-dark: #173cbd;
+      --accent: #00b8a9;
+      --shadow: 0 24px 70px rgba(20, 39, 76, 0.13);
+      --radius: 28px;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(36, 87, 255, 0.16), transparent 26rem),
+        radial-gradient(circle at 88% 12%, rgba(0, 184, 169, 0.16), transparent 24rem),
+        linear-gradient(135deg, #f8fbff 0%, var(--bg) 100%);
       line-height: 1.7;
-      color: #333;
-      background: #f8f9fb;
     }
-    @media (prefers-color-scheme: dark) {
-      body { background: #0d1117; color: #e5e5e5; }
-    }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
     header {
-      padding: 2rem 0;
-      border-bottom: 1px solid #e5e5e5;
-      margin-bottom: 2rem;
-      background: #fff;
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(248, 251, 255, 0.78);
+      border-bottom: 1px solid rgba(220, 230, 242, 0.78);
     }
-    @media (prefers-color-scheme: dark) {
-      header { background: #161b22; border-color: #333; }
-    }
-    .site-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-decoration: none;
-      color: #000;
-    }
-    @media (prefers-color-scheme: dark) {
-      .site-title { color: #fff; }
-    }
-    nav ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0;
-      border-left: 1px solid #e5e5e5;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav ul { border-color: #333; }
-    }
-    nav li {
-      border-right: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav li { border-color: #333; }
-    }
-    nav a {
-      display: block;
-      padding: 1rem;
-      text-decoration: none;
-      color: #666;
-      font-size: 0.95rem;
-      transition: background 0.2s;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav a { color: #999; }
-    }
-    nav a:hover { background: #f5f5f5; }
-    @media (prefers-color-scheme: dark) {
-      nav a:hover { background: #1a1a1a; }
-    }
-    main { margin: 2rem 0; }
-    h1 { font-size: 2.2rem; margin: 1.5rem 0 0.5rem 0; font-weight: 600; }
-    h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.5rem; }
-    p { margin: 0 0 1rem 0; }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 1.5rem 0;
-    }
-    @media (max-width: 768px) {
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-    .skill-category h3 { font-weight: 600; margin-bottom: 0.75rem; color: #000; }
-    @media (prefers-color-scheme: dark) {
-      .skill-category h3 { color: #fff; }
-    }
-    .skill-category ul { list-style: none; padding-left: 0; }
-    .skill-category li { padding: 0.4rem 0; color: #666; }
-    @media (prefers-color-scheme: dark) {
-      .skill-category li { color: #999; }
-    }
-    .skill-category li:before { content: "• "; color: #0066cc; font-weight: bold; margin-right: 0.5rem; }
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      border-top: 1px solid #e5e5e5;
-      color: #666;
-      font-size: 0.9rem;
-      background: #fff;
-    }
-    @media (prefers-color-scheme: dark) {
-      footer { background: #161b22; border-color: #333; color: #999; }
-    }
+    .nav-wrap { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .site-title { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
+    .site-title::before { content: "MK"; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 15px; color: white; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 14px 30px rgba(36, 87, 255, 0.25); font-size: 0.85rem; letter-spacing: 0.04em; }
+    nav ul { display: flex; align-items: center; gap: 0.35rem; list-style: none; padding: 0.45rem; border: 1px solid rgba(220, 230, 242, 0.9); border-radius: 999px; background: rgba(255, 255, 255, 0.68); }
+    nav a { display: inline-flex; padding: 0.72rem 1rem; border-radius: 999px; color: var(--muted); font-size: 0.94rem; font-weight: 650; transition: 0.25s ease; }
+    nav a:hover, nav a.active { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 12px 26px rgba(36, 87, 255, 0.22); }
+    main { padding: 4.2rem 0 0; }
+    .hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: stretch; margin-bottom: 2rem; }
+    .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card { border: 1px solid rgba(220, 230, 242, 0.9); background: var(--surface); box-shadow: var(--shadow); border-radius: var(--radius); backdrop-filter: blur(18px); }
+    .hero-card { position: relative; overflow: hidden; padding: 4rem; min-height: 440px; }
+    .hero-card::after { content: ""; position: absolute; right: -100px; bottom: -100px; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(36, 87, 255, 0.16), transparent 67%); }
+    .eyebrow { display: inline-flex; gap: 0.5rem; align-items: center; padding: 0.45rem 0.8rem; border: 1px solid rgba(36, 87, 255, 0.18); border-radius: 999px; color: var(--brand-dark); background: rgba(36, 87, 255, 0.07); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+    h1 { max-width: 790px; margin: 1.55rem 0 1rem; font-size: clamp(3.1rem, 5vw, 5.6rem); line-height: 0.98; letter-spacing: -0.075em; }
+    .lead { max-width: 780px; color: var(--muted); font-size: 1.2rem; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.82rem 1.15rem; border-radius: 999px; font-weight: 800; transition: 0.25s ease; }
+    .button.primary { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 16px 35px rgba(36, 87, 255, 0.28); }
+    .button.secondary { color: var(--brand-dark); background: #fff; border: 1px solid rgba(36, 87, 255, 0.16); }
+    .button:hover { transform: translateY(-2px); }
+    .side-card { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; padding: 2rem; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72)); }
+    .profile-mark { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 0.75; border-radius: 24px; background: linear-gradient(135deg, rgba(36, 87, 255, 0.92), rgba(0, 184, 169, 0.84)); color: white; font-size: 5rem; font-weight: 900; letter-spacing: -0.08em; box-shadow: inset 0 1px 0 rgba(255,255,255,0.45); }
+    .info-list { display: grid; gap: 1rem; }
+    .info-item { display: grid; gap: 0.25rem; padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); }
+    .info-label { color: var(--muted); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+    .info-value { font-weight: 800; }
+    .grid-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; margin: 2rem 0; align-items: start; }
+    .three-grid, .two-grid { display: grid; gap: 1.2rem; margin: 2rem 0; }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .content-card, .timeline-card, .list-card, .profile-card { padding: 2.2rem; }
+    .section-title { margin-bottom: 1rem; font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.04em; }
+    .content-card p, .list-card p, .timeline-card p { color: var(--muted); font-size: 1.03rem; margin-bottom: 1rem; }
+    .mini-card { min-height: 150px; padding: 1.35rem; border-radius: 22px; background: var(--surface-solid); border: 1px solid rgba(220, 230, 242, 0.9); }
+    .mini-card strong { display:block; margin-bottom:0.45rem; font-size:1.03rem; }
+    .mini-card span, .muted { color: var(--muted); }
+    .timeline { position: relative; display: grid; gap: 1.2rem; margin-top: 1.5rem; }
+    .timeline::before { content: ""; position: absolute; top: 0.4rem; bottom: 0.4rem; left: 0.55rem; width: 2px; background: linear-gradient(var(--brand), var(--accent)); opacity: 0.45; }
+    .timeline-item { position: relative; padding-left: 2.25rem; }
+    .timeline-item::before { content: ""; position: absolute; left: 0.12rem; top: 0.42rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--surface-solid); border: 3px solid var(--brand); box-shadow: 0 0 0 6px rgba(36, 87, 255, 0.08); }
+    .timeline-date { color: var(--brand-dark); font-size: 0.84rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+    .timeline-role { margin-top: 0.15rem; font-weight: 850; }
+    .timeline-place { color: var(--muted); font-size: 0.96rem; }
+    .clean-list { list-style: none; display: grid; gap: 0.85rem; }
+    .clean-list li { padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); color: var(--muted); }
+    .clean-list strong { color: var(--ink); }
+    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1rem; padding: 1.2rem; border-radius: 20px; background: rgba(246,249,255,.88); border: 1px solid rgba(220,230,242,.75); }
+    .pub-no { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; color:#fff; background:linear-gradient(135deg,var(--brand),var(--accent)); font-weight:900; }
+    .pub-title { font-weight:850; line-height:1.35; }
+    .pub-meta { color:var(--muted); font-size:.95rem; margin-top:.25rem; }
+    .pub a, .link { color: var(--brand-dark); font-weight:800; }
+    .quote-card { margin: 2rem 0 4rem; padding: 2.5rem 3rem; border-radius: var(--radius); color: white; background: linear-gradient(135deg, #102033, #173cbd); box-shadow: 0 26px 70px rgba(16, 32, 51, 0.2); }
+    .quote-card p { max-width: 920px; font-size: 1.35rem; line-height: 1.65; letter-spacing: -0.02em; }
+    footer { border-top: 1px solid rgba(220, 230, 242, 0.85); padding: 2rem 0; color: var(--muted); background: rgba(255, 255, 255, 0.62); }
+    @media (max-width: 980px) { .page-shell { width: min(100% - 36px, 760px); } .nav-wrap { align-items: flex-start; flex-direction: column; padding: 1.2rem 0; } nav ul { width: 100%; justify-content: space-between; flex-wrap: wrap; border-radius: 24px; } .hero, .grid-section, .two-grid, .three-grid { grid-template-columns: 1fr; } .hero-card { min-height: auto; padding: 2.5rem; } }
+    @media (max-width: 640px) { h1 { font-size: 3rem; } .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card, .quote-card { padding: 1.5rem; border-radius: 22px; } nav a { padding: 0.62rem 0.78rem; } }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="page-shell nav-wrap">
       <a href="index.html" class="site-title">Mrinal Kanti Giri</a>
-      <nav>
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="experience.html">Experience</a></li>
-          <li><a href="skills.html">Skills</a></li>
+          <li><a class="active" href="skills.html">Skills</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <h1>Skills & Expertise</h1>
-
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>Programming Languages</h3>
-        <ul>
-          <li>Python</li>
-          <li>Qiskit & IBM Quantum</li>
-          <li>LaTeX</li>
-        </ul>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="skills-title">
+      <div class="hero-card">
+        <span class="eyebrow">Skills & Expertise</span>
+        <h1 id="skills-title">Tools for quantum research and scientific computing.</h1>
+        <p class="lead">A compact overview of programming, quantum algorithms, tensor-network methods, analytical techniques, and research skills used across my work.</p>
       </div>
-
-      <div class="skill-category">
-        <h3>Quantum Algorithms</h3>
-        <ul>
-          <li>Quantum Circuit Design</li>
-          <li>Variational Quantum Algorithms</li>
-          <li>Digital Quantum Simulation</li>
-          <li>Circuit Optimization</li>
-        </ul>
-      </div>
-
-      <div class="skill-category">
-        <h3>Tensor Network Methods</h3>
-        <ul>
-          <li>DMRG (Density-Matrix Renormalization Group)</li>
-          <li>TEBD (Time Evolving Block Decimation)</li>
-          <li>TDVP (Time-Dependent Variational Principle)</li>
-          <li>MPS (Matrix Product States)</li>
-        </ul>
-      </div>
-
-      <div class="skill-category">
-        <h3>Computational & Analytical</h3>
-        <ul>
-          <li>Exact Diagonalization</li>
-          <li>Mean-Field Theory</li>
-          <li>Numerical Simulations</li>
-          <li>Scientific Computing</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2>Research & Academic Skills</h2>
-    <ul style="list-style: none; padding: 0;">
-      <li style="padding: 0.5rem 0;">• Advanced knowledge of quantum mechanics and condensed matter physics</li>
-      <li style="padding: 0.5rem 0;">• Scientific research design and data analysis</li>
-      <li style="padding: 0.5rem 0;">• Technical and scientific writing</li>
-      <li style="padding: 0.5rem 0;">• Languages: English (fluent), Bengali (native)</li>
-    </ul>
-
-    <h2>Code Repositories</h2>
-    <p><strong>Quantum Physics Libraries:</strong></p>
-    <ul style="list-style: none; padding: 0;">
-      <li style="padding: 0.5rem 0;">• cDMRG - Continuous DMRG for general quantum systems</li>
-      <li style="padding: 0.5rem 0;">• QuBond - Complete many-body solver suite</li>
-      <li style="padding: 0.5rem 0;">• LocalizationTools - Localization studies toolkit</li>
-    </ul>
-
-    <p style="margin-top: 1.5rem;"><strong>Quantum Circuit Libraries:</strong></p>
-    <ul style="list-style: none; padding: 0;">
-      <li style="padding: 0.5rem 0;">• QCircuit - Quantum walk on IBM processors</li>
-      <li style="padding: 0.5rem 0;">• FlatBandSimulator - Digital simulation suite</li>
-      <li style="padding: 0.5rem 0;">• TopologyCircuits - Topological quantum states</li>
-      <li style="padding: 0.5rem 0;">• VariationalQAlgorithms - VQE & QAOA implementations</li>
-    </ul>
+      <aside class="side-card"><div class="profile-mark">SK</div><div class="info-list"><div class="info-item"><span class="info-label">Primary coding</span><span class="info-value">Python, Qiskit, LaTeX</span></div><div class="info-item"><span class="info-label">Core methods</span><span class="info-value">DMRG, TEBD, TDVP, exact diagonalization</span></div><div class="info-item"><span class="info-label">Platforms</span><span class="info-value">IBM Quantum and scientific-computing workflows</span></div></div></aside>
+    </section>
+    <section class="two-grid">
+      <article class="list-card"><h2 class="section-title">Programming Languages</h2><ul class="clean-list"><li>Python</li><li>Qiskit & IBM Quantum</li><li>LaTeX</li></ul></article>
+      <article class="list-card"><h2 class="section-title">Quantum Algorithms</h2><ul class="clean-list"><li>Quantum Circuit Design</li><li>Variational Quantum Algorithms</li><li>Digital Quantum Simulation</li><li>Circuit Optimization</li></ul></article>
+      <article class="list-card"><h2 class="section-title">Tensor Network Methods</h2><ul class="clean-list"><li>DMRG — Density-Matrix Renormalization Group</li><li>TEBD — Time Evolving Block Decimation</li><li>TDVP — Time-Dependent Variational Principle</li><li>MPS — Matrix Product States</li></ul></article>
+      <article class="list-card"><h2 class="section-title">Computational & Analytical</h2><ul class="clean-list"><li>Exact Diagonalization</li><li>Mean-Field Theory</li><li>Numerical Simulations</li><li>Scientific Computing</li></ul></article>
+    </section>
+    <section class="grid-section"><article class="content-card"><h2 class="section-title">Research & academic skills</h2><ul class="clean-list"><li>Advanced knowledge of quantum mechanics and condensed matter physics</li><li>Scientific research design and data analysis</li><li>Technical and scientific writing</li><li>Languages: English and Bengali</li></ul></article><article class="content-card"><h2 class="section-title">Code repositories</h2><ul class="clean-list"><li><strong>cDMRG</strong> — Continuous DMRG for general quantum systems</li><li><strong>QuBond</strong> — Complete many-body solver suite</li><li><strong>LocalizationTools</strong> — Localization studies toolkit</li><li><strong>QCircuit</strong> — Quantum walk on IBM processors</li><li><strong>FlatBandSimulator</strong> — Digital simulation suite</li></ul></article></section>
   </main>
 
   <footer>
-    <div class="container">
+    <div class="page-shell">
       <p>© 2025 Mrinal Kanti Giri. All rights reserved.</p>
     </div>
   </footer>

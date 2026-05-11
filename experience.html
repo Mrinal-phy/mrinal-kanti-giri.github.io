@@ -5,114 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience - Mrinal Kanti Giri</title>
   <style>
+    :root {
+      --bg: #eef3fb;
+      --surface: rgba(255, 255, 255, 0.86);
+      --surface-solid: #ffffff;
+      --ink: #102033;
+      --muted: #637083;
+      --soft: #dce6f2;
+      --brand: #2457ff;
+      --brand-dark: #173cbd;
+      --accent: #00b8a9;
+      --shadow: 0 24px 70px rgba(20, 39, 76, 0.13);
+      --radius: 28px;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(36, 87, 255, 0.16), transparent 26rem),
+        radial-gradient(circle at 88% 12%, rgba(0, 184, 169, 0.16), transparent 24rem),
+        linear-gradient(135deg, #f8fbff 0%, var(--bg) 100%);
       line-height: 1.7;
-      color: #333;
-      background: #f8f9fb;
     }
-    @media (prefers-color-scheme: dark) {
-      body { background: #0d1117; color: #e5e5e5; }
-    }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
     header {
-      padding: 2rem 0;
-      border-bottom: 1px solid #e5e5e5;
-      margin-bottom: 2rem;
-      background: #fff;
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(248, 251, 255, 0.78);
+      border-bottom: 1px solid rgba(220, 230, 242, 0.78);
     }
-    @media (prefers-color-scheme: dark) {
-      header { background: #161b22; border-color: #333; }
-    }
-    .site-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-decoration: none;
-      color: #000;
-    }
-    @media (prefers-color-scheme: dark) {
-      .site-title { color: #fff; }
-    }
-    nav ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0;
-      border-left: 1px solid #e5e5e5;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav ul { border-color: #333; }
-    }
-    nav li {
-      border-right: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav li { border-color: #333; }
-    }
-    nav a {
-      display: block;
-      padding: 1rem;
-      text-decoration: none;
-      color: #666;
-      font-size: 0.95rem;
-      transition: background 0.2s;
-    }
-    @media (prefers-color-scheme: dark) {
-      nav a { color: #999; }
-    }
-    nav a:hover { background: #f5f5f5; }
-    @media (prefers-color-scheme: dark) {
-      nav a:hover { background: #1a1a1a; }
-    }
-    main { margin: 2rem 0; }
-    h1 { font-size: 2.2rem; margin: 1.5rem 0 0.5rem 0; font-weight: 600; }
-    h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.5rem; }
-    h3 { font-size: 1.2rem; margin: 1.5rem 0 0.75rem 0; font-weight: 600; }
-    p { margin: 0 0 1rem 0; }
-    a { color: #0066cc; text-decoration: none; }
-    @media (prefers-color-scheme: dark) {
-      a { color: #66b3ff; }
-    }
-    a:hover { text-decoration: underline; }
-    .job { margin: 1.5rem 0; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e5e5; }
-    @media (prefers-color-scheme: dark) {
-      .job { border-color: #333; }
-    }
-    .job-title { font-weight: 600; color: #000; }
-    @media (prefers-color-scheme: dark) {
-      .job-title { color: #fff; }
-    }
-    .job-place { color: #666; font-size: 0.95rem; }
-    @media (prefers-color-scheme: dark) {
-      .job-place { color: #999; }
-    }
-    .job-dates { color: #999; font-size: 0.9rem; margin-top: 0.25rem; }
-    footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      border-top: 1px solid #e5e5e5;
-      color: #666;
-      font-size: 0.9rem;
-      background: #fff;
-    }
-    @media (prefers-color-scheme: dark) {
-      footer { background: #161b22; border-color: #333; color: #999; }
-    }
+    .nav-wrap { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .site-title { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
+    .site-title::before { content: "MK"; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 15px; color: white; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 14px 30px rgba(36, 87, 255, 0.25); font-size: 0.85rem; letter-spacing: 0.04em; }
+    nav ul { display: flex; align-items: center; gap: 0.35rem; list-style: none; padding: 0.45rem; border: 1px solid rgba(220, 230, 242, 0.9); border-radius: 999px; background: rgba(255, 255, 255, 0.68); }
+    nav a { display: inline-flex; padding: 0.72rem 1rem; border-radius: 999px; color: var(--muted); font-size: 0.94rem; font-weight: 650; transition: 0.25s ease; }
+    nav a:hover, nav a.active { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 12px 26px rgba(36, 87, 255, 0.22); }
+    main { padding: 4.2rem 0 0; }
+    .hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: stretch; margin-bottom: 2rem; }
+    .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card { border: 1px solid rgba(220, 230, 242, 0.9); background: var(--surface); box-shadow: var(--shadow); border-radius: var(--radius); backdrop-filter: blur(18px); }
+    .hero-card { position: relative; overflow: hidden; padding: 4rem; min-height: 440px; }
+    .hero-card::after { content: ""; position: absolute; right: -100px; bottom: -100px; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(36, 87, 255, 0.16), transparent 67%); }
+    .eyebrow { display: inline-flex; gap: 0.5rem; align-items: center; padding: 0.45rem 0.8rem; border: 1px solid rgba(36, 87, 255, 0.18); border-radius: 999px; color: var(--brand-dark); background: rgba(36, 87, 255, 0.07); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+    h1 { max-width: 790px; margin: 1.55rem 0 1rem; font-size: clamp(3.1rem, 5vw, 5.6rem); line-height: 0.98; letter-spacing: -0.075em; }
+    .lead { max-width: 780px; color: var(--muted); font-size: 1.2rem; line-height: 1.8; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.82rem 1.15rem; border-radius: 999px; font-weight: 800; transition: 0.25s ease; }
+    .button.primary { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 16px 35px rgba(36, 87, 255, 0.28); }
+    .button.secondary { color: var(--brand-dark); background: #fff; border: 1px solid rgba(36, 87, 255, 0.16); }
+    .button:hover { transform: translateY(-2px); }
+    .side-card { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; padding: 2rem; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72)); }
+    .profile-mark { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 0.75; border-radius: 24px; background: linear-gradient(135deg, rgba(36, 87, 255, 0.92), rgba(0, 184, 169, 0.84)); color: white; font-size: 5rem; font-weight: 900; letter-spacing: -0.08em; box-shadow: inset 0 1px 0 rgba(255,255,255,0.45); }
+    .info-list { display: grid; gap: 1rem; }
+    .info-item { display: grid; gap: 0.25rem; padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); }
+    .info-label { color: var(--muted); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+    .info-value { font-weight: 800; }
+    .grid-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; margin: 2rem 0; align-items: start; }
+    .three-grid, .two-grid { display: grid; gap: 1.2rem; margin: 2rem 0; }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .content-card, .timeline-card, .list-card, .profile-card { padding: 2.2rem; }
+    .section-title { margin-bottom: 1rem; font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.04em; }
+    .content-card p, .list-card p, .timeline-card p { color: var(--muted); font-size: 1.03rem; margin-bottom: 1rem; }
+    .mini-card { min-height: 150px; padding: 1.35rem; border-radius: 22px; background: var(--surface-solid); border: 1px solid rgba(220, 230, 242, 0.9); }
+    .mini-card strong { display:block; margin-bottom:0.45rem; font-size:1.03rem; }
+    .mini-card span, .muted { color: var(--muted); }
+    .timeline { position: relative; display: grid; gap: 1.2rem; margin-top: 1.5rem; }
+    .timeline::before { content: ""; position: absolute; top: 0.4rem; bottom: 0.4rem; left: 0.55rem; width: 2px; background: linear-gradient(var(--brand), var(--accent)); opacity: 0.45; }
+    .timeline-item { position: relative; padding-left: 2.25rem; }
+    .timeline-item::before { content: ""; position: absolute; left: 0.12rem; top: 0.42rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--surface-solid); border: 3px solid var(--brand); box-shadow: 0 0 0 6px rgba(36, 87, 255, 0.08); }
+    .timeline-date { color: var(--brand-dark); font-size: 0.84rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
+    .timeline-role { margin-top: 0.15rem; font-weight: 850; }
+    .timeline-place { color: var(--muted); font-size: 0.96rem; }
+    .clean-list { list-style: none; display: grid; gap: 0.85rem; }
+    .clean-list li { padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); color: var(--muted); }
+    .clean-list strong { color: var(--ink); }
+    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1rem; padding: 1.2rem; border-radius: 20px; background: rgba(246,249,255,.88); border: 1px solid rgba(220,230,242,.75); }
+    .pub-no { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; color:#fff; background:linear-gradient(135deg,var(--brand),var(--accent)); font-weight:900; }
+    .pub-title { font-weight:850; line-height:1.35; }
+    .pub-meta { color:var(--muted); font-size:.95rem; margin-top:.25rem; }
+    .pub a, .link { color: var(--brand-dark); font-weight:800; }
+    .quote-card { margin: 2rem 0 4rem; padding: 2.5rem 3rem; border-radius: var(--radius); color: white; background: linear-gradient(135deg, #102033, #173cbd); box-shadow: 0 26px 70px rgba(16, 32, 51, 0.2); }
+    .quote-card p { max-width: 920px; font-size: 1.35rem; line-height: 1.65; letter-spacing: -0.02em; }
+    footer { border-top: 1px solid rgba(220, 230, 242, 0.85); padding: 2rem 0; color: var(--muted); background: rgba(255, 255, 255, 0.62); }
+    @media (max-width: 980px) { .page-shell { width: min(100% - 36px, 760px); } .nav-wrap { align-items: flex-start; flex-direction: column; padding: 1.2rem 0; } nav ul { width: 100%; justify-content: space-between; flex-wrap: wrap; border-radius: 24px; } .hero, .grid-section, .two-grid, .three-grid { grid-template-columns: 1fr; } .hero-card { min-height: auto; padding: 2.5rem; } }
+    @media (max-width: 640px) { h1 { font-size: 3rem; } .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card, .quote-card { padding: 1.5rem; border-radius: 22px; } nav a { padding: 0.62rem 0.78rem; } }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="page-shell nav-wrap">
       <a href="index.html" class="site-title">Mrinal Kanti Giri</a>
-      <nav>
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="research.html">Research</a></li>
-          <li><a href="experience.html">Experience</a></li>
+          <li><a class="active" href="experience.html">Experience</a></li>
           <li><a href="skills.html">Skills</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -120,72 +112,14 @@
     </div>
   </header>
 
-  <main class="container">
-    <h1>Experience & Education</h1>
-
-    <h2>Current Position</h2>
-    <div class="job">
-      <div class="job-title">Research Fellow</div>
-      <div class="job-place">School of Physical and Mathematical Sciences (SPMS), Nanyang Technological University, Singapore</div>
-      <div class="job-dates">May 2025 – Present</div>
-    </div>
-
-    <h2>Past Positions</h2>
-    <div class="job">
-      <div class="job-title">Postdoctoral Research Fellow</div>
-      <div class="job-place">Department of Physics, National Tsing Hua University, Hsinchu, Taiwan</div>
-      <div class="job-dates">October 2023 – April 2025</div>
-    </div>
-
-    <div class="job">
-      <div class="job-title">Postdoctoral Fellow</div>
-      <div class="job-place">Centre for Quantum Engineering, Research and Education (CQuERE), TCG-CREST, Kolkata, India</div>
-      <div class="job-dates">July 2022 – September 2023</div>
-    </div>
-
-    <h2>Education</h2>
-    <div class="job">
-      <div class="job-title">Ph.D. in Physics</div>
-      <div class="job-place">Indian Institute of Technology, Guwahati, India</div>
-      <div class="job-dates">2018 – 2022</div>
-      <p><em>Thesis:</em> Quantum dynamics of low dimensional interacting systems using continuous-time quantum walk</p>
-    </div>
-
-    <div class="job">
-      <div class="job-title">M.Sc. in Physics</div>
-      <div class="job-place">Indian Institute of Technology, Guwahati, India</div>
-      <div class="job-dates">2016 – 2018</div>
-      <p>CPI: 8.25/10</p>
-    </div>
-
-    <div class="job">
-      <div class="job-title">B.Sc. in Physics</div>
-      <div class="job-place">Midnapore College, Midnapore, India (Vidyasagar University)</div>
-      <div class="job-dates">2011 – 2014</div>
-      <p>Percentage: 62.2%</p>
-    </div>
-
-    <h2>Awards & Recognition</h2>
-    <div class="job">
-      <div class="job-title">CSIR-NET (2018)</div>
-      <div class="job-place">All India Rank – 90</div>
-    </div>
-
-    <div class="job">
-      <div class="job-title">INSPIRE Scholarship (2014)</div>
-      <div class="job-place">Qualified among top 1% of students in West Bengal, India</div>
-    </div>
-
-    <h2>Conference Presentations</h2>
-    <p><strong>2026:</strong> ICTP-IBM School on Quantum Computing (Poster), Invited Talk at NMIT Bengaluru, APS March Meeting (Oral)</p>
-    <p><strong>2024:</strong> Recent Progress in Many-Body Theories (Poster), Ultracold Atoms Japan 2024 (Poster)</p>
-    <p><strong>2023:</strong> 3rd International Quantum Tensor Network Plenary Meeting (Poster)</p>
-    <p><strong>2022:</strong> YIMQCMT 2022 (Talk), QMAT 2022 (Talk)</p>
-    <p><strong>2020:</strong> Fundamental Sciences & Quantum Technologies using Atomic Systems (Poster)</p>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="exp-title"><div class="hero-card"><span class="eyebrow">Experience & Education</span><h1 id="exp-title">Academic path in quantum physics and computation.</h1><p class="lead">Research positions, education, awards, and scientific presentations across India, Taiwan, and Singapore.</p></div><aside class="side-card"><div class="profile-mark">CV</div><div class="info-list"><div class="info-item"><span class="info-label">Current role</span><span class="info-value">Research Fellow, NTU Singapore</span></div><div class="info-item"><span class="info-label">Ph.D.</span><span class="info-value">IIT Guwahati, 2018–2022</span></div><div class="info-item"><span class="info-label">Field</span><span class="info-value">Quantum many-body physics and quantum computation</span></div></div></aside></section>
+    <section class="timeline-card"><h2 class="section-title">Positions</h2><div class="timeline"><div class="timeline-item"><div class="timeline-date">May 2025 – Present</div><div class="timeline-role">Research Fellow</div><div class="timeline-place">School of Physical and Mathematical Sciences, Nanyang Technological University, Singapore</div></div><div class="timeline-item"><div class="timeline-date">Oct 2023 – Apr 2025</div><div class="timeline-role">Postdoctoral Research Fellow</div><div class="timeline-place">Department of Physics, National Tsing Hua University, Hsinchu, Taiwan</div></div><div class="timeline-item"><div class="timeline-date">Jul 2022 – Sep 2023</div><div class="timeline-role">Postdoctoral Fellow</div><div class="timeline-place">Centre for Quantum Engineering, Research and Education, TCG-CREST, Kolkata, India</div></div></div></section>
+    <section class="grid-section"><article class="timeline-card"><h2 class="section-title">Education</h2><div class="timeline"><div class="timeline-item"><div class="timeline-date">2018 – 2022</div><div class="timeline-role">Ph.D. in Physics</div><div class="timeline-place">Indian Institute of Technology Guwahati, India<br><em>Thesis:</em> Quantum dynamics of low dimensional interacting systems using continuous-time quantum walk</div></div><div class="timeline-item"><div class="timeline-date">2016 – 2018</div><div class="timeline-role">M.Sc. in Physics</div><div class="timeline-place">Indian Institute of Technology Guwahati, India · CPI: 8.25/10</div></div><div class="timeline-item"><div class="timeline-date">2011 – 2014</div><div class="timeline-role">B.Sc. in Physics</div><div class="timeline-place">Midnapore College, Vidyasagar University · 62.2%</div></div></div></article><article class="list-card"><h2 class="section-title">Awards & presentations</h2><ul class="clean-list"><li><strong>CSIR-NET 2018:</strong> All India Rank 90</li><li><strong>INSPIRE Scholarship 2014:</strong> Qualified among top 1% of students in West Bengal, India</li><li><strong>2026:</strong> ICTP-IBM School on Quantum Computing, NMIT Bengaluru, APS March Meeting</li><li><strong>2024:</strong> Recent Progress in Many-Body Theories, Ultracold Atoms Japan</li><li><strong>2023–2020:</strong> Tensor network, QMAT, YIMQCMT, and quantum technology presentations</li></ul></article></section>
   </main>
 
   <footer>
-    <div class="container">
+    <div class="page-shell">
       <p>© 2025 Mrinal Kanti Giri. All rights reserved.</p>
     </div>
   </footer>
