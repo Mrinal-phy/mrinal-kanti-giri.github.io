@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications | Mrinal Kanti Giri</title>
+
+<style>
+:root{
+--bg:#020817;
+--card:#071a33cc;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--soft:#94a3b8;
+--blue:#4f9cff;
+--cyan:#38d5ff;
+--shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at 20% 10%,rgba(37,99,235,.20),transparent 28%),
+radial-gradient(circle at 72% 12%,rgba(14,165,233,.18),transparent 27%),
+linear-gradient(180deg,#020817 0%,#031126 52%,#020817 100%);
+line-height:1.65;
+overflow-x:hidden;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+.container{
+width:min(94%,1480px);
+margin:0 auto;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(2,8,23,.86);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(96,165,250,.22);
+}
+
+.nav{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:2rem;
+}
+
+.brand h2{
+font-size:1.45rem;
+line-height:1.1;
+letter-spacing:-.03em;
+}
+
+.brand p{
+color:var(--cyan);
+font-size:.92rem;
+margin-top:.2rem;
+}
+
+.nav-links{
+display:flex;
+gap:2.2rem;
+align-items:center;
+}
+
+.nav-links a{
+color:#e5e7eb;
+font-size:.96rem;
+padding:1.72rem .1rem;
+border-bottom:2px solid transparent;
+transition:.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:var(--blue);
+border-bottom-color:var(--blue);
+}
+
+.hero{
+padding:72px 0 44px;
+}
+
+.eyebrow{
+color:var(--blue);
+font-size:1rem;
+font-weight:800;
+letter-spacing:.42em;
+text-transform:uppercase;
+margin-bottom:12px;
+}
+
+#pub-title{
+max-width:850px;
+font-size:clamp(2rem,3vw,3.6rem);
+line-height:1.14;
+letter-spacing:-.05em;
+font-weight:850;
+margin-bottom:18px;
+}
+
+#pub-title span{
+background:linear-gradient(90deg,#60a5fa,#38d5ff);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero-copy{
+color:#d8e1ee;
+font-size:1.04rem;
+max-width:850px;
+margin-bottom:14px;
+}
+
+.stats{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+margin-top:24px;
+}
+
+.stat-box{
+padding:12px 18px;
+border-radius:16px;
+background:rgba(96,165,250,.08);
+border:1px solid rgba(96,165,250,.22);
+}
+
+.stat-box h3{
+font-size:1.35rem;
+color:#fff;
+margin-bottom:2px;
+}
+
+.stat-box p{
+font-size:.85rem;
+color:#bfdbfe;
+}
+
+.section{
+padding:18px 0 60px;
+}
+
+.pub-list{
+display:grid;
+gap:18px;
+}
+
+.pub-card{
+display:grid;
+grid-template-columns:70px 1fr auto;
+gap:20px;
+align-items:start;
+padding:22px;
+border-radius:22px;
+background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));
+border:1px solid rgba(96,165,250,.26);
+box-shadow:0 22px 55px rgba(0,0,0,.22);
+transition:.25s ease;
+}
+
+.pub-card:hover{
+transform:translateY(-5px);
+border-color:rgba(56,213,255,.65);
+}
+
+.pub-no{
+width:52px;
+height:52px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+font-weight:900;
+font-size:1rem;
+}
+
+.pub-content h3{
+font-size:1.08rem;
+line-height:1.38;
+margin-bottom:8px;
+color:#fff;
+}
+
+.authors{
+color:#d6deea;
+font-size:.95rem;
+margin-bottom:5px;
+}
+
+.journal{
+color:#38d5ff;
+font-style:italic;
+font-size:.94rem;
+margin-bottom:10px;
+}
+
+.abstract{
+color:#cbd5e1;
+font-size:.92rem;
+line-height:1.62;
+}
+
+.paper-link{
+align-self:center;
+white-space:nowrap;
+padding:9px 16px;
+border-radius:999px;
+color:#60a5fa;
+border:1px solid rgba(96,165,250,.32);
+background:rgba(96,165,250,.07);
+font-weight:700;
+font-size:.9rem;
+}
+
+.paper-link:hover{
+background:rgba(96,165,250,.16);
+}
+
+footer{
+border-top:1px solid rgba(96,165,250,.18);
+padding:28px 0;
+text-align:center;
+color:#94a3b8;
+background:#020817;
+}
+
+@media(max-width:1100px){
+
+.pub-card{
+grid-template-columns:60px 1fr;
+}
+
+.paper-link{
+grid-column:2;
+justify-self:start;
+}
+}
+
+@media(max-width:760px){
+
+.nav{
+height:auto;
+align-items:flex-start;
+padding:18px 0;
+flex-direction:column;
+}
+
+.nav-links{
+gap:1rem;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+padding:.2rem 0;
+}
+
+.hero{
+padding-top:34px;
+}
+
+.eyebrow{
+letter-spacing:.26em;
+}
+
+.pub-card{
+grid-template-columns:1fr;
+}
+
+.paper-link{
+grid-column:auto;
+}
+
+.pub-no{
+width:46px;
+height:46px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<a class="brand" href="index.html">
+<h2>Mrinal Kanti Giri</h2>
+<p>Theoretical &amp; Computational Physicist</p>
+</a>
+
+<nav class="nav-links">
+<a href="about.html">About</a>
+<a href="research.html">Research</a>
+<a class="active" href="publications.html">Publications</a>
+<a href="experience.html">Experience</a>
+<!--<a href="skills.html">Skills</a>-->
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="eyebrow">Publications</div>
+
+<h1 id="pub-title">
+Research Articles <span>&amp;</span> Scientific Contributions
+</h1>
+
+<p class="hero-copy">
+My publications focus on quantum dynamics, quantum walks, many-body physics, localization phenomena, and digital quantum simulation on NISQ quantum devices.
+</p>
+
+<p class="hero-copy">
+These works combine analytical methods, numerical simulation, and quantum-circuit implementations to study transport and correlated quantum systems.
+</p>
+
+<div class="stats">
+
+<div class="stat-box">
+<h3>8+</h3>
+<p>Research Articles</p>
+</div>
+
+<div class="stat-box">
+<h3>PRL</h3>
+<p>High Impact Publications</p>
+</div>
+
+<div class="stat-box">
+<h3>2021–2025</h3>
+<p>Active Research Period</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="pub-list">
+
+<article class="pub-card">
+<div class="pub-no">8</div>
+
+<div class="pub-content">
+<h3>Digital quantum simulation of flat-band and all-bands-flat dynamics for tunable quantum transport</h3>
+
+<p class="authors">
+M. K. Giri and P. Chen
+</p>
+
+<p class="journal">
+arXiv:2508.08734 (2025)
+</p>
+
+<p class="abstract">
+Developed digital quantum-circuit protocols to simulate flat-band and all-bands-flat systems for studying tunable transport and localization dynamics on NISQ quantum hardware.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.48550/arXiv.2508.08734" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">7</div>
+
+<div class="pub-content">
+<h3>Realizing topological quantum walks on NISQ digital quantum computer</h3>
+
+<p class="authors">
+M. K. Giri and S. B. Mandal
+</p>
+
+<p class="journal">
+Physica Scripta 100, 035111 (2025)
+</p>
+
+<p class="abstract">
+Implemented topological quantum-walk models using quantum circuits and explored their realization on near-term superconducting quantum processors.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1088/1402-4896/adb244" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">6</div>
+
+<div class="pub-content">
+<h3>Flux enhanced localization and reentrant delocalization in the quantum walk of interacting bosons on two-leg ladder</h3>
+
+<p class="authors">
+M. K. Giri, B. Paul, and T. Mishra
+</p>
+
+<p class="journal">
+Physical Review A 109, 043308 (2024)
+</p>
+
+<p class="abstract">
+Investigated how magnetic flux controls localization and transport in interacting bosonic quantum walks on ladder geometries.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">5</div>
+
+<div class="pub-content">
+<h3>Flux-induced reentrant dynamics in the quantum walk of interacting bosons</h3>
+
+<p class="authors">
+M. K. Giri, B. Paul, and T. Mishra
+</p>
+
+<p class="journal">
+Physical Review A 108, 063319 (2023)
+</p>
+
+<p class="abstract">
+Studied reentrant transport dynamics and interaction-driven effects in bosonic quantum walks under artificial magnetic flux.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1103/PhysRevA.108.063319" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">4</div>
+
+<div class="pub-content">
+<h3>Quantum phases of constrained bosons on a two-leg Bose-Hubbard ladder</h3>
+
+<p class="authors">
+A. Padhan, R. Parida, S. Lahiri, M. K. Giri, and T. Mishra
+</p>
+
+<p class="journal">
+Physical Review A 108, 013316 (2023)
+</p>
+
+<p class="abstract">
+Explored correlated quantum phases and interaction-driven phenomena in constrained Bose-Hubbard ladder systems.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1103/PhysRevA.108.013316" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">3</div>
+
+<div class="pub-content">
+<h3>Signatures of non-trivial pairing in the quantum walk of two-component bosons</h3>
+
+<p class="authors">
+M. K. Giri, S. Mondal, B. P. Das, and T. Mishra
+</p>
+
+<p class="journal">
+Physical Review Letters 129, 050601 (2022)
+</p>
+
+<p class="abstract">
+Demonstrated emergent pairing signatures and interaction-driven transport behavior in two-component bosonic quantum walks.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">2</div>
+
+<div class="pub-content">
+<h3>Emergence of multiple localization transitions in a one-dimensional quasiperiodic lattice</h3>
+
+<p class="authors">
+A. Padhan, M. K. Giri, S. Mondal, and T. Mishra
+</p>
+
+<p class="journal">
+Physical Review B 105, L220201 (2022)
+</p>
+
+<p class="abstract">
+Studied localization transitions and mobility-edge-like phenomena in interacting quasiperiodic quantum systems.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1103/PhysRevB.105.L220201" target="_blank">
+View ↗
+</a>
+</article>
+
+<article class="pub-card">
+<div class="pub-no">1</div>
+
+<div class="pub-content">
+<h3>Two component quantum walk in one-dimensional lattice with hopping imbalance</h3>
+
+<p class="authors">
+M. K. Giri, S. Mondal, B. P. Das, and T. Mishra
+</p>
+
+<p class="journal">
+Scientific Reports 11, 22056 (2021)
+</p>
+
+<p class="abstract">
+Investigated transport dynamics and hopping imbalance effects in two-component continuous-time quantum walks.
+</p>
+</div>
+
+<a class="paper-link" href="https://doi.org/10.1038/s41598-021-01230-5" target="_blank">
+View ↗
+</a>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+© 2025 Mrinal Kanti Giri. All rights reserved.
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,123 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research - Mrinal Kanti Giri</title>
-  <style>
-    :root {
-      --bg: #eef3fb;
-      --surface: rgba(255, 255, 255, 0.86);
-      --surface-solid: #ffffff;
-      --ink: #102033;
-      --muted: #637083;
-      --soft: #dce6f2;
-      --brand: #2457ff;
-      --brand-dark: #173cbd;
-      --accent: #00b8a9;
-      --shadow: 0 24px 70px rgba(20, 39, 76, 0.13);
-      --radius: 28px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(36, 87, 255, 0.16), transparent 26rem),
-        radial-gradient(circle at 88% 12%, rgba(0, 184, 169, 0.16), transparent 24rem),
-        linear-gradient(135deg, #f8fbff 0%, var(--bg) 100%);
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    .page-shell { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(248, 251, 255, 0.78);
-      border-bottom: 1px solid rgba(220, 230, 242, 0.78);
-    }
-    .nav-wrap { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .site-title { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
-    .site-title::before { content: "MK"; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 15px; color: white; background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 14px 30px rgba(36, 87, 255, 0.25); font-size: 0.85rem; letter-spacing: 0.04em; }
-    nav ul { display: flex; align-items: center; gap: 0.35rem; list-style: none; padding: 0.45rem; border: 1px solid rgba(220, 230, 242, 0.9); border-radius: 999px; background: rgba(255, 255, 255, 0.68); }
-    nav a { display: inline-flex; padding: 0.72rem 1rem; border-radius: 999px; color: var(--muted); font-size: 0.94rem; font-weight: 650; transition: 0.25s ease; }
-    nav a:hover, nav a.active { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 12px 26px rgba(36, 87, 255, 0.22); }
-    main { padding: 4.2rem 0 0; }
-    .hero { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: stretch; margin-bottom: 2rem; }
-    .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card { border: 1px solid rgba(220, 230, 242, 0.9); background: var(--surface); box-shadow: var(--shadow); border-radius: var(--radius); backdrop-filter: blur(18px); }
-    .hero-card { position: relative; overflow: hidden; padding: 4rem; min-height: 440px; }
-    .hero-card::after { content: ""; position: absolute; right: -100px; bottom: -100px; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(36, 87, 255, 0.16), transparent 67%); }
-    .eyebrow { display: inline-flex; gap: 0.5rem; align-items: center; padding: 0.45rem 0.8rem; border: 1px solid rgba(36, 87, 255, 0.18); border-radius: 999px; color: var(--brand-dark); background: rgba(36, 87, 255, 0.07); font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
-    h1 { max-width: 790px; margin: 1.55rem 0 1rem; font-size: clamp(3.1rem, 5vw, 5.6rem); line-height: 0.98; letter-spacing: -0.075em; }
-    .lead { max-width: 780px; color: var(--muted); font-size: 1.2rem; line-height: 1.8; }
-    .hero-actions { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
-    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.82rem 1.15rem; border-radius: 999px; font-weight: 800; transition: 0.25s ease; }
-    .button.primary { color: white; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); box-shadow: 0 16px 35px rgba(36, 87, 255, 0.28); }
-    .button.secondary { color: var(--brand-dark); background: #fff; border: 1px solid rgba(36, 87, 255, 0.16); }
-    .button:hover { transform: translateY(-2px); }
-    .side-card { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; padding: 2rem; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72)); }
-    .profile-mark { display: grid; place-items: center; width: 100%; aspect-ratio: 1 / 0.75; border-radius: 24px; background: linear-gradient(135deg, rgba(36, 87, 255, 0.92), rgba(0, 184, 169, 0.84)); color: white; font-size: 5rem; font-weight: 900; letter-spacing: -0.08em; box-shadow: inset 0 1px 0 rgba(255,255,255,0.45); }
-    .info-list { display: grid; gap: 1rem; }
-    .info-item { display: grid; gap: 0.25rem; padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); }
-    .info-label { color: var(--muted); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
-    .info-value { font-weight: 800; }
-    .grid-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; margin: 2rem 0; align-items: start; }
-    .three-grid, .two-grid { display: grid; gap: 1.2rem; margin: 2rem 0; }
-    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .content-card, .timeline-card, .list-card, .profile-card { padding: 2.2rem; }
-    .section-title { margin-bottom: 1rem; font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.04em; }
-    .content-card p, .list-card p, .timeline-card p { color: var(--muted); font-size: 1.03rem; margin-bottom: 1rem; }
-    .mini-card { min-height: 150px; padding: 1.35rem; border-radius: 22px; background: var(--surface-solid); border: 1px solid rgba(220, 230, 242, 0.9); }
-    .mini-card strong { display:block; margin-bottom:0.45rem; font-size:1.03rem; }
-    .mini-card span, .muted { color: var(--muted); }
-    .timeline { position: relative; display: grid; gap: 1.2rem; margin-top: 1.5rem; }
-    .timeline::before { content: ""; position: absolute; top: 0.4rem; bottom: 0.4rem; left: 0.55rem; width: 2px; background: linear-gradient(var(--brand), var(--accent)); opacity: 0.45; }
-    .timeline-item { position: relative; padding-left: 2.25rem; }
-    .timeline-item::before { content: ""; position: absolute; left: 0.12rem; top: 0.42rem; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--surface-solid); border: 3px solid var(--brand); box-shadow: 0 0 0 6px rgba(36, 87, 255, 0.08); }
-    .timeline-date { color: var(--brand-dark); font-size: 0.84rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; }
-    .timeline-role { margin-top: 0.15rem; font-weight: 850; }
-    .timeline-place { color: var(--muted); font-size: 0.96rem; }
-    .clean-list { list-style: none; display: grid; gap: 0.85rem; }
-    .clean-list li { padding: 1rem; border-radius: 18px; background: rgba(246, 249, 255, 0.88); border: 1px solid rgba(220, 230, 242, 0.75); color: var(--muted); }
-    .clean-list strong { color: var(--ink); }
-    .pub { display: grid; grid-template-columns: 42px 1fr; gap: 1rem; padding: 1.2rem; border-radius: 20px; background: rgba(246,249,255,.88); border: 1px solid rgba(220,230,242,.75); }
-    .pub-no { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; color:#fff; background:linear-gradient(135deg,var(--brand),var(--accent)); font-weight:900; }
-    .pub-title { font-weight:850; line-height:1.35; }
-    .pub-meta { color:var(--muted); font-size:.95rem; margin-top:.25rem; }
-    .pub a, .link { color: var(--brand-dark); font-weight:800; }
-    .quote-card { margin: 2rem 0 4rem; padding: 2.5rem 3rem; border-radius: var(--radius); color: white; background: linear-gradient(135deg, #102033, #173cbd); box-shadow: 0 26px 70px rgba(16, 32, 51, 0.2); }
-    .quote-card p { max-width: 920px; font-size: 1.35rem; line-height: 1.65; letter-spacing: -0.02em; }
-    footer { border-top: 1px solid rgba(220, 230, 242, 0.85); padding: 2rem 0; color: var(--muted); background: rgba(255, 255, 255, 0.62); }
-    @media (max-width: 980px) { .page-shell { width: min(100% - 36px, 760px); } .nav-wrap { align-items: flex-start; flex-direction: column; padding: 1.2rem 0; } nav ul { width: 100%; justify-content: space-between; flex-wrap: wrap; border-radius: 24px; } .hero, .grid-section, .two-grid, .three-grid { grid-template-columns: 1fr; } .hero-card { min-height: auto; padding: 2.5rem; } }
-    @media (max-width: 640px) { h1 { font-size: 3rem; } .hero-card, .side-card, .content-card, .timeline-card, .list-card, .profile-card, .quote-card { padding: 1.5rem; border-radius: 22px; } nav a { padding: 0.62rem 0.78rem; } }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research | Mrinal Kanti Giri</title>
 
-  </style>
+<style>
+:root{
+--bg:#020817;
+--bg2:#071326;
+--card:#071a33cc;
+--line:#1e4f85;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--soft:#94a3b8;
+--blue:#4f9cff;
+--cyan:#38d5ff;
+--shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+color:var(--text);
+background:
+radial-gradient(circle at 20% 10%,rgba(37,99,235,.20),transparent 28%),
+radial-gradient(circle at 72% 12%,rgba(14,165,233,.18),transparent 27%),
+linear-gradient(180deg,#020817 0%,#031126 52%,#020817 100%);
+line-height:1.65;
+overflow-x:hidden;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+.container{
+width:min(94%,1480px);
+margin:0 auto;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(2,8,23,.86);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(96,165,250,.22);
+}
+
+.nav{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:2rem;
+}
+
+.brand h2{
+font-size:1.45rem;
+line-height:1.1;
+letter-spacing:-.03em;
+}
+
+.brand p{
+color:var(--cyan);
+font-size:.92rem;
+margin-top:.2rem;
+}
+
+.nav-links{
+display:flex;
+gap:2.2rem;
+align-items:center;
+}
+
+.nav-links a{
+color:#e5e7eb;
+font-size:.96rem;
+padding:1.72rem .1rem;
+border-bottom:2px solid transparent;
+transition:.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:var(--blue);
+border-bottom-color:var(--blue);
+}
+
+.hero{
+padding:70px 0 42px;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1fr .6fr;
+gap:42px;
+align-items:center;
+}
+
+.eyebrow{
+color:var(--blue);
+font-size:1.05rem;
+font-weight:800;
+letter-spacing:.42em;
+text-transform:uppercase;
+margin-bottom:12px;
+}
+
+#research-title{
+max-width:760px;
+font-size:clamp(2.3rem,3.4vw,4rem);
+line-height:1.14;
+letter-spacing:-.055em;
+font-weight:850;
+margin-bottom:20px;
+}
+
+#research-title span{
+background:linear-gradient(90deg,#60a5fa,#38d5ff);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero-copy{
+color:#d8e1ee;
+font-size:1.04rem;
+max-width:790px;
+margin-bottom:16px;
+}
+
+.side-card{
+background:linear-gradient(180deg,rgba(8,30,61,.88),rgba(3,13,30,.96));
+border:1px solid rgba(96,165,250,.28);
+border-radius:24px;
+padding:24px;
+box-shadow:var(--shadow);
+}
+
+.side-card h3{
+font-size:1.18rem;
+margin-bottom:14px;
+color:#fff;
+}
+
+.expertise-list{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.expertise-list span{
+color:#bfdbfe;
+border:1px solid rgba(96,165,250,.28);
+background:rgba(96,165,250,.08);
+border-radius:999px;
+padding:8px 12px;
+font-size:.88rem;
+}
+
+.section{
+padding:42px 0;
+}
+
+.section-head{
+text-align:center;
+margin-bottom:24px;
+}
+
+.section-head h2{
+color:var(--blue);
+font-size:1.34rem;
+letter-spacing:.32em;
+text-transform:uppercase;
+margin-bottom:8px;
+}
+
+.section-head p{
+color:#cbd5e1;
+font-size:1rem;
+}
+
+.area-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
+.area-card{
+background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));
+border:1px solid rgba(96,165,250,.28);
+border-radius:18px;
+padding:18px;
+box-shadow:0 22px 55px rgba(0,0,0,.22);
+transition:.25s ease;
+min-height:170px;
+}
+
+.area-card:hover{
+transform:translateY(-5px);
+border-color:rgba(56,213,255,.65);
+}
+
+.area-card h3{
+font-size:1.05rem;
+line-height:1.25;
+color:#fff;
+margin-bottom:9px;
+}
+
+.area-card p{
+color:#d6deea;
+font-size:.92rem;
+line-height:1.58;
+}
+
+.paper-link{
+margin-top:16px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 16px;
+border-radius:999px;
+color:#60a5fa;
+border:1px solid rgba(96,165,250,.32);
+background:rgba(96,165,250,.07);
+font-weight:700;
+font-size:.9rem;
+}
+
+.paper-link:hover{
+background:rgba(96,165,250,.16);
+}
+
+footer{
+border-top:1px solid rgba(96,165,250,.18);
+padding:28px 0;
+text-align:center;
+color:#94a3b8;
+background:#020817;
+}
+
+@media(max-width:1150px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.area-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:760px){
+
+.nav{
+height:auto;
+align-items:flex-start;
+padding:18px 0;
+flex-direction:column;
+}
+
+.nav-links{
+gap:1rem;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+padding:.2rem 0;
+}
+
+.hero{
+padding-top:34px;
+}
+
+.area-grid{
+grid-template-columns:1fr;
+}
+
+.eyebrow{
+letter-spacing:.26em;
+}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="page-shell nav-wrap">
-      <a href="index.html" class="site-title">Mrinal Kanti Giri</a>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a class="active" href="research.html">Research</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main class="page-shell"><section class="hero" aria-labelledby="research-title"><div class="hero-card"><span class="eyebrow">Research</span><h1 id="research-title">Quantum many-body physics on classical and quantum computers.</h1><p class="lead">My research explores collective quantum phenomena, quantum transport, topological behavior, localization, and practical implementations on near-term quantum devices.</p></div><aside class="side-card"><div class="profile-mark">RQ</div><div class="info-list"><div class="info-item"><span class="info-label">Focus</span><span class="info-value">NISQ devices and digital simulation</span></div><div class="info-item"><span class="info-label">Methods</span><span class="info-value">Quantum circuits, tensor networks, analytical models</span></div><div class="info-item"><span class="info-label">Systems</span><span class="info-value">Low-dimensional and strongly correlated systems</span></div></div></aside></section><section class="grid-section"><article class="content-card"><h2 class="section-title">Research overview</h2><p>My research investigates how interacting quantum particles give rise to emergent collective behavior. I study how such physics can be simulated on quantum computers, especially near-term devices with limited resources and noise constraints.</p></article><article class="list-card"><h2 class="section-title">Key research areas</h2><ul class="clean-list"><li><strong>Quantum Computing on NISQ Devices:</strong> Designing and optimizing circuits for current quantum computers.</li><li><strong>Digital Quantum Simulation:</strong> Mapping condensed matter models onto quantum hardware.</li><li><strong>Quantum Many-Body Physics:</strong> Phase transitions, localization, and exotic low-dimensional states.</li><li><strong>Flat-Band & Topological Phenomena:</strong> Quantum transport in special lattice geometries.</li><li><strong>Tensor-Network Methods:</strong> DMRG, TEBD, TDVP, and MPS approaches.</li></ul></article></section><section class="list-card"><h2 class="section-title">Publications</h2><div class="clean-list"><div class="pub"><span class="pub-no">1</span><div><div class="pub-title">Digital quantum simulation of flat-band and all-bands-flat dynamics for tunable quantum transport</div><div class="pub-meta">M. K. Giri and P. Chen · arXiv:2508.08734 (2025)</div><div class="pub-meta"><a href="https://doi.org/10.48550/arXiv.2508.08734" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">2</span><div><div class="pub-title">Realizing topological quantum walks on NISQ digital quantum computer</div><div class="pub-meta">M. K. Giri and S. B. Mandal · Physica Scripta 100, 035111 (2025)</div><div class="pub-meta"><a href="https://doi.org/10.1088/1402-4896/adb244" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">3</span><div><div class="pub-title">Flux enhanced localization and reentrant delocalization in the quantum walk of interacting bosons on two-leg ladder</div><div class="pub-meta">M. K. Giri, B. Paul, and T. Mishra · Physical Review A 109, 043308 (2024)</div><div class="pub-meta"><a href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">4</span><div><div class="pub-title">Flux-induced reentrant dynamics in the quantum walk of interacting bosons</div><div class="pub-meta">M. K. Giri, B. Paul, and T. Mishra · Physical Review A 108, 063319 (2023)</div><div class="pub-meta"><a href="https://doi.org/10.1103/PhysRevA.108.063319" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">5</span><div><div class="pub-title">Signatures of non-trivial pairing in the quantum walk of two-component bosons</div><div class="pub-meta">M. K. Giri, S. Mondal, B. P. Das, and T. Mishra · Physical Review Letters 129, 050601 (2022)</div><div class="pub-meta"><a href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">6</span><div><div class="pub-title">Emergence of multiple localization transitions in a one-dimensional quasiperiodic lattice</div><div class="pub-meta">A. Padhan, M. K. Giri, S. Mondal, and T. Mishra · Physical Review B 105, L220201 (2022)</div><div class="pub-meta"><a href="https://doi.org/10.1103/PhysRevB.105.L220201" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">7</span><div><div class="pub-title">Two component quantum walk in one-dimensional lattice with hopping imbalance</div><div class="pub-meta">M. K. Giri, S. Mondal, B. P. Das, and T. Mishra · Scientific Reports 11, 22056 (2021)</div><div class="pub-meta"><a href="https://doi.org/10.1038/s41598-021-01230-5" target="_blank">Publication link →</a></div></div></div><div class="pub"><span class="pub-no">8</span><div><div class="pub-title">Quantum phases of constrained bosons on a two-leg bose-hubbard ladder</div><div class="pub-meta">A. Padhan, R. Parida, S. Lahiri, M. K. Giri, and T. Mishra · Physical Review A 108, 013316 (2023)</div><div class="pub-meta"><a href="https://doi.org/10.1103/PhysRevA.108.013316" target="_blank">Publication link →</a></div></div></div></div></section><section class="quote-card"><p>My goal is to connect fundamental quantum physics with implementable quantum algorithms that can be tested on real quantum hardware.</p></section></main>
+<header>
+<div class="container nav">
 
-  <footer>
-    <div class="page-shell">
-      <p>© 2025 Mrinal Kanti Giri. All rights reserved.</p>
-    </div>
-  </footer>
+<a class="brand" href="index.html" aria-label="Home">
+<h2>Mrinal Kanti Giri</h2>
+<p>Theoretical &amp; Computational Physicist</p>
+</a>
+
+<nav class="nav-links" aria-label="Main navigation">
+<a href="about.html">About</a>
+<a class="active" href="research.html">Research</a>
+<a href="publications.html">Publications</a>
+<a href="experience.html">Experience</a>
+<!--<a href="skills.html">Skills</a>-->
+<a href="contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="eyebrow">Research</div>
+
+<h1 id="research-title">
+Quantum Dynamics, Simulation <span>&amp;</span> Many-Body Physics
+</h1>
+
+<p class="hero-copy">
+My research focuses on quantum many-body systems using theoretical modeling, numerical simulation, and quantum-circuit-based approaches. I study how interactions, topology, disorder, and external fields influence quantum transport, localization, and dynamical behavior in low-dimensional systems.
+</p>
+
+<p class="hero-copy">
+A major direction of my current work is digital quantum simulation on near-term quantum devices, where condensed matter models are mapped into quantum circuits and optimized for noisy superconducting hardware.
+</p>
+
+</div>
+
+<aside class="side-card" aria-label="Core expertise">
+
+<h3>Core Expertise</h3>
+
+<div class="expertise-list">
+<span>Quantum Simulation</span>
+<span>Quantum Dynamics</span>
+<span>Many-Body Physics</span>
+<span>Quantum Transport</span>
+<span>NISQ Computing</span>
+<span>Quantum Circuits</span>
+</div>
+
+</aside>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+<h2>Key Research Areas</h2>
+<p>Main research directions and ongoing interests.</p>
+</div>
+
+<div class="area-grid">
+
+<article class="area-card">
+<h3>Digital Quantum Simulation</h3>
+<p>Quantum-circuit implementations of lattice and many-body models on NISQ quantum hardware.</p>
+</article>
+
+<article class="area-card">
+<h3>Quantum Walks &amp; Transport</h3>
+<p>Transport, localization, and pairing dynamics in interacting low-dimensional quantum systems.</p>
+</article>
+
+<article class="area-card">
+<h3>Flat-Band &amp; Topological Systems</h3>
+<p>Compact localization and tunable transport in flat-band and topological lattice geometries.</p>
+</article>
+
+<article class="area-card">
+<h3>Localization Phenomena</h3>
+<p>Disorder and quasiperiodic driven localization transitions in quantum systems.</p>
+</article>
+
+<article class="area-card">
+<h3>Scalable NISQ Algorithms</h3>
+<p>Noise-aware circuit optimization for larger spin and condensed matter models.</p>
+</article>
+
+<article class="area-card">
+<h3>Many-Body Quantum Dynamics</h3>
+<p>Nonequilibrium dynamics, quantum correlations, and critical behavior beyond classical limits.</p>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+<h2>Research Links</h2>
+<p>Publication list and academic research profiles.</p>
+</div>
+
+<div class="area-grid">
+
+<article class="area-card">
+<h3>Publication Page</h3>
+<p>
+View the complete list of journal articles, preprints, and research papers.
+</p>
+<a class="paper-link" href="publications.html">
+View Publications ↗
+</a>
+</article>
+
+<article class="area-card">
+<h3>Google Scholar</h3>
+<p>
+Research profile with publications, citations, and academic records.
+</p>
+<a class="paper-link" href="https://scholar.google.com/" target="_blank" rel="noopener">
+Visit Profile ↗
+</a>
+</article>
+
+<article class="area-card">
+<h3>arXiv Profile</h3>
+<p>
+Preprints and recent research works related to quantum simulation and condensed matter physics.
+</p>
+<a class="paper-link" href="https://arxiv.org/search/?query=Mrinal+Kanti+Giri&searchtype=author" target="_blank" rel="noopener">
+Visit arXiv ↗
+</a>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+© 2025 Mrinal Kanti Giri. All rights reserved.
+</div>
+</footer>
+
 </body>
 </html>
