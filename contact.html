@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinal Kanti Giri – Quantum Computing & Condensed Matter Physics</title>
+  <title>Contact - Mrinal Kanti Giri</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -70,38 +70,33 @@
     main { margin: 2rem 0; }
     h1 { font-size: 2.2rem; margin: 1.5rem 0 0.5rem 0; font-weight: 600; }
     h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.5rem; }
-    p { margin: 0 0 1rem 0; text-align: justify; }
+    p { margin: 0 0 1rem 0; }
     a { color: #0066cc; text-decoration: none; }
     @media (prefers-color-scheme: dark) {
       a { color: #66b3ff; }
     }
     a:hover { text-decoration: underline; }
-    .profile-section {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: 2rem;
+    .contact-info { margin: 1.5rem 0; line-height: 1.8; padding: 1.5rem; background: #fff; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) {
+      .contact-info { background: #161b22; }
     }
-    @media (max-width: 768px) {
-      .profile-section { grid-template-columns: 1fr; }
-    }
-    .profile-pic { text-align: center; }
-    .profile-pic img { width: 150px; height: 150px; border-radius: 8px; object-fit: cover; }
-    .cta-button {
-      display: inline-block;
-      background: #0066cc;
-      color: white;
-      padding: 0.75rem 1.5rem;
+    .collaboration {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: #f0f9ff;
+      border-left: 4px solid #0066cc;
       border-radius: 4px;
-      text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s;
     }
     @media (prefers-color-scheme: dark) {
-      .cta-button { background: #66b3ff; color: #000; }
+      .collaboration { background: #1e3a5f; border-left-color: #66b3ff; }
     }
-    .cta-button:hover { background: #0052a3; }
+    .collaboration h3 { color: #0066cc; margin-bottom: 1rem; }
+    @media (prefers-color-scheme: dark) {
+      .collaboration h3 { color: #66b3ff; }
+    }
+    .collaboration ul { list-style: none; padding: 0; }
+    .collaboration li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,102,204,0.2); }
+    .collaboration li:last-child { border-bottom: none; }
     footer {
       margin-top: 4rem;
       padding-top: 2rem;
@@ -133,34 +128,37 @@
   </header>
 
   <main class="container">
-    <div class="profile-section">
-      <div class="profile-pic">
-        <img src="https://via.placeholder.com/150" alt="Mrinal Kanti Giri">
-      </div>
-      <div>
-        <h1>Mrinal Kanti Giri, Ph.D.</h1>
-        <p><strong>Quantum Computing & Condensed Matter Physics Researcher</strong></p>
-        <p>Research Fellow, School of Physical and Mathematical Sciences, Nanyang Technological University, Singapore</p>
-        <p style="margin-top: 1rem;">
-          <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a> · 
-          <a href="https://arxiv.org/search/?query=Mrinal+Giri&searchtype=author" target="_blank">arXiv</a>
-        </p>
-        <a href="about.html" class="cta-button">Learn More About Me →</a>
-      </div>
+    <h1>Contact & Collaboration</h1>
+
+    <h2>Get in Touch</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:mrinalphy333@gmail.com">mrinalphy333@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91-7699795537</p>
+      <p><strong>Current Location:</strong> Nanyang Technological University, Singapore</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mrinal-kanti-giri" target="_blank">linkedin.com/in/mrinal-kanti-giri</a></p>
+      <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar Profile</a></p>
+      <p><strong>arXiv:</strong> <a href="https://arxiv.org/search/?query=Mrinal+Giri&searchtype=author" target="_blank">arXiv Papers</a></p>
     </div>
 
-    <h2>Welcome</h2>
-    <p>I am a theoretical and computational physicist specializing in quantum computing, quantum many-body physics, and condensed matter systems. My research focuses on bridging fundamental quantum physics with practical implementations on near-term quantum devices.</p>
-    
-    <p>Currently, I am a Research Fellow at Nanyang Technological University, Singapore, where I work on digital quantum simulations and quantum circuit optimization for IBM superconducting hardware.</p>
+    <div class="collaboration">
+      <h3>Open to Collaborative Research</h3>
+      <p>I am actively seeking collaborations with researchers interested in:</p>
+      <ul>
+        <li>Quantum algorithms for NISQ devices</li>
+        <li>Many-body physics on quantum hardware</li>
+        <li>Topological quantum computing</li>
+        <li>Gauge theories on quantum simulators</li>
+        <li>Quantum optimization and machine learning</li>
+      </ul>
+      <p style="margin-top: 1.5rem;">If you're interested in collaborating, please reach out via email. I welcome inquiries from undergraduate students, graduate students, postdocs, and established researchers.</p>
+    </div>
 
-    <h2>Quick Links</h2>
+    <h2>Social & Academic Profiles</h2>
     <ul style="list-style: none; padding: 0;">
-      <li style="padding: 0.5rem 0;"><a href="about.html">→ About Me</a></li>
-      <li style="padding: 0.5rem 0;"><a href="research.html">→ My Research</a></li>
-      <li style="padding: 0.5rem 0;"><a href="experience.html">→ Experience & Education</a></li>
-      <li style="padding: 0.5rem 0;"><a href="skills.html">→ Skills</a></li>
-      <li style="padding: 0.5rem 0;"><a href="contact.html">→ Contact Me</a></li>
+      <li style="padding: 0.5rem 0;"><a href="https://github.com/Mrinal-phy" target="_blank">→ GitHub Profile</a></li>
+      <li style="padding: 0.5rem 0;"><a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">→ Google Scholar</a></li>
+      <li style="padding: 0.5rem 0;"><a href="https://arxiv.org/search/?query=Mrinal+Giri&searchtype=author" target="_blank">→ arXiv Papers</a></li>
+      <li style="padding: 0.5rem 0;"><a href="https://linkedin.com/in/mrinal-kanti-giri" target="_blank">→ LinkedIn</a></li>
     </ul>
   </main>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinal Kanti Giri – Quantum Computing & Condensed Matter Physics</title>
+  <title>Skills - Mrinal Kanti Giri</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -70,38 +70,26 @@
     main { margin: 2rem 0; }
     h1 { font-size: 2.2rem; margin: 1.5rem 0 0.5rem 0; font-weight: 600; }
     h2 { font-size: 1.5rem; margin: 2rem 0 1rem 0; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.5rem; }
-    p { margin: 0 0 1rem 0; text-align: justify; }
-    a { color: #0066cc; text-decoration: none; }
-    @media (prefers-color-scheme: dark) {
-      a { color: #66b3ff; }
-    }
-    a:hover { text-decoration: underline; }
-    .profile-section {
+    p { margin: 0 0 1rem 0; }
+    .skills-grid {
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      align-items: start;
-      margin-bottom: 2rem;
+      margin: 1.5rem 0;
     }
     @media (max-width: 768px) {
-      .profile-section { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
-    .profile-pic { text-align: center; }
-    .profile-pic img { width: 150px; height: 150px; border-radius: 8px; object-fit: cover; }
-    .cta-button {
-      display: inline-block;
-      background: #0066cc;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s;
-    }
+    .skill-category h3 { font-weight: 600; margin-bottom: 0.75rem; color: #000; }
     @media (prefers-color-scheme: dark) {
-      .cta-button { background: #66b3ff; color: #000; }
+      .skill-category h3 { color: #fff; }
     }
-    .cta-button:hover { background: #0052a3; }
+    .skill-category ul { list-style: none; padding-left: 0; }
+    .skill-category li { padding: 0.4rem 0; color: #666; }
+    @media (prefers-color-scheme: dark) {
+      .skill-category li { color: #999; }
+    }
+    .skill-category li:before { content: "• "; color: #0066cc; font-weight: bold; margin-right: 0.5rem; }
     footer {
       margin-top: 4rem;
       padding-top: 2rem;
@@ -133,34 +121,71 @@
   </header>
 
   <main class="container">
-    <div class="profile-section">
-      <div class="profile-pic">
-        <img src="https://via.placeholder.com/150" alt="Mrinal Kanti Giri">
+    <h1>Skills & Expertise</h1>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Programming Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>Qiskit & IBM Quantum</li>
+          <li>LaTeX</li>
+        </ul>
       </div>
-      <div>
-        <h1>Mrinal Kanti Giri, Ph.D.</h1>
-        <p><strong>Quantum Computing & Condensed Matter Physics Researcher</strong></p>
-        <p>Research Fellow, School of Physical and Mathematical Sciences, Nanyang Technological University, Singapore</p>
-        <p style="margin-top: 1rem;">
-          <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a> · 
-          <a href="https://arxiv.org/search/?query=Mrinal+Giri&searchtype=author" target="_blank">arXiv</a>
-        </p>
-        <a href="about.html" class="cta-button">Learn More About Me →</a>
+
+      <div class="skill-category">
+        <h3>Quantum Algorithms</h3>
+        <ul>
+          <li>Quantum Circuit Design</li>
+          <li>Variational Quantum Algorithms</li>
+          <li>Digital Quantum Simulation</li>
+          <li>Circuit Optimization</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Tensor Network Methods</h3>
+        <ul>
+          <li>DMRG (Density-Matrix Renormalization Group)</li>
+          <li>TEBD (Time Evolving Block Decimation)</li>
+          <li>TDVP (Time-Dependent Variational Principle)</li>
+          <li>MPS (Matrix Product States)</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Computational & Analytical</h3>
+        <ul>
+          <li>Exact Diagonalization</li>
+          <li>Mean-Field Theory</li>
+          <li>Numerical Simulations</li>
+          <li>Scientific Computing</li>
+        </ul>
       </div>
     </div>
 
-    <h2>Welcome</h2>
-    <p>I am a theoretical and computational physicist specializing in quantum computing, quantum many-body physics, and condensed matter systems. My research focuses on bridging fundamental quantum physics with practical implementations on near-term quantum devices.</p>
-    
-    <p>Currently, I am a Research Fellow at Nanyang Technological University, Singapore, where I work on digital quantum simulations and quantum circuit optimization for IBM superconducting hardware.</p>
-
-    <h2>Quick Links</h2>
+    <h2>Research & Academic Skills</h2>
     <ul style="list-style: none; padding: 0;">
-      <li style="padding: 0.5rem 0;"><a href="about.html">→ About Me</a></li>
-      <li style="padding: 0.5rem 0;"><a href="research.html">→ My Research</a></li>
-      <li style="padding: 0.5rem 0;"><a href="experience.html">→ Experience & Education</a></li>
-      <li style="padding: 0.5rem 0;"><a href="skills.html">→ Skills</a></li>
-      <li style="padding: 0.5rem 0;"><a href="contact.html">→ Contact Me</a></li>
+      <li style="padding: 0.5rem 0;">• Advanced knowledge of quantum mechanics and condensed matter physics</li>
+      <li style="padding: 0.5rem 0;">• Scientific research design and data analysis</li>
+      <li style="padding: 0.5rem 0;">• Technical and scientific writing</li>
+      <li style="padding: 0.5rem 0;">• Languages: English (fluent), Bengali (native)</li>
+    </ul>
+
+    <h2>Code Repositories</h2>
+    <p><strong>Quantum Physics Libraries:</strong></p>
+    <ul style="list-style: none; padding: 0;">
+      <li style="padding: 0.5rem 0;">• cDMRG - Continuous DMRG for general quantum systems</li>
+      <li style="padding: 0.5rem 0;">• QuBond - Complete many-body solver suite</li>
+      <li style="padding: 0.5rem 0;">• LocalizationTools - Localization studies toolkit</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong>Quantum Circuit Libraries:</strong></p>
+    <ul style="list-style: none; padding: 0;">
+      <li style="padding: 0.5rem 0;">• QCircuit - Quantum walk on IBM processors</li>
+      <li style="padding: 0.5rem 0;">• FlatBandSimulator - Digital simulation suite</li>
+      <li style="padding: 0.5rem 0;">• TopologyCircuits - Topological quantum states</li>
+      <li style="padding: 0.5rem 0;">• VariationalQAlgorithms - VQE & QAOA implementations</li>
     </ul>
   </main>
 
