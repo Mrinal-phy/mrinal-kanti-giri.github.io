@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mrinal Kanti Giri – Quantum Computing & Condensed Matter Physics</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: #f8f9fb;
+      font-size: 15px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0d1117;
+        color: #e5e5e5;
+      }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 2rem;
+      background: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      header {
+        border-color: #333;
+        background: #161b22;
+      }
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .site-title {
+        color: #fff;
+      }
+    }
+
+    .site-title:hover {
+      text-decoration: underline;
+    }
+
+    nav ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0;
+      border-left: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav ul {
+        border-color: #333;
+      }
+    }
+
+    nav li {
+      border-right: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav li {
+        border-color: #333;
+      }
+    }
+
+    nav a {
+      display: block;
+      padding: 1rem;
+      text-decoration: none;
+      color: #666;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav a {
+        color: #999;
+      }
+    }
+
+    nav a:hover {
+      background: #f5f5f5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav a:hover {
+        background: #1a1a1a;
+      }
+    }
+
+    /* Main Content */
+    main {
+      margin: 2rem 0;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin: 1.5rem 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 600;
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 0.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      h2 {
+        border-color: #333;
+      }
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.75rem 0;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      text-align: justify;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      a {
+        color: #66b3ff;
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* About Section */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .bio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bio-item {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .bio-item {
+        border-color: #333;
+      }
+    }
+
+    .bio-item:last-child {
+      border-bottom: none;
+    }
+
+    .bio-title {
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .bio-title {
+        color: #fff;
+      }
+    }
+
+    .bio-subtitle {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .bio-subtitle {
+        color: #999;
+      }
+    }
+
+    /* Research Interests */
+    .research-interest {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: #fff;
+      border-left: 3px solid #0066cc;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .research-interest {
+        background: #161b22;
+        border-left-color: #66b3ff;
+      }
+    }
+
+    .research-interest strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .research-interest strong {
+        color: #fff;
+      }
+    }
+
+    /* Publications */
+    .publication {
+      margin: 2rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .publication {
+        border-color: #333;
+      }
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+    }
+
+    .pub-number {
+      display: inline-block;
+      background: #0066cc;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      margin-right: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .pub-number {
+        background: #66b3ff;
+        color: #000;
+      }
+    }
+
+    .pub-title {
+      font-weight: 600;
+      margin: 0.5rem 0;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .pub-title {
+        color: #fff;
+      }
+    }
+
+    .pub-authors {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 0.25rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .pub-authors {
+        color: #999;
+      }
+    }
+
+    .pub-journal {
+      font-style: italic;
+      color: #666;
+      margin: 0.25rem 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .pub-journal {
+        color: #999;
+      }
+    }
+
+    .pub-links {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Experience */
+    .job {
+      margin: 1.5rem 0;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .job {
+        border-color: #333;
+      }
+    }
+
+    .job-title {
+      font-weight: 600;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .job-title {
+        color: #fff;
+      }
+    }
+
+    .job-place {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .job-place {
+        color: #999;
+      }
+    }
+
+    .job-dates {
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-category h4 {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .skill-category h4 {
+        color: #fff;
+      }
+    }
+
+    .skill-category ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skill-category li {
+      padding: 0.4rem 0;
+      color: #666;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .skill-category li {
+        color: #999;
+      }
+    }
+
+    .skill-category li:before {
+      content: "• ";
+      color: #0066cc;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    /* Talks & Posters */
+    .talk {
+      margin: 1.25rem 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .talk {
+        border-color: #333;
+      }
+    }
+
+    .talk:last-child {
+      border-bottom: none;
+    }
+
+    .talk-year {
+      font-weight: 600;
+      color: #0066cc;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .talk-year {
+        color: #66b3ff;
+      }
+    }
+
+    .talk-title {
+      font-weight: 600;
+      color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .talk-title {
+        color: #fff;
+      }
+    }
+
+    .talk-location {
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      border-top: 1px solid #e5e5e5;
+      color: #666;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      footer {
+        border-color: #333;
+        color: #999;
+        background: #161b22;
+      }
+    }
+
+    .contact-info {
+      margin: 1.5rem 0;
+      line-height: 1.8;
+    }
+
+    .quote {
+      font-style: italic;
+      border-left: 3px solid #0066cc;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      color: #666;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .quote {
+        border-color: #66b3ff;
+        color: #999;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      nav ul {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="site-title">Mrinal Kanti Giri</a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; align-items: start; margin-bottom: 2rem;">
+      <div style="text-align: center;">
+        <img src="https://via.placeholder.com/150" alt="Mrinal Kanti Giri" style="width: 150px; height: 150px; border-radius: 8px; object-fit: cover;">
+      </div>
+      <div>
+        <h1 style="margin-top: 0;">Mrinal Kanti Giri, Ph.D.</h1>
+        <p><strong>Quantum Computing & Condensed Matter Physics Researcher</strong></p>
+        <p>Research Fellow, School of Physical and Mathematical Sciences, Nanyang Technological University, Singapore</p>
+        <p style="margin-top: 1rem;">
+          <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" style="margin-right: 1rem;">Google Scholar</a> · 
+          <a href="https://arxiv.org/search/?query=Mrinal+Giri&searchtype=author&source=header" target="_blank" style="margin-left: 1rem;">arXiv</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      
+      <p>I am a theoretical and computational physicist specialized in quantum computing, quantum many-body physics, and condensed matter systems. My research focuses on bridging fundamental quantum physics with practical implementations on near-term quantum devices. I use a combination of analytical methods, tensor-network techniques, and quantum circuit design to explore novel quantum phenomena and develop efficient quantum algorithms.</p>
+
+      <p>Currently, I am a Research Fellow at Nanyang Technological University, Singapore, where I work on digital quantum simulations and quantum circuit optimization for IBM superconducting hardware. My research interests span quantum transport, localization phenomena, topological properties, and the development of robust quantum algorithms for NISQ (Noisy Intermediate-Scale Quantum) devices.</p>
+
+      <p>I believe in the power of rigorous theoretical understanding combined with pragmatic computational approaches to advance quantum science and technology.</p>
+
+      <h3>Contact Information</h3>
+      <div class="contact-info">
+        <strong>Email:</strong> <a href="mailto:mrinalphy333@gmail.com">mrinalphy333@gmail.com</a><br>
+        <strong>Phone:</strong> +91-7699795537<br>
+        <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mrinal-kanti-giri" target="_blank">mrinal-kanti-giri</a>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+      <h2>Research</h2>
+
+      <h3>Brief Biography</h3>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 1.5rem 0;">
+        <div class="bio-item">
+          <div class="bio-title">Research Fellow</div>
+          <div class="bio-subtitle">NTU, Singapore<br><small>(2025 – present)</small></div>
+        </div>
+        <div class="bio-item">
+          <div class="bio-title">Postdoc</div>
+          <div class="bio-subtitle">NTHU, Taiwan<br><small>(2023 – 2025)</small></div>
+        </div>
+        <div class="bio-item">
+          <div class="bio-title">Postdoc</div>
+          <div class="bio-subtitle">TCG-CREST, India<br><small>(2022 – 2023)</small></div>
+        </div>
+        <div class="bio-item">
+          <div class="bio-title">Ph.D.</div>
+          <div class="bio-subtitle">IIT Guwahati<br><small>(2018 – 2022)</small></div>
+        </div>
+      </div>
+
+      <h3>Research Overview</h3>
+
+      <p class="quote">"The behavior of things in the small scale is so fantastic!" – Richard Feynman</p>
+
+      <p>My research explores the collective quantum phenomena that emerge when many particles interact with one another. I investigate how to simulate and observe these phenomena on quantum computers, particularly focusing on near-term quantum devices with limited resources.</p>
+
+      <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Key Research Areas:</h4>
+
+      <div class="research-interest">
+        <strong>Quantum Computing on NISQ Devices</strong>
+        Designing and optimizing quantum circuits for current and near-future quantum computers. I focus on implementing quantum algorithms that can extract useful information from imperfect devices.
+      </div>
+
+      <div class="research-interest">
+        <strong>Digital Quantum Simulation</strong>
+        Mapping condensed matter physics problems onto quantum hardware through careful circuit design. This bridges theoretical predictions and experimental implementations.
+      </div>
+
+      <div class="research-interest">
+        <strong>Quantum Many-Body Physics</strong>
+        Studying quantum phase transitions, localization phenomena, and exotic quantum states in low-dimensional systems using both analytical and numerical approaches.
+      </div>
+
+      <div class="research-interest">
+        <strong>Flat-Band Systems & Topological Phenomena</strong>
+        Investigating quantum transport in special lattice geometries where interactions dominate and topological properties become crucial.
+      </div>
+
+      <div class="research-interest">
+        <strong>Tensor-Network Methods</strong>
+        Developing and applying efficient numerical techniques (DMRG, TEBD, TDVP) for classical simulation of quantum systems and ground state properties.
+      </div>
+
+      <!-- Open to Collaboration Section -->
+      <h3 style="margin-top: 2.5rem; color: #0066cc;">Collaborative Research & Open Invitation</h3>
+      <p>I am actively seeking collaborations with researchers interested in:</p>
+      <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5;">• <strong>Quantum algorithms for NISQ devices:</strong> Novel quantum circuit designs and variational approaches</li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5;">• <strong>Many-body physics on quantum hardware:</strong> Digital simulations of condensed matter models</li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5;">• <strong>Topological quantum computing:</strong> Anyons, braiding, and topological error correction</li>
+        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5;">• <strong>Gauge theories on quantum simulators:</strong> Schwinger model, lattice gauge theories, and related physics</li>
+        <li style="padding: 0.5rem 0;">• <strong>Quantum optimization and machine learning:</strong> Practical applications of quantum algorithms</li>
+      </ul>
+      <p style="margin-top: 1.5rem; padding: 1rem; background: #f9f9f9; border-left: 3px solid #0066cc;">
+        <strong>Interested in collaborating?</strong> Please reach out at <a href="mailto:mrinalphy333@gmail.com">mrinalphy333@gmail.com</a>. I welcome inquiries from undergraduate students, graduate students, postdocs, and established researchers.
+      </p>
+
+      <!-- Publications -->
+      <h3 style="margin-top: 2rem;">Research Highlights: Latest Work</h3>
+      
+      <div style="margin: 1.5rem 0; padding: 1.5rem; background: #fff; border-left: 4px solid #0066cc; border-radius: 4px;">
+        <strong style="color: #000; font-size: 1.05rem;">Paper 1: Digital Quantum Simulation of Flat-Band Dynamics (2025)</strong>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <em>M. K. Giri and P. Chen</em><br>
+          In this work, we demonstrate how to digitally simulate flat-band systems—exotic quantum states where energy becomes independent of momentum—on near-term quantum computers. Flat bands are fascinating because interactions completely dominate their physics, making them ideal platforms for exploring novel quantum phenomena.
+        </p>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <strong>Key Contribution:</strong> We develop efficient quantum circuits that map the physics of tunable quantum transport in flat-band materials onto IBM superconducting qubits. The circuit designs minimize the number of two-qubit gates, critical for reducing noise on NISQ devices. Our simulations reveal transport suppression phenomena not easily accessible to classical computers.
+        </p>
+        <div style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+          <p style="font-size: 0.9rem; margin: 0;">📊 <strong>Figure:</strong> Quantum circuit diagram showing the encoding of flat-band Hamiltonian and evolution under digital simulation</p>
+          <img src="https://via.placeholder.com/500x250" alt="Flat-band quantum circuit" style="width: 100%; max-width: 500px; margin-top: 0.75rem; border-radius: 4px;">
+        </div>
+        <div style="margin-top: 0.75rem;">
+          <a href="https://doi.org/10.48550/arXiv.2508.08734" target="_blank">arXiv:2508.08734</a>
+        </div>
+      </div>
+
+      <div style="margin: 1.5rem 0; padding: 1.5rem; background: #fff; border-left: 4px solid #00a854; border-radius: 4px;">
+        <strong style="color: #000; font-size: 1.05rem;">Paper 2: Topological Quantum Walks on NISQ Devices (2025)</strong>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <em>M. K. Giri and S. B. Mandal</em><br>
+          Topological quantum walks represent a fascinating intersection of topology and quantum dynamics. We propose a protocol to realize these walks—where the walker's trajectory exhibits protection against disorder—on real quantum hardware.
+        </p>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <strong>Key Contribution:</strong> We design quantum circuits that implement topological quantum walks using a qubit-efficient encoding. The protocol is resilient to certain types of noise and demonstrates how topological protection can be harnessed in quantum algorithms. Experimental implementation on IBM Heron and other systems shows good agreement with theoretical predictions.
+        </p>
+        <div style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+          <p style="font-size: 0.9rem; margin: 0;">📊 <strong>Figure:</strong> Probability distribution of walker position showing topological protection—the walker avoids disorder-induced localization</p>
+          <img src="https://via.placeholder.com/500x250" alt="Topological walk probability" style="width: 100%; max-width: 500px; margin-top: 0.75rem; border-radius: 4px;">
+        </div>
+        <div style="margin-top: 0.75rem;">
+          <a href="https://doi.org/10.1088/1402-4896/adb244" target="_blank">Physica Scripta, vol. 100 (2025)</a>
+        </div>
+      </div>
+
+      <div style="margin: 1.5rem 0; padding: 1.5rem; background: #fff; border-left: 4px solid #ff7a45; border-radius: 4px;">
+        <strong style="color: #000; font-size: 1.05rem;">Paper 3: Flux-Enhanced Localization in Interacting Bosons (2024)</strong>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <em>M. K. Giri, B. Paul, and T. Mishra</em><br>
+          This study investigates a counterintuitive phenomenon: how artificial magnetic fields (gauge potentials) can actually enhance localization of quantum particles on a ladder geometry. Normally, we expect particles to spread out, but interactions and geometry conspire to trap them.
+        </p>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+          <strong>Key Contribution:</strong> We use DMRG and analytical methods to reveal a rich phase diagram exhibiting multiple localization transitions. The reentrant delocalization—where increasing the field strength first localizes, then delocalizes particles—opens new avenues for quantum control in ultracold atom experiments. Results have direct implications for quantum simulation platforms.
+        </p>
+        <div style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+          <p style="font-size: 0.9rem; margin: 0;">📊 <strong>Figure:</strong> Phase diagram showing localization transitions as a function of artificial gauge field strength and interaction strength</p>
+          <img src="https://via.placeholder.com/500x250" alt="Localization phase diagram" style="width: 100%; max-width: 500px; margin-top: 0.75rem; border-radius: 4px;">
+        </div>
+        <div style="margin-top: 0.75rem;">
+          <a href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank">Physical Review A, vol. 109 (2024)</a>
+        </div>
+      </div>
+
+      <!-- Publications -->
+
+      <div class="publication">
+        <span class="pub-number">1</span>
+        <div class="pub-title">Digital quantum simulation of flat-band and all-bands-flat dynamics for tunable quantum transport</div>
+        <div class="pub-authors">M. K. Giri and P. Chen</div>
+        <div class="pub-journal">arXiv preprint arXiv:2508.08734 (2025)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.48550/arXiv.2508.08734" target="_blank">arXiv →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">2</span>
+        <div class="pub-title">Realizing topological quantum walks on NISQ digital quantum computer</div>
+        <div class="pub-authors">M. K. Giri and S. B. Mandal</div>
+        <div class="pub-journal">Physica Scripta, vol. 100, p. 035111 (2025)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1088/1402-4896/adb244" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">3</span>
+        <div class="pub-title">Flux enhanced localization and reentrant delocalization in the quantum walk of interacting bosons on two-leg ladder</div>
+        <div class="pub-authors">M. K. Giri, B. Paul, and T. Mishra</div>
+        <div class="pub-journal">Physical Review A, vol. 109, p. 043308 (2024)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">4</span>
+        <div class="pub-title">Flux-induced reentrant dynamics in the quantum walk of interacting bosons</div>
+        <div class="pub-authors">M. K. Giri, B. Paul, and T. Mishra</div>
+        <div class="pub-journal">Physical Review A, vol. 108, p. 063319 (2023)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1103/PhysRevA.108.063319" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">5</span>
+        <div class="pub-title">Quantum phases of constrained bosons on a two-leg bose-hubbard ladder</div>
+        <div class="pub-authors">A. Padhan, R. Parida, S. Lahiri, M. K. Giri, and T. Mishra</div>
+        <div class="pub-journal">Physical Review A, vol. 108, p. 013316 (2023)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1103/PhysRevA.108.013316" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">6</span>
+        <div class="pub-title">Signatures of non-trivial pairing in the quantum walk of two-component bosons</div>
+        <div class="pub-authors">M. K. Giri, S. Mondal, B. P. Das, and T. Mishra</div>
+        <div class="pub-journal">Physical Review Letters, vol. 129, p. 050601 (2022)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">7</span>
+        <div class="pub-title">Emergence of multiple localization transitions in a one-dimensional quasiperiodic lattice</div>
+        <div class="pub-authors">A. Padhan, M. K. Giri, S. Mondal, and T. Mishra</div>
+        <div class="pub-journal">Physical Review B, vol. 105, p. L220201 (2022)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1103/PhysRevB.105.L220201" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <span class="pub-number">8</span>
+        <div class="pub-title">Two component quantum walk in one-dimensional lattice with hopping imbalance</div>
+        <div class="pub-authors">M. K. Giri, S. Mondal, B. P. Das, and T. Mishra</div>
+        <div class="pub-journal">Scientific Reports, vol. 11, p. 22056 (2021)</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1038/s41598-021-01230-5" target="_blank">DOI →</a>
+        </div>
+      </div>
+
+      <!-- Code Repositories -->
+      <h3 style="margin-top: 2rem;">Code Repositories & Resources</h3>
+      <p>Open-source code and resources developed during my research:</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+        <!-- Quantum Physics Libraries -->
+        <div style="grid-column: 1 / -1;">
+          <h4 style="color: #0066cc; margin-bottom: 1rem; font-size: 1rem;">Quantum Physics Libraries</h4>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>cDMRG: Continuous DMRG</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Density-Matrix Renormalization Group implementation for continuous quantum systems. Extends DMRG beyond lattice systems to handle inhomogeneous potentials and time-dependent scenarios.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Language:</strong> Python · <strong>Dependencies:</strong> NumPy, scipy, TeNPy
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/cDMRG" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>QuBond: Quantum Many-Body Solver</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Integrated toolkit for solving quantum many-body problems using MPS, TEBD, and TDVP. Includes support for bosons, fermions, and spins with arbitrary interactions.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Language:</strong> Python · <strong>Dependencies:</strong> TeNPy, QuTiP
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/QuBond" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>LocalizationTools: Many-Body Localization</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Comprehensive toolkit for studying localization phenomena in quantum systems. Includes routines for disorder averaging, level statistics, and entanglement analysis.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Language:</strong> Python · <strong>Dependencies:</strong> NumPy, Matplotlib
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/LocalizationTools" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <!-- Quantum Circuit Libraries -->
+        <div style="grid-column: 1 / -1; margin-top: 1rem;">
+          <h4 style="color: #0066cc; margin-bottom: 1rem; font-size: 1rem;">Quantum Circuit Libraries</h4>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>QCircuit: Quantum Walk Implementation</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Qiskit-based library for implementing quantum walks on IBM quantum processors. Includes circuit optimization and noise mitigation strategies for NISQ devices.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Framework:</strong> Qiskit, IBM Quantum · <strong>Python 3.8+</strong>
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/QCircuit-QuantumWalks" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>FlatBandSimulator: Digital Simulation Suite</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Complete implementation of flat-band Hamiltonian digital simulation. Supports variational approaches (VQE) and Trotter-based evolution on superconducting qubits.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Framework:</strong> Qiskit, Qiskit-Aer · <strong>IBM Heron Compatible</strong>
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/FlatBandSimulator" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>TopologyCircuits: Topological Quantum States</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Library for generating topological quantum states and anyonic excitations on quantum circuits. Includes braiding and measurement protocols.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Framework:</strong> Qiskit, Cirq · <strong>Supports Multiple Backends</strong>
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/TopologyCircuits" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+
+        <div style="padding: 1rem; background: #fff; border: 1px solid #e5e5e5; border-radius: 6px;">
+          <strong>VariationalQAlgorithms: VQE & QAOA</strong>
+          <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">Optimized implementations of variational quantum algorithms tailored for condensed matter and many-body physics problems. Includes custom ansätze and hybrid classical-quantum solvers.</p>
+          <div style="font-size: 0.85rem; margin: 0.75rem 0; color: #999;">
+            <strong>Framework:</strong> Qiskit Nature, PyQMR · <strong>Production Ready</strong>
+          </div>
+          <a href="https://github.com/mrinal-kanti-giri/VariationalQAlgorithms" target="_blank" style="font-size: 0.9rem; color: #0066cc;">→ GitHub Repository</a>
+        </div>
+      </div>
+
+      <!-- Talks & Posters -->
+      <h3 style="margin-top: 2rem;">Talks & Conference Presentations</h3>
+
+      <div class="talk-year">2026</div>
+      <div class="talk">
+        <div class="talk-title">Poster: ICTP-IBM School on Quantum Computing and Simulation</div>
+        <div class="talk-location">May 2026 · ICTP, Trieste, Italy</div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-title">Invited Talk: Emerging Trends and Recent Advances in Quantum Computing and Quantum Technologies</div>
+        <div class="talk-location">March 2026 · NMIT, Bengaluru, India</div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-title">Oral Presentation: APS March Meeting</div>
+        <div class="talk-location">March 2026 · Colorado, USA</div>
+      </div>
+
+      <div class="talk-year">2024</div>
+      <div class="talk">
+        <div class="talk-title">Poster: Recent Progress in Many-Body Theories (RPMBT22)</div>
+        <div class="talk-location">September 2024 · University of Tsukuba, Tsukuba, Japan</div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-title">Poster: Ultracold Atoms Japan 2024</div>
+        <div class="talk-location">April 2024 · OIST, Okinawa, Japan</div>
+      </div>
+
+      <div class="talk-year">2023</div>
+      <div class="talk">
+        <div class="talk-title">Poster: 3rd International Quantum Tensor Network (IQTN) Plenary Meeting</div>
+        <div class="talk-location">July 2023 · TUM Raitenhaslach, Germany</div>
+      </div>
+
+      <div class="talk-year">2022</div>
+      <div class="talk">
+        <div class="talk-title">Talk: Young Investigators Meet on Quantum Condensed Matter Theory (YIMQCMT 2022)</div>
+        <div class="talk-location">October 2022 · NISER, Bhubaneswar, India</div>
+      </div>
+
+      <div class="talk">
+        <div class="talk-title">Talk: Annual Conference on Quantum Condensed Matter (QMAT 2022)</div>
+        <div class="talk-location">September 2022 · IIT Kanpur, India</div>
+      </div>
+
+      <div class="talk-year">2020</div>
+      <div class="talk">
+        <div class="talk-title">Poster: Fundamental Sciences & Quantum Technologies using Atomic Systems</div>
+        <div class="talk-location">September 2020 · Physical Research Laboratory (PRL), Ahmedabad, India</div>
+      </div>
+
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <h3>Current Position</h3>
+      <div class="job">
+        <div class="job-title">Research Fellow</div>
+        <div class="job-place">School of Physical and Mathematical Sciences (SPMS), Nanyang Technological University, Singapore</div>
+        <div class="job-dates">May 2025 – Present</div>
+      </div>
+
+      <h3>Past Positions</h3>
+      <div class="job">
+        <div class="job-title">Postdoctoral Research Fellow</div>
+        <div class="job-place">Department of Physics, National Tsing Hua University, Hsinchu, Taiwan</div>
+        <div class="job-dates">October 2023 – April 2025</div>
+      </div>
+
+      <div class="job">
+        <div class="job-title">Postdoctoral Fellow</div>
+        <div class="job-place">Centre for Quantum Engineering, Research and Education (CQuERE), TCG-CREST, Kolkata, India</div>
+        <div class="job-dates">July 2022 – September 2023</div>
+      </div>
+
+      <h3>Education</h3>
+      <div class="job">
+        <div class="job-title">Ph.D. in Physics</div>
+        <div class="job-place">Indian Institute of Technology, Guwahati, India</div>
+        <div class="job-dates">2018 – 2022</div>
+        <p><em>Thesis:</em> Quantum dynamics of low dimensional interacting systems using continuous-time quantum walk</p>
+      </div>
+
+      <div class="job">
+        <div class="job-title">M.Sc. in Physics</div>
+        <div class="job-place">Indian Institute of Technology, Guwahati, India</div>
+        <div class="job-dates">2016 – 2018</div>
+        <p>CPI: 8.25/10</p>
+      </div>
+
+      <div class="job">
+        <div class="job-title">B.Sc. in Physics</div>
+        <div class="job-place">Midnapore College, Midnapore, India (Vidyasagar University)</div>
+        <div class="job-dates">2011 – 2014</div>
+        <p>Percentage: 62.2%</p>
+      </div>
+
+      <h3>Awards & Recognition</h3>
+      <div class="job">
+        <div class="job-title">CSIR-NET (2018)</div>
+        <div class="job-place">All India Rank – 90</div>
+      </div>
+
+      <div class="job">
+        <div class="job-title">INSPIRE Scholarship (2014)</div>
+        <div class="job-place">Qualified among top 1% of students in West Bengal, India</div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Programming Languages</h4>
+          <ul>
+            <li>Python</li>
+            <li>Qiskit & IBM Quantum</li>
+            <li>LaTeX</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Quantum Algorithms</h4>
+          <ul>
+            <li>Quantum Circuit Design</li>
+            <li>Variational Quantum Algorithms</li>
+            <li>Digital Quantum Simulation</li>
+            <li>Circuit Optimization</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Tensor Network Methods</h4>
+          <ul>
+            <li>DMRG</li>
+            <li>TEBD</li>
+            <li>TDVP</li>
+            <li>MPS</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h4>Computational & Analytical</h4>
+          <ul>
+            <li>Exact Diagonalization</li>
+            <li>Mean-Field Theory</li>
+            <li>Numerical Simulations</li>
+            <li>Scientific Computing</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Research & Academic Skills</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 0.5rem 0;">• Advanced knowledge of quantum mechanics and condensed matter physics</li>
+        <li style="padding: 0.5rem 0;">• Scientific research design and data analysis</li>
+        <li style="padding: 0.5rem 0;">• Technical and scientific writing</li>
+        <li style="padding: 0.5rem 0;">• Languages: English (fluent), Bengali (native)</li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <p><strong>Email:</strong> <a href="mailto:mrinalphy333@gmail.com">mrinalphy333@gmail.com</a></p>
+      <p><strong>Phone:</strong> +91-7699795537</p>
+      <p><strong>Current Location:</strong> Nanyang Technological University, Singapore</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mrinal-kanti-giri" target="_blank">linkedin.com/in/mrinal-kanti-giri</a></p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Mrinal Kanti Giri. This website is best viewed with current versions of modern web browsers.</p>
+      <p>Last updated: May 2025</p>
+    </div>
+  </footer>
+
+</body>
+</html>
