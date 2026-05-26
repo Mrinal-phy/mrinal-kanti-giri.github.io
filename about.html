@@ -36,25 +36,27 @@ header{position:sticky;top:0;z-index:50;background:rgba(2,8,23,.86);backdrop-fil
 .profile-info p{color:#cbd5e1;font-size:.96rem;line-height:1.55;}
 .profile-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
 .profile-tags span{font-size:.82rem;color:#bfdbfe;border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.08);border-radius:999px;padding:7px 11px;}
-.highlight{padding:18px 0 72px;background:linear-gradient(180deg,rgba(7,19,38,.20),rgba(7,19,38,.65));}
 .section-head{text-align:center;margin-bottom:18px;}
 .section-head h2{color:var(--blue);font-size:1.38rem;letter-spacing:.34em;text-transform:uppercase;margin-bottom:8px;}
 .section-head p{color:#cbd5e1;font-size:1.02rem;}
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;}
-.work-card{min-height:420px;background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));border:1px solid rgba(96,165,250,.28);border-radius:14px;padding:20px;box-shadow:0 22px 55px rgba(0,0,0,.22);transition:.25s ease;}
-.work-card:hover{transform:translateY(-6px);border-color:rgba(56,213,255,.65);}
-.work-no{color:var(--blue);font-weight:900;letter-spacing:.16em;font-size:1.05rem;margin-bottom:6px;}
-.work-card h3{font-size:1.22rem;line-height:1.16;letter-spacing:-.025em;margin-bottom:7px;color:#fff;}
-.journal{color:#38d5ff;font-style:italic;margin-bottom:16px;font-size:.95rem;}
-.work-body{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center;margin-top:10px;}
-.figure-box{min-height:170px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#061329;display:grid;place-items:center;position:relative;}
-.figure-box svg{width:100%;height:100%;min-height:170px;}
-.work-card p{color:#d6deea;font-size:.9rem;line-height:1.65;text-align:left;}
-.paper-link{margin:18px auto 0;display:flex;width:max-content;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;color:#60a5fa;border:1px solid rgba(96,165,250,.32);background:rgba(96,165,250,.07);font-weight:700;font-size:.92rem;}
-.paper-link:hover{background:rgba(96,165,250,.16);}
+
+.education-section{padding:18px 0 58px;background:linear-gradient(180deg,rgba(7,19,38,.16),rgba(7,19,38,.35));}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;}
+.edu-card{background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));border:1px solid rgba(96,165,250,.28);border-radius:18px;padding:18px;box-shadow:0 22px 55px rgba(0,0,0,.22);transition:.25s ease;}
+.edu-card:hover{transform:translateY(-5px);border-color:rgba(56,213,255,.65);}
+.year-tag{display:inline-flex;margin-bottom:10px;color:#bfdbfe;border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.08);border-radius:999px;padding:6px 11px;font-size:.82rem;font-weight:800;}
+.edu-card h3{font-size:1.05rem;line-height:1.28;color:#fff;margin-bottom:7px;}
+.edu-card p{color:#d6deea;font-size:.92rem;line-height:1.58;text-align:left;margin-bottom:0;}
+
+.achievement-section{padding:18px 0 70px;background:linear-gradient(180deg,rgba(7,19,38,.35),rgba(7,19,38,.65));}
+.achievement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px;max-width:900px;margin-left:auto;margin-right:auto;}
+.achievement-card{background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));border:1px solid rgba(96,165,250,.28);border-radius:18px;padding:18px;box-shadow:0 22px 55px rgba(0,0,0,.22);transition:.25s ease;}
+.achievement-card:hover{transform:translateY(-5px);border-color:rgba(56,213,255,.65);}
+.achievement-card h3{font-size:1.05rem;line-height:1.28;color:#fff;margin-bottom:7px;}
+.achievement-card p{color:#d6deea;font-size:.92rem;line-height:1.58;text-align:left;margin-bottom:0;}
 footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:center;color:#94a3b8;background:#020817;}
-@media(max-width:1150px){.hero-grid{grid-template-columns:1fr;gap:28px;}.side-card{max-width:520px;}.profile-photo{height:360px;}.work-grid{grid-template-columns:1fr;}.work-card{min-height:auto;}}
-@media(max-width:760px){.nav{height:auto;align-items:flex-start;padding:18px 0;flex-direction:column;}.nav-links{gap:1rem;flex-wrap:wrap;}.nav-links a{padding:.2rem 0;}.hero{padding-top:34px;}.work-body{grid-template-columns:1fr;}.eyebrow{letter-spacing:.26em;}.profile-photo{height:320px;}}
+@media(max-width:1150px){.hero-grid{grid-template-columns:1fr;gap:28px;}.side-card{max-width:520px;}.profile-photo{height:360px;}.edu-grid{grid-template-columns:1fr 1fr;}.achievement-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:760px){.nav{height:auto;align-items:flex-start;padding:18px 0;flex-direction:column;}.nav-links{gap:1rem;flex-wrap:wrap;}.nav-links a{padding:.2rem 0;}.hero{padding-top:34px;}.figure-box{height:260px;}.figure-box svg{min-height:260px;}.eyebrow{letter-spacing:.26em;}.profile-photo{height:320px;}.edu-grid{grid-template-columns:1fr;}.achievement-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -104,105 +106,68 @@ footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:cente
 </div>
 </section>
 
-<section class="highlight">
+
+<section class="education-section">
 <div class="container">
 <div class="section-head">
-<h2>Highlighted Work</h2>
-<p>Selected research works that represent my contributions to quantum dynamics and simulation.</p>
+<h2>Education</h2>
+<p>Formal academic training in physics.</p>
 </div>
 
-<div class="work-grid">
-<article class="work-card">
-<div class="work-no">01</div>
-<h3>Signatures of non-trivial pairing in two-component quantum walks</h3>
-<div class="journal">Phys. Rev. Lett. 129, 050601 (2022)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Abstract quantum walk figure">
-<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-<defs><linearGradient id="g1" x1="0" x2="1"><stop stop-color="#121a52"/><stop offset=".5" stop-color="#ca2df7"/><stop offset="1" stop-color="#ffe75a"/></linearGradient></defs>
-<rect width="320" height="220" fill="#070b24"/>
-<g stroke="url(#g1)" stroke-width="3" fill="none" opacity=".86">
-<path d="M20 185 C90 25,210 25,300 185"/>
-<path d="M20 35 C90 190,210 190,300 35"/>
-<path d="M30 110 C95 55,210 55,290 110 C215 165,95 165,30 110"/>
-<path d="M45 160 C115 60,205 60,275 160" opacity=".65"/>
-<path d="M45 60 C115 160,205 160,275 60" opacity=".65"/>
-</g>
-<g fill="#ffe75a" opacity=".55">
-<circle cx="90" cy="75" r="5"/><circle cx="228" cy="145" r="5"/><circle cx="160" cy="110" r="6"/>
-</g>
-</svg>
-</div>
-<p>This work identifies pairing signatures in interacting two-component bosonic quantum walks, showing how correlations and mass imbalance reshape transport in low-dimensional systems.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank" rel="noopener">View Paper ↗</a>
+<div class="edu-grid">
+<article class="edu-card">
+<span class="year-tag">2018 – 2022</span>
+<h3>Ph.D. in Physics</h3>
+<p>Indian Institute of Technology Guwahati, India</p>
 </article>
 
-<article class="work-card">
-<div class="work-no">02</div>
-<h3>Flux-enhanced localization and reentrant delocalization</h3>
-<div class="journal">Phys. Rev. A 109, 043308 (2024)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Localization transition figure">
-<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-<rect width="320" height="220" fill="#061126"/>
-<g transform="translate(24 22)">
-<rect x="0" y="0" width="78" height="158" fill="#0b123a" stroke="#355b91"/>
-<rect x="98" y="0" width="78" height="158" fill="#0b123a" stroke="#355b91"/>
-<rect x="196" y="0" width="78" height="158" fill="#0b123a" stroke="#355b91"/>
-<g stroke="#ff4cf0" stroke-width="2" fill="none" opacity=".9">
-<path d="M39 150 C39 110,42 70,39 15"/>
-<path d="M12 150 C35 110,48 70,65 10" opacity=".45"/>
-<path d="M137 150 C120 105,132 50,137 10"/>
-<path d="M110 150 C145 120,170 55,160 10" opacity=".45"/>
-<path d="M235 150 C235 122,236 70,235 35" opacity=".55"/>
-</g>
-<g fill="#ffd84d" opacity=".75">
-<circle cx="39" cy="105" r="4"/><circle cx="137" cy="70" r="4"/><circle cx="235" cy="130" r="3"/>
-</g>
-<text x="16" y="180" fill="#cbd5e1" font-size="14">Φ = 0.5</text>
-<text x="114" y="180" fill="#cbd5e1" font-size="14">Φ = 2.0</text>
-<text x="212" y="180" fill="#cbd5e1" font-size="14">Φ = 5.0</text>
-</g>
-</svg>
-</div>
-<p>We demonstrate how magnetic flux can enhance localization and induce reentrant delocalization in interacting bosonic quantum walks on ladder geometries.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank" rel="noopener">View Paper ↗</a>
+<article class="edu-card">
+<span class="year-tag">2016 – 2018</span>
+<h3>M.Sc. in Physics</h3>
+<p>Indian Institute of Technology Guwahati, India</p>
 </article>
 
-<article class="work-card">
-<div class="work-no">03</div>
-<h3>Digital quantum simulation of flat-band dynamics</h3>
-<div class="journal">arXiv:2508.08734 (2025)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Digital quantum simulation figure">
-<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-<rect width="320" height="220" fill="#f8fafc"/>
-<g transform="translate(22 18)" stroke="#334155" stroke-width="1.2">
-<line x1="20" y1="20" x2="272" y2="20"/><line x1="20" y1="48" x2="272" y2="48"/><line x1="20" y1="76" x2="272" y2="76"/><line x1="20" y1="104" x2="272" y2="104"/>
-<g fill="#60a5fa" stroke="none"><rect x="50" y="8" width="20" height="24" rx="3"/><rect x="122" y="36" width="20" height="24" rx="3"/><rect x="212" y="64" width="20" height="24" rx="3"/></g>
-<g fill="#c084fc" stroke="none"><rect x="90" y="36" width="20" height="24" rx="3"/><rect x="170" y="8" width="20" height="24" rx="3"/><rect x="238" y="92" width="20" height="24" rx="3"/></g>
-<g fill="#22c55e" stroke="none"><rect x="25" y="64" width="20" height="24" rx="3"/><rect x="140" y="92" width="20" height="24" rx="3"/></g>
-</g>
-<g transform="translate(42 135)">
-<polyline points="0,45 30,39 60,37 90,35 120,31 150,25 180,17 220,8" fill="none" stroke="#2563eb" stroke-width="3"/>
-<polyline points="0,20 30,22 60,24 90,28 120,36 150,48 180,61 220,72" fill="none" stroke="#f97316" stroke-width="3"/>
-<line x1="0" y1="82" x2="230" y2="82" stroke="#0f172a"/><line x1="0" y1="0" x2="0" y2="82" stroke="#0f172a"/>
-</g>
-</svg>
-</div>
-<p>This study develops digital quantum-circuit protocols for tunable transport in flat-band and all-bands-flat systems, connecting lattice dynamics with NISQ-device implementation.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.48550/arXiv.2508.08734" target="_blank" rel="noopener">View Paper ↗</a>
+<article class="edu-card">
+<span class="year-tag">2011 – 2014</span>
+<h3>B.Sc. in Physics</h3>
+<p>Midnapore College, Vidyasagar University, India</p>
 </article>
 </div>
 </div>
 </section>
+
+
+
+<section class="achievement-section">
+<div class="container">
+<div class="section-head">
+<h2>Achievements</h2>
+<p>Selected academic achievements and competitive recognitions.</p>
+</div>
+
+<div class="achievement-grid">
+<article class="achievement-card">
+<span class="year-tag">2018</span>
+<h3>CSIR-NET</h3>
+<p>Qualified the national-level CSIR-NET examination with All India Rank 90.</p>
+</article>
+
+<article class="achievement-card">
+<span class="year-tag">2014</span>
+<h3>INSPIRE Scholarship</h3>
+<p>Selected among the top 1% of students in West Bengal, India.</p>
+</article>
+</div>
+</div>
+</section>
+
 </main>
 
 <footer>
 <div class="container">© 2025 Mrinal Kanti Giri. All rights reserved.</div>
 </footer>
+
+
+
 </body>
 </html>

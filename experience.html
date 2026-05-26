@@ -52,6 +52,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(2,8,23,.86);backdrop-fil
 .talk-card{display:grid;grid-template-columns:86px 1fr;gap:16px;align-items:start;}
 .talk-year{width:70px;height:70px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;font-weight:900;font-size:1.05rem;box-shadow:0 16px 36px rgba(37,99,235,.25);}
 .talk-type{display:inline-block;margin-top:10px;color:#38d5ff;font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+.presentation-timeline{max-width:1050px;}
 footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:center;color:#94a3b8;background:#020817;}
 @media(max-width:1150px){.hero-grid{grid-template-columns:1fr;}.edu-grid,.award-grid{grid-template-columns:1fr 1fr;}.talk-grid{grid-template-columns:1fr;}}
 @media(max-width:760px){.nav{height:auto;align-items:flex-start;padding:18px 0;flex-direction:column;}.nav-links{gap:1rem;flex-wrap:wrap;}.nav-links a{padding:.2rem 0;}.hero{padding-top:34px;}.eyebrow{letter-spacing:.26em;}.timeline::before{left:16px;}.timeline-card{margin-left:44px;}.timeline-card::before{left:-37px;}.edu-grid,.award-grid{grid-template-columns:1fr;}.talk-card{grid-template-columns:1fr;}.talk-year{width:58px;height:58px;border-radius:16px;}}
@@ -80,8 +81,8 @@ footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:cente
 <div class="container hero-grid">
 <div>
 <div class="eyebrow">Experience</div>
-<h1 id="experience-title">Academic Journey, Research Positions <span>&amp;</span> Presentations</h1>
-<p class="hero-copy">My academic path spans theoretical condensed matter physics, quantum many-body dynamics, tensor-network based simulations, and digital quantum simulation on near-term quantum devices.</p>
+<!--<h1 id="experience-title">Research Positions <span>&amp;</span> Presentations</h1>-->
+<p class="hero-copy">My research path spans theoretical condensed matter physics, quantum many-body dynamics, tensor-network based simulations, and digital quantum simulation on near-term quantum devices.</p>
 <p class="hero-copy">Through postdoctoral research appointments, invited talks, posters, and conference presentations, I have developed a research profile connecting fundamental quantum physics with practical quantum-computing implementations.</p>
 </div>
 <aside class="side-card" aria-label="Experience summary">
@@ -124,134 +125,63 @@ footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:cente
 <section class="section">
 <div class="container">
 <div class="section-head">
-<h2>Education</h2>
-<p>Formal academic training in physics.</p>
-</div>
-<div class="edu-grid">
-<article class="edu-card">
-<span class="year-tag">2018 – 2022</span>
-<h3>Ph.D. in Physics</h3>
-<p>Indian Institute of Technology Guwahati, India</p>
-<!--<p><strong>Thesis title:</strong> Quantum dynamics of low-dimensional interacting systems using continuous-time quantum walk.</p>-->
-</article>
-<article class="edu-card">
-<span class="year-tag">2016 – 2018</span>
-<h3>M.Sc. in Physics</h3>
-<p>Indian Institute of Technology Guwahati, India</p>
-</article>
-<article class="edu-card">
-<span class="year-tag">2011 – 2014</span>
-<h3>B.Sc. in Physics</h3>
-<p>Midnapore College, Vidyasagar University, India</p>
-</article>
-</div>
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-<div class="section-head">
 <h2>Talks &amp; Presentations</h2>
 <p>Selected invited talks, oral presentations, posters, and scientific meetings.</p>
 </div>
-<div class="talk-grid">
-<article class="talk-card">
-<div class="talk-year">2026</div>
-<div>
-<h3>APS March Meeting</h3>
-<p>Oral presentation on recent work in quantum many-body physics and digital quantum simulation.</p>
-<span class="talk-type">Oral Presentation</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2026</div>
-<div>
-<h3>ICTP–IBM School on Quantum Computing</h3>
-<p>Presented research related to quantum simulation and implementation of quantum algorithms on near-term quantum platforms.</p>
-<span class="talk-type">Poster Presentation</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2026</div>
-<div>
-<h3>Invited Talk at NMIT Bengaluru</h3>
-<p>Delivered an invited research talk highlighting quantum computing, quantum dynamics, and simulation of many-body systems.</p>
-<span class="talk-type">Invited Talk</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2024</div>
-<div>
-<h3>Recent Progress in Many-Body Theories</h3>
-<p>Presented research on many-body quantum dynamics and interacting low-dimensional systems.</p>
-<span class="talk-type">Poster Presentation</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2024</div>
-<div>
-<h3>Ultracold Atoms Japan 2024</h3>
-<p>Presented work connected to lattice models, quantum walks, and transport in interacting quantum systems.</p>
-<span class="talk-type">Poster Presentation</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2023</div>
-<div>
-<h3>3rd International Quantum Tensor Network Plenary Meeting</h3>
-<p>Presented research involving quantum many-body methods, tensor-network perspectives, and low-dimensional systems.</p>
-<span class="talk-type">Poster Presentation</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2022</div>
-<div>
-<h3>YIMQCMT 2022</h3>
-<p>Gave a talk on quantum many-body dynamics and interacting quantum walks in lattice systems.</p>
-<span class="talk-type">Talk</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2022</div>
-<div>
-<h3>QMAT 2022</h3>
-<p>Presented work on low-dimensional quantum systems, transport, and correlated quantum dynamics.</p>
-<span class="talk-type">Talk</span>
-</div>
-</article>
-<article class="talk-card">
-<div class="talk-year">2020</div>
-<div>
-<h3>Fundamental Sciences &amp; Quantum Technologies using Atomic Systems</h3>
-<p>Presented early doctoral research on quantum dynamics and interacting systems.</p>
-<span class="talk-type">Poster Presentation</span>
-</div>
-</article>
-</div>
-</div>
-</section>
+<div class="timeline presentation-timeline">
 
-<section class="section">
-<div class="container">
-<div class="section-head">
-<h2>Awards &amp; Recognition</h2>
-<p>Academic achievements and competitive recognitions.</p>
-</div>
-<div class="award-grid">
-<article class="award-card">
-<span class="year-tag">2018</span>
-<h3>CSIR-NET</h3>
-<p>Qualified national-level examination with All India Rank 90.</p>
+<article class="timeline-card">
+<h3>ICTP–IBM School on Quantum Computing</h3>
+<div class="meta">2026 | Poster Presentation</div>
+<p>Presented research related to quantum simulation and implementation of quantum algorithms on near-term quantum platforms.</p>
 </article>
-<article class="award-card">
-<span class="year-tag">2014</span>
-<h3>INSPIRE Scholarship</h3>
-<p>Selected among the top 1% of students in West Bengal, India.</p>
+
+<article class="timeline-card">
+<h3>Invited Talk at NMIT Bengaluru</h3>
+<div class="meta">2026 | Invited Talk</div>
+<p>Delivered an invited research talk highlighting quantum computing, quantum dynamics, and simulation of many-body systems.</p>
 </article>
-<article class="award-card">
-<span class="year-tag">Research</span>
-<h3>Published Research Record</h3>
-<p>Research articles published in Physical Review Letters, Physical Review A, Physical Review B, and More.</p>
+
+<article class="timeline-card">
+<h3>APS March Meeting</h3>
+<div class="meta">2026 | Oral Presentation</div>
+<p>Oral presentation on recent work in quantum many-body physics and digital quantum simulation.</p>
+</article>
+
+<article class="timeline-card">
+<h3>Recent Progress in Many-Body Theories</h3>
+<div class="meta">2024 | Poster Presentation</div>
+<p>Presented research on many-body quantum dynamics and interacting low-dimensional systems.</p>
+</article>
+
+<article class="timeline-card">
+<h3>Ultracold Atoms Japan 2024</h3>
+<div class="meta">2024 | Poster Presentation</div>
+<p>Presented work connected to lattice models, quantum walks, and transport in interacting quantum systems.</p>
+</article>
+
+<article class="timeline-card">
+<h3>3rd International Quantum Tensor Network Plenary Meeting</h3>
+<div class="meta">2023 | Poster Presentation</div>
+<p>Presented research involving quantum many-body methods, tensor-network perspectives, and low-dimensional systems.</p>
+</article>
+
+<article class="timeline-card">
+<h3>YIMQCMT 2022</h3>
+<div class="meta">2022 | Talk</div>
+<p>Gave a talk on quantum many-body dynamics and interacting quantum walks in lattice systems.</p>
+</article>
+
+<article class="timeline-card">
+<h3>QMAT 2022</h3>
+<div class="meta">2022 | Talk</div>
+<p>Presented work on low-dimensional quantum systems, transport, and correlated quantum dynamics.</p>
+</article>
+
+<article class="timeline-card">
+<h3>Fundamental Sciences &amp; Quantum Technologies using Atomic Systems</h3>
+<div class="meta">2020 | Poster Presentation</div>
+<p>Presented early doctoral research on quantum dynamics and interacting systems.</p>
 </article>
 </div>
 </div>
