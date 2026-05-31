@@ -30,6 +30,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(2,8,23,.86);backdrop-fil
 .contact-item{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:14px;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.12);}
 .contact-item span{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);font-weight:700;}
 .contact-item a,.contact-item p{color:#dbeafe;font-size:.95rem;word-break:break-word;}
+
+.visitor-box{margin-top:14px;padding:12px 14px;border-radius:14px;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.12);text-align:center;}
+.visitor-box span{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);font-weight:700;margin-bottom:10px;}
+.visitor-box img{max-width:100%;height:auto;border:0;}
+.visitor-box p{color:#dbeafe;font-size:.9rem;margin-top:8px;}
+
 footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:center;color:#94a3b8;background:#020817;margin-top:50px;}
 @media(max-width:1100px){.hero-grid{grid-template-columns:1fr;}}
 @media(max-width:760px){.nav{height:auto;align-items:flex-start;padding:18px 0;flex-direction:column;}.nav-links{gap:1rem;flex-wrap:wrap;}.nav-links a{padding:.2rem 0;}.hero{padding-top:34px;}.eyebrow{letter-spacing:.26em;}}
@@ -66,16 +72,29 @@ footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:cente
 
 <aside class="contact-card">
 <h3>Contact Information</h3>
+
 <div class="contact-list">
 <div class="contact-item">
 <span>Email</span>
 <a href="mailto:mrinalphy333@gmail.com">mrinalphy333@gmail.com</a>
 </div>
+
 <div class="contact-item">
 <span>LinkedIn</span>
 <a href="https://linkedin.com/in/mrinal-kanti-giri" target="_blank">linkedin.com/in/mrinal-kanti-giri</a>
 </div>
 </div>
+
+<div class="visitor-box">
+<span>Visitor Statistics</span>
+
+<a href="https://info.flagcounter.com/fieX" target="_blank" rel="noopener">
+<img src="https://s01.flagcounter.com/count2/fieX/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+</a>
+
+<p>Visitors by country</p>
+</div>
+
 </aside>
 </div>
 </section>
