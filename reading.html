@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading · Mrinal Kanti Giri</title>
+<meta name="description" content="Recommended reading and interesting recent articles on quantum simulation, NISQ computing, tensor networks, quantum walks, and localization, curated by Mrinal Kanti Giri.">
+<link rel="canonical" href="https://mrinal-phy.github.io/mrinal-kanti-giri.github.io/reading.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<div class="page">
+
+<header>
+<a class="site-name" href="index.html">Mrinal Kanti Giri</a>
+<p class="site-tagline">Research Fellow · Nanyang Technological University, Singapore</p>
+<nav aria-label="Main navigation">
+<a href="index.html">About</a>
+<a href="research.html">Research</a>
+<a href="publications.html">Publications</a>
+<a href="experience.html">Experience</a>
+<a class="active" href="reading.html">Reading</a>
+<a href="cv.pdf">CV</a>
+</nav>
+</header>
+
+<main>
+<div class="tabs" role="tablist" aria-label="Reading lists">
+<button class="tab" role="tab" id="tab-recommended" aria-controls="recommended" aria-selected="true">Recommended Reading</button>
+<button class="tab" role="tab" id="tab-articles" aria-controls="articles" aria-selected="false">Interesting Articles</button>
+</div>
+
+<!-- ============ Tab 1: Recommended reading ============ -->
+<section class="tab-panel" id="recommended" role="tabpanel" aria-labelledby="tab-recommended">
+<p class="student-note"><strong>For students:</strong> I am happy to informally guide motivated students interested in quantum simulation, tensor networks, or running quantum circuits on real hardware, for example through a short project or thesis work. I do not hold an official position or funding to offer, so please <a href="mailto:mrinalphy333@gmail.com">email me</a> with your background and interests. The lists below are a good place to start.</p>
+<p>Classic papers and reviews I recommend to anyone starting out in quantum simulation and many-body dynamics. Click a topic to open its list.</p>
+<p class="topic-tools"><button type="button" data-toggle-all>Open all</button></p>
+
+<div class="topic-grid">
+
+<details class="topic">
+<summary><span><h3>Quantum Simulation &amp; NISQ Computing</h3><span class="blurb">From Feynman's idea to today's hardware</span></span><span class="count">6 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1007/BF02650179" target="_blank" rel="noopener">Simulating physics with computers</a><br>
+<span class="cite">R. P. Feynman, <em>Int. J. Theor. Phys.</em> 21, 467 (1982)</span><br>
+<span class="why">Where the idea of a quantum simulator began.</span></li>
+<li><a href="https://doi.org/10.1126/science.273.5278.1073" target="_blank" rel="noopener">Universal quantum simulators</a><br>
+<span class="cite">S. Lloyd, <em>Science</em> 273, 1073 (1996)</span><br>
+<span class="why">Shows that local Hamiltonians can be simulated efficiently with Trotterized circuits, the basis of digital quantum simulation.</span></li>
+<li><a href="https://doi.org/10.1103/RevModPhys.86.153" target="_blank" rel="noopener">Quantum simulation</a><br>
+<span class="cite">I. M. Georgescu, S. Ashhab, and F. Nori, <em>Rev. Mod. Phys.</em> 86, 153 (2014)</span><br>
+<span class="why">A broad review of analog and digital quantum simulation.</span></li>
+<li><a href="https://doi.org/10.22331/q-2018-08-06-79" target="_blank" rel="noopener">Quantum computing in the NISQ era and beyond</a><br>
+<span class="cite">J. Preskill, <em>Quantum</em> 2, 79 (2018)</span><br>
+<span class="why">The paper that named the NISQ era and set out what near-term devices can do.</span></li>
+<li><a href="https://doi.org/10.1103/PhysRevLett.119.180509" target="_blank" rel="noopener">Error mitigation for short-depth quantum circuits</a><br>
+<span class="cite">K. Temme, S. Bravyi, and J. M. Gambetta, <em>Phys. Rev. Lett.</em> 119, 180509 (2017)</span><br>
+<span class="why">Introduces zero-noise extrapolation, now standard in hardware experiments.</span></li>
+<li><a href="https://doi.org/10.1038/s41586-023-06096-3" target="_blank" rel="noopener">Evidence for the utility of quantum computing before fault tolerance</a><br>
+<span class="cite">Y. Kim <em>et al.</em>, <em>Nature</em> 618, 500 (2023)</span><br>
+<span class="why">Large-scale many-body dynamics on an IBM processor with error mitigation.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Tensor-Network Methods</h3><span class="blurb">MPS, DMRG, TEBD and TDVP</span></span><span class="count">4 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1016/j.aop.2014.06.013" target="_blank" rel="noopener">A practical introduction to tensor networks: Matrix product states and projected entangled pair states</a><br>
+<span class="cite">R. Orús, <em>Ann. Phys.</em> 349, 117 (2014)</span><br>
+<span class="why">The friendliest entry point to tensor networks.</span></li>
+<li><a href="https://doi.org/10.1016/j.aop.2010.09.012" target="_blank" rel="noopener">The density-matrix renormalization group in the age of matrix product states</a><br>
+<span class="cite">U. Schollwöck, <em>Ann. Phys.</em> 326, 96 (2011)</span><br>
+<span class="why">The standard reference for DMRG and MPS algorithms.</span></li>
+<li><a href="https://doi.org/10.1103/PhysRevLett.93.040502" target="_blank" rel="noopener">Efficient simulation of one-dimensional quantum many-body systems</a><br>
+<span class="cite">G. Vidal, <em>Phys. Rev. Lett.</em> 93, 040502 (2004)</span><br>
+<span class="why">Introduces TEBD for real-time evolution.</span></li>
+<li><a href="https://doi.org/10.1103/PhysRevB.94.165116" target="_blank" rel="noopener">Unifying time evolution and optimization with matrix product states</a><br>
+<span class="cite">J. Haegeman <em>et al.</em>, <em>Phys. Rev. B</em> 94, 165116 (2016)</span><br>
+<span class="why">The TDVP algorithm for MPS.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Quantum Walks</h3><span class="blurb">Theory and the first correlated-walk experiment</span></span><span class="count">2 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1103/PhysRevLett.102.180501" target="_blank" rel="noopener">Universal computation by quantum walk</a><br>
+<span class="cite">A. M. Childs, <em>Phys. Rev. Lett.</em> 102, 180501 (2009)</span><br>
+<span class="why">Why continuous-time quantum walks matter for computation.</span></li>
+<li><a href="https://doi.org/10.1126/science.1260364" target="_blank" rel="noopener">Strongly correlated quantum walks in optical lattices</a><br>
+<span class="cite">P. M. Preiss <em>et al.</em>, <em>Science</em> 347, 1229 (2015)</span><br>
+<span class="why">Experiment showing interacting two-particle quantum walks and bound pairs.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Localization &amp; Flat Bands</h3><span class="blurb">Anderson, many-body localization, compact states</span></span><span class="count">3 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1103/PhysRev.109.1492" target="_blank" rel="noopener">Absence of diffusion in certain random lattices</a><br>
+<span class="cite">P. W. Anderson, <em>Phys. Rev.</em> 109, 1492 (1958)</span><br>
+<span class="why">The original paper on Anderson localization.</span></li>
+<li><a href="https://doi.org/10.1103/RevModPhys.91.021001" target="_blank" rel="noopener">Colloquium: Many-body localization, thermalization, and entanglement</a><br>
+<span class="cite">D. A. Abanin, E. Altman, I. Bloch, and M. Serbyn, <em>Rev. Mod. Phys.</em> 91, 021001 (2019)</span><br>
+<span class="why">A readable overview of localization in interacting systems.</span></li>
+<li><a href="https://doi.org/10.1080/23746149.2018.1473052" target="_blank" rel="noopener">Artificial flat band systems: from lattice models to experiments</a><br>
+<span class="cite">D. Leykam, A. Andreanov, and S. Flach, <em>Adv. Phys. X</em> 3, 1473052 (2018)</span><br>
+<span class="why">Compact localized states and flat-band lattices.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Books &amp; Learning Resources</h3><span class="blurb">Textbook, courses, and software</span></span><span class="count">4 items</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1017/CBO9780511976667" target="_blank" rel="noopener">Quantum Computation and Quantum Information</a>, M. A. Nielsen and I. L. Chuang (Cambridge University Press)<br>
+<span class="why">The standard textbook.</span></li>
+<li><a href="https://quantum.cloud.ibm.com/learning" target="_blank" rel="noopener">IBM Quantum Learning</a><br>
+<span class="why">Free hands-on courses on Qiskit and running circuits on real hardware.</span></li>
+<li><a href="https://scipost.org/SciPostPhysLectNotes.5" target="_blank" rel="noopener">Efficient numerical simulations with tensor networks: TeNPy</a>, J. Hauschild and F. Pollmann, <em>SciPost Phys. Lect. Notes</em> 5 (2018)<br>
+<span class="why">Lecture notes with a practical Python library (<a href="https://tenpy.readthedocs.io" target="_blank" rel="noopener">TeNPy</a>); see also <a href="https://itensor.org" target="_blank" rel="noopener">ITensor</a>.</span></li>
+<li>New papers daily: <a href="https://arxiv.org/list/quant-ph/new" target="_blank" rel="noopener">arXiv quant-ph</a> · <a href="https://arxiv.org/list/cond-mat.quant-gas/new" target="_blank" rel="noopener">cond-mat.quant-gas</a></li>
+</ul>
+</details>
+
+</div>
+</section>
+
+<!-- ============ Tab 2: Interesting articles ============ -->
+<section class="tab-panel" id="articles" role="tabpanel" aria-labelledby="tab-articles">
+<p>Recent papers I found exciting: milestones in quantum hardware and many-body experiments on quantum processors. Click a topic to open its list.</p>
+<p class="topic-tools"><button type="button" data-toggle-all>Open all</button></p>
+
+<div class="topic-grid">
+
+<details class="topic">
+<summary><span><h3>Quantum Hardware Milestones</h3><span class="blurb">Error correction and logical qubits</span></span><span class="count">3 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1038/s41586-024-08449-y" target="_blank" rel="noopener">Quantum error correction below the surface code threshold</a><br>
+<span class="cite">Google Quantum AI and Collaborators, <em>Nature</em> 638, 920 (2025)</span><br>
+<span class="why">Logical error rates that fall as the code grows: a key step towards fault tolerance.</span></li>
+<li><a href="https://doi.org/10.1038/s41586-023-06927-3" target="_blank" rel="noopener">Logical quantum processor based on reconfigurable atom arrays</a><br>
+<span class="cite">D. Bluvstein <em>et al.</em>, <em>Nature</em> 626, 58 (2024)</span><br>
+<span class="why">Algorithms run on dozens of logical qubits with neutral atoms.</span></li>
+<li><a href="https://doi.org/10.1038/s41586-024-07998-6" target="_blank" rel="noopener">Phase transitions in random circuit sampling</a><br>
+<span class="cite">A. Morvan <em>et al.</em>, <em>Nature</em> 634, 328 (2024)</span><br>
+<span class="why">Shows when noise wins and when a quantum processor stays beyond classical reach.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Many-Body Physics on Quantum Processors</h3><span class="blurb">New phases and bound states on real devices</span></span><span class="count">3 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1038/s41586-021-04257-w" target="_blank" rel="noopener">Time-crystalline eigenstate order on a quantum processor</a><br>
+<span class="cite">X. Mi <em>et al.</em>, <em>Nature</em> 601, 531 (2022)</span><br>
+<span class="why">A discrete time crystal realized on a superconducting chip.</span></li>
+<li><a href="https://doi.org/10.1038/s41586-022-05348-y" target="_blank" rel="noopener">Formation of robust bound states of interacting microwave photons</a><br>
+<span class="cite">A. Morvan <em>et al.</em>, <em>Nature</em> 612, 240 (2022)</span><br>
+<span class="why">Interacting photons form bound states that survive integrability breaking, closely related to pairing in quantum walks.</span></li>
+<li><a href="https://doi.org/10.1038/s41586-023-06505-7" target="_blank" rel="noopener">Measurement-induced entanglement and teleportation on a noisy quantum processor</a><br>
+<span class="cite">Google Quantum AI and Collaborators, <em>Nature</em> 622, 481 (2023)</span><br>
+<span class="why">Measurement-induced phases observed directly on hardware.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Quantum Walks on Superconducting Qubits</h3><span class="blurb">Correlated walks on programmable chips</span></span><span class="count">2 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1126/science.aaw1611" target="_blank" rel="noopener">Strongly correlated quantum walks with a 12-qubit superconducting processor</a><br>
+<span class="cite">Z. Yan <em>et al.</em>, <em>Science</em> 364, 753 (2019)</span><br>
+<span class="why">Interacting two-particle walks and fermionization on a qubit chain.</span></li>
+<li><a href="https://doi.org/10.1126/science.abg7812" target="_blank" rel="noopener">Quantum walks on a programmable two-dimensional 62-qubit superconducting processor</a><br>
+<span class="cite">M. Gong <em>et al.</em>, <em>Science</em> 372, 948 (2021)</span><br>
+<span class="why">Single- and two-particle walks in two dimensions with interference control.</span></li>
+</ul>
+</details>
+
+<details class="topic">
+<summary><span><h3>Quantum vs. Classical Simulation</h3><span class="blurb">Where is the real quantum advantage?</span></span><span class="count">3 papers</span></summary>
+<ul class="reading">
+<li><a href="https://doi.org/10.1038/s41586-022-04940-6" target="_blank" rel="noopener">Practical quantum advantage in quantum simulation</a><br>
+<span class="cite">A. J. Daley <em>et al.</em>, <em>Nature</em> 607, 667 (2022)</span><br>
+<span class="why">A clear perspective on where quantum simulators can beat classical methods.</span></li>
+<li><a href="https://doi.org/10.1103/PRXQuantum.5.010308" target="_blank" rel="noopener">Efficient tensor network simulation of IBM's Eagle kicked Ising experiment</a><br>
+<span class="cite">J. Tindall <em>et al.</em>, <em>PRX Quantum</em> 5, 010308 (2024)</span><br>
+<span class="why">Tensor networks reproduce IBM's 127-qubit "utility" experiment on a laptop.</span></li>
+<li><a href="https://doi.org/10.1126/sciadv.adk4321" target="_blank" rel="noopener">Fast and converged classical simulations of evidence for the utility of quantum computing before fault tolerance</a><br>
+<span class="cite">T. Begušić <em>et al.</em>, <em>Sci. Adv.</em> 10, eadk4321 (2024)</span><br>
+<span class="why">Another classical answer to the same experiment, using Pauli-path methods.</span></li>
+</ul>
+</details>
+
+</div>
+</section>
+</main>
+
+<footer>
+<span>© 2026 Mrinal Kanti Giri</span>
+</footer>
+
+</div>
+
+<script>
+// Tabs: show one panel at a time; #articles in the URL opens the second tab
+(function () {
+  var tabs = document.querySelectorAll('.tab');
+  function select(id) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('aria-controls') === id;
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var id = t.getAttribute('aria-controls');
+      select(id);
+      history.replaceState(null, '', '#' + id);
+    });
+  });
+  select(location.hash === '#articles' ? 'articles' : 'recommended');
+
+  // "Open all" / "Close all" for the cards in each panel
+  document.querySelectorAll('[data-toggle-all]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cards = btn.closest('.tab-panel').querySelectorAll('details.topic');
+      var open = btn.textContent === 'Open all';
+      cards.forEach(function (d) { d.open = open; });
+      btn.textContent = open ? 'Close all' : 'Open all';
+    });
+  });
+})();
+</script>
+<script src="site.js" defer></script>
+<script src="qside.js" defer></script>
+<script src="qubi-scenes.js" defer></script>
+<script src="qubi.js" defer></script>
+</body>
+</html>

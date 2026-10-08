@@ -3,316 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research | Mrinal Kanti Giri</title>
-
-<style>
-:root{
---bg:#020817;
---bg2:#071326;
---card:#071a33cc;
---line:#1e4f85;
---text:#f8fafc;
---muted:#cbd5e1;
---soft:#94a3b8;
---blue:#4f9cff;
---cyan:#38d5ff;
---shadow:0 30px 80px rgba(0,0,0,.35);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-color:var(--text);
-background:
-radial-gradient(circle at 20% 10%,rgba(37,99,235,.20),transparent 28%),
-radial-gradient(circle at 72% 12%,rgba(14,165,233,.18),transparent 27%),
-linear-gradient(180deg,#020817 0%,#031126 52%,#020817 100%);
-line-height:1.65;
-overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-.container{width:min(94%,1480px);margin:0 auto;}
-
-header{
-position:sticky;
-top:0;
-z-index:50;
-background:rgba(2,8,23,.86);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(96,165,250,.22);
-}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
-.brand h2{font-size:1.45rem;line-height:1.1;letter-spacing:-.03em;}
-.brand p{color:var(--cyan);font-size:.92rem;margin-top:.2rem;}
-.nav-links{display:flex;gap:2.2rem;align-items:center;}
-.nav-links a{color:#e5e7eb;font-size:.96rem;padding:1.72rem .1rem;border-bottom:2px solid transparent;transition:.25s ease;}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);border-bottom-color:var(--blue);}
-
-.hero{padding:70px 0 42px;}
-.hero-grid{display:grid;grid-template-columns:1fr .6fr;gap:42px;align-items:center;}
-.eyebrow{color:var(--blue);font-size:1.5rem;font-weight:750;letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;}
-#research-title{max-width:700px;font-size:clamp(2.2rem,3.2vw,3.8rem);line-height:1.16;letter-spacing:-.025em;font-weight:650;margin-bottom:20px;}
-#research-title span{background:linear-gradient(90deg,#60a5fa,#38d5ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.hero-copy{color:#d8e1ee;font-size:1.04rem;max-width:790px;margin-bottom:16px;}
-.side-card{background:linear-gradient(180deg,rgba(8,30,61,.88),rgba(3,13,30,.96));border:1px solid rgba(96,165,250,.28);border-radius:24px;padding:24px;box-shadow:var(--shadow);}
-.side-card h3{font-size:1.18rem;margin-bottom:14px;color:#fff;}
-.expertise-list{display:flex;flex-wrap:wrap;gap:10px;}
-.expertise-list span{color:#bfdbfe;border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.08);border-radius:999px;padding:8px 12px;font-size:.88rem;}
-
-.research-mini-links{margin-top:20px;padding-top:18px;border-top:1px solid rgba(96,165,250,.18);}
-.research-mini-links h3{font-size:1rem;margin-bottom:10px;color:#fff;}
-.research-mini-links a{display:flex;align-items:center;gap:9px;color:#dbeafe;font-size:.93rem;padding:7px 0;transition:.25s ease;}
-.research-mini-links a span{color:var(--cyan);font-weight:900;}
-.research-mini-links a:hover{color:var(--blue);transform:translateX(4px);}
-
-.section{padding:42px 0;}
-.section-head{text-align:center;margin-bottom:24px;}
-.section-head h2{color:var(--blue);font-size:1.6rem;letter-spacing:.10em;text-transform:uppercase;margin-bottom:8px;}
-.section-head p{color:#cbd5e1;font-size:1rem;}
-.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.area-card{background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));border:1px solid rgba(96,165,250,.28);border-radius:18px;padding:18px;box-shadow:0 22px 55px rgba(0,0,0,.22);transition:.25s ease;min-height:170px;}
-.area-card:hover{transform:translateY(-5px);border-color:rgba(56,213,255,.65);}
-.area-card h3{font-size:1.05rem;line-height:1.25;color:#fff;margin-bottom:9px;}
-.area-card p{color:#d6deea;font-size:.92rem;line-height:1.58;}
-.paper-link{margin:18px auto 0;display:flex;width:max-content;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;color:#60a5fa;border:1px solid rgba(96,165,250,.32);background:rgba(96,165,250,.07);font-weight:700;font-size:.92rem;}
-.paper-link:hover{background:rgba(96,165,250,.16);}
-
-.highlight{padding:42px 0 72px;background:linear-gradient(180deg,rgba(7,19,38,.20),rgba(7,19,38,.65));}
-.work-slider{position:relative;margin-top:18px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;}
-.work-window{overflow:hidden;border-radius:18px;}
-.work-track{display:flex;transition:transform .7s cubic-bezier(.22,.61,.36,1);will-change:transform;}
-.work-card{min-width:100%;min-height:420px;background:linear-gradient(180deg,rgba(8,30,61,.82),rgba(3,13,30,.92));border:1px solid rgba(96,165,250,.28);border-radius:14px;padding:24px;box-shadow:0 22px 55px rgba(0,0,0,.22);transition:.25s ease;}
-.work-card:hover{border-color:rgba(56,213,255,.65);}
-.work-no{color:var(--blue);font-weight:900;letter-spacing:.16em;font-size:1.05rem;margin-bottom:6px;}
-.work-card h3{font-size:1.42rem;line-height:1.16;letter-spacing:-.025em;margin-bottom:7px;color:#fff;}
-.journal{color:#38d5ff;font-style:italic;margin-bottom:16px;font-size:.95rem;}
-.work-body{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;margin-top:10px;}
-.figure-box{height:300px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#061329;display:grid;place-items:center;position:relative;}
-.figure-box img.work-img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;background:#061329;padding:8px;}
-.work-card p{color:#d6deea;font-size:.96rem;line-height:1.7;text-align:left;}
-.slide-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(96,165,250,.35);background:rgba(96,165,250,.10);color:#dbeafe;font-size:1.5rem;cursor:pointer;display:grid;place-items:center;transition:.25s ease;}
-.slide-btn:hover{background:rgba(96,165,250,.22);border-color:rgba(56,213,255,.75);transform:translateY(-2px);}
-.slider-dots{grid-column:1/-1;display:flex;justify-content:center;gap:10px;margin-top:10px;}
-.slider-dot{width:10px;height:10px;border-radius:999px;border:0;background:rgba(148,163,184,.55);cursor:pointer;transition:.25s ease;}
-.slider-dot.active{width:28px;background:linear-gradient(90deg,#60a5fa,#38d5ff);}
-
-footer{border-top:1px solid rgba(96,165,250,.18);padding:28px 0;text-align:center;color:#94a3b8;background:#020817;}
-
-@media(max-width:1150px){
-.hero-grid{grid-template-columns:1fr;}
-.area-grid{grid-template-columns:repeat(2,1fr);}
-.work-card{min-height:auto;}
-}
-@media(max-width:760px){
-.nav{height:auto;align-items:flex-start;padding:18px 0;flex-direction:column;}
-.nav-links{gap:1rem;flex-wrap:wrap;}
-.nav-links a{padding:.2rem 0;}
-.hero{padding-top:34px;}
-.area-grid{grid-template-columns:1fr;}
-.work-slider{grid-template-columns:1fr;}
-.slide-btn{display:none;}
-.work-body{grid-template-columns:1fr;}
-.figure-box{height:230px;}
-.eyebrow{letter-spacing:.26em;}
-}
-</style>
+<title>Research · Mrinal Kanti Giri</title>
+<meta name="description" content="Research of Mrinal Kanti Giri: digital quantum simulation on IBM Quantum hardware, quantum walks, flat-band transport, localization, and tensor-network methods.">
+<link rel="canonical" href="https://mrinal-phy.github.io/mrinal-kanti-giri.github.io/research.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<header>
-<div class="container nav">
-<a class="brand" href="index.html" aria-label="Home">
-<h2>Mrinal Kanti Giri</h2>
-<p>Theoretical &amp; Computational Physicist</p>
-</a>
+<div class="page">
 
-<nav class="nav-links" aria-label="Main navigation">
-<a href="about.html">About</a>
+<header>
+<a class="site-name" href="index.html">Mrinal Kanti Giri</a>
+<p class="site-tagline">Research Fellow · Nanyang Technological University, Singapore</p>
+<nav aria-label="Main navigation">
+<a href="index.html">About</a>
 <a class="active" href="research.html">Research</a>
 <a href="publications.html">Publications</a>
 <a href="experience.html">Experience</a>
-<!--<a href="skills.html">Skills</a>-->
-<a href="contact.html">Contact</a>
+<a href="reading.html">Reading</a>
+<a href="cv.pdf">CV</a>
 </nav>
-</div>
 </header>
 
 <main>
-<section class="hero">
-<div class="container hero-grid">
+<h2>Overview</h2>
+<p>My research focuses on quantum many-body systems using theoretical modeling, numerical simulation, and quantum-circuit-based approaches. I study how interactions, topology, disorder, and external fields influence quantum transport, localization, and dynamical behavior in low-dimensional systems.</p>
+<p>A major direction of my current work is digital quantum simulation on near-term quantum devices, where condensed matter models are mapped into quantum circuits and optimized for noisy superconducting hardware.</p>
+
+<h2>Research Areas</h2>
+<ul class="areas">
+<li><strong>Digital quantum simulation</strong>: quantum-circuit implementations of lattice and many-body models on NISQ hardware.</li>
+<li><strong>Quantum walks &amp; transport</strong>: transport, localization, and pairing dynamics in interacting low-dimensional systems.</li>
+<li><strong>Flat-band &amp; topological systems</strong>: compact localization and tunable transport in flat-band and topological lattices.</li>
+<li><strong>Localization phenomena</strong>: disorder- and quasiperiodicity-driven localization transitions.</li>
+<li><strong>Scalable NISQ algorithms</strong>: noise-aware circuit optimization for larger spin and condensed matter models.</li>
+<li><strong>Quantum machine learning</strong>: variational and kernel-based quantum algorithms for learning properties of many-body states and identifying quantum phases.</li>
+<li><strong>Many-body quantum dynamics</strong>: nonequilibrium dynamics, quantum correlations, and critical behavior.</li>
+</ul>
+
+<h2>Methods &amp; Tools</h2>
+<dl class="skills">
+<dt>Quantum computing</dt><dd>Trotterized time evolution, circuit compression and optimization, error mitigation, noise modelling, VQA, QITE, hardware execution on IBM Quantum</dd>
+<dt>Numerical methods</dt><dd>MPS, DMRG, TEBD, TDVP, exact diagonalization, cluster mean-field theory, stochastic series expansion QMC</dd>
+<dt>Software</dt><dd>Python, Qiskit, Qiskit Runtime, Git, Linux, HPC clusters</dd>
+</dl>
+
+<h2>Selected Works</h2>
+
+<article class="highlight">
+<img src="images/flatband_ibmq.png" alt="Digital quantum simulation of flat-band dynamics" loading="lazy">
 <div>
-<div class="eyebrow">Research</div>
-<h1 id="research-title">Quantum Dynamics, Simulation <span>&amp;</span> Many-Body Physics</h1>
-<p class="hero-copy">My research focuses on quantum many-body systems using theoretical modeling, numerical simulation, and quantum-circuit-based approaches. I study how interactions, topology, disorder, and external fields influence quantum transport, localization, and dynamical behavior in low-dimensional systems.</p>
-<p class="hero-copy">A major direction of my current work is digital quantum simulation on near-term quantum devices, where condensed matter models are mapped into quantum circuits and optimized for noisy superconducting hardware.</p>
-</div>
-
-<aside class="side-card" aria-label="Core expertise">
-<h3>Core Expertise</h3>
-<div class="expertise-list">
-<span>Quantum Simulation</span>
-<span>Quantum Dynamics</span>
-<span>Many-Body Physics</span>
-<span>Quantum Transport</span>
-<span>NISQ Computing</span>
-<span>Quantum Circuits</span>
-</div>
-
-<div class="research-mini-links" aria-label="Research links">
-<h3>Research Links</h3>
-<a href="publications.html"><span>↗</span> Publications</a>
-<a href="https://scholar.google.com/" target="_blank" rel="noopener"><span>↗</span> Google Scholar</a>
-<a href="https://arxiv.org/search/?query=Mrinal+Kanti+Giri&searchtype=author" target="_blank" rel="noopener"><span>↗</span> arXiv</a>
-</div>
-</aside>
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-<div class="section-head">
-<h2>Key Research Areas</h2>
-</div>
-
-<div class="area-grid">
-<article class="area-card">
-<h3>Digital Quantum Simulation</h3>
-<p>Quantum-circuit implementations of lattice and many-body models on NISQ quantum hardware.</p>
-</article>
-
-<article class="area-card">
-<h3>Quantum Walks &amp; Transport</h3>
-<p>Transport, localization, and pairing dynamics in interacting low-dimensional quantum systems.</p>
-</article>
-
-<article class="area-card">
-<h3>Flat-Band &amp; Topological Systems</h3>
-<p>Compact localization and tunable transport in flat-band and topological lattice geometries.</p>
-</article>
-
-<article class="area-card">
-<h3>Localization Phenomena</h3>
-<p>Disorder and quasiperiodic driven localization transitions in quantum systems.</p>
-</article>
-
-<article class="area-card">
-<h3>Scalable NISQ Algorithms</h3>
-<p>Noise-aware circuit optimization for larger spin and condensed matter models.</p>
-</article>
-
-<article class="area-card">
-<h3>Many-Body Quantum Dynamics</h3>
-<p>Nonequilibrium dynamics, quantum correlations, and critical behavior beyond classical limits.</p>
-</article>
-</div>
-</div>
-</section>
-
-<section class="highlight">
-<div class="container">
-<div class="section-head">
-<h2>Highlighted Works</h2>
-<p>Selected research works that represent my contributions to quantum dynamics and simulation.</p>
-</div>
-
-<div class="work-slider" data-slider>
-<button class="slide-btn prev" type="button" aria-label="Previous highlighted work">‹</button>
-<div class="work-window">
-<div class="work-track">
-
-<article class="work-card">
-<div class="work-no">01</div>
 <h3>Digital quantum simulation of flat-band dynamics</h3>
-<div class="journal">Quantum Sci. Technol. 11 035064 (2026)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Digital quantum simulation figure">
-<img class="work-img" src="images/flatband_ibmq.png" alt="Digital quantum simulation of flat-band dynamics">
+<p>High-fidelity digital quantum simulations of flat-band and all-bands-flat lattices using tensor-network-based circuit compression. The compressed circuits reveal controllable quantum transport, where the all-bands-flat lattice acts as a quantum switch.</p>
+<a href="https://doi.org/10.1088/2058-9565/ae9007" target="_blank" rel="noopener"><em>Quantum Sci. Technol.</em> 11, 035064 (2026)</a> <span class="if">IF 4.9</span>
 </div>
-<p>Here we present high-fidelity digital quantum simulations of flat-band and all-bands-flat lattices using tensor-network-based circuit compression. The compressed circuits reveal controllable quantum transport, where the all-bands-flat lattice acts as a quantum switch.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.1088/2058-9565/ae9007" target="_blank" rel="noopener">View Paper ↗</a>
 </article>
 
-<article class="work-card">
-<div class="work-no">02</div>
+<article class="highlight">
+<img src="images/flux_loc_pra.png" alt="Flux-enhanced localization and reentrant delocalization" loading="lazy">
+<div>
 <h3>Flux-enhanced localization and reentrant delocalization</h3>
-<div class="journal">Phys. Rev. A 109, 043308 (2024)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Flux-enhanced localization figure">
-<img class="work-img" src="images/flux_loc_pra.png" alt="Flux-enhanced localization and reentrant delocalization">
+<p>Magnetic flux can enhance localization and induce reentrant delocalization in interacting bosonic quantum walks on ladder geometries.</p>
+<a href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank" rel="noopener"><em>Phys. Rev. A</em> 109, 043308 (2024)</a> <span class="if">IF 3.0</span>
 </div>
-<p>We demonstrate how magnetic flux can enhance localization and induce reentrant delocalization in interacting bosonic quantum walks on ladder geometries.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.1103/PhysRevA.109.043308" target="_blank" rel="noopener">View Paper ↗</a>
 </article>
 
-<article class="work-card">
-<div class="work-no">03</div>
-<h3>Signatures of non-trivial pairing in two-component quantum walks</h3>
-<div class="journal">Phys. Rev. Lett. 129, 050601 (2022)</div>
-<div class="work-body">
-<div class="figure-box" aria-label="Pairing quantum walk figure">
-<img class="work-img" src="images/prl_pairing.png" alt="Pairing signatures in two-component quantum walks">
+<article class="highlight">
+<img src="images/prl_pairing.png" alt="Pairing signatures in two-component quantum walks" loading="lazy">
+<div>
+<h3>Non-trivial pairing in two-component quantum walks</h3>
+<p>Signatures of nontrivial on-site pairing in the quantum walk of strongly interacting two-component bosons in a one-dimensional lattice, where competing intra- and intercomponent interactions lead to bound-state formation.</p>
+<a href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank" rel="noopener"><em>Phys. Rev. Lett.</em> 129, 050601 (2022)</a> <span class="if">IF 9.4</span>
 </div>
-<p>We obtain signatures of nontrivial on-site pairing in the quantum walk of strongly interacting two-component bosons in a one-dimensional lattice, showing how competing intra- and intercomponent interactions lead to bound-state formation.</p>
-</div>
-<a class="paper-link" href="https://doi.org/10.1103/PhysRevLett.129.050601" target="_blank" rel="noopener">View Paper ↗</a>
 </article>
-
-</div>
-</div>
-<button class="slide-btn next" type="button" aria-label="Next highlighted work">›</button>
-<div class="slider-dots" aria-label="Highlighted work slide controls">
-<button class="slider-dot active" type="button" aria-label="Show highlighted work 1"></button>
-<button class="slider-dot" type="button" aria-label="Show highlighted work 2"></button>
-<button class="slider-dot" type="button" aria-label="Show highlighted work 3"></button>
-</div>
-</div>
-</div>
-</section>
 </main>
 
 <footer>
-<div class="container">© 2025 Mrinal Kanti Giri. All rights reserved.</div>
+<span>© 2026 Mrinal Kanti Giri</span>
 </footer>
 
-<script>
-const slider = document.querySelector('[data-slider]');
-if (slider) {
-  const track = slider.querySelector('.work-track');
-  const slides = Array.from(slider.querySelectorAll('.work-card'));
-  const dots = Array.from(slider.querySelectorAll('.slider-dot'));
-  const prev = slider.querySelector('.prev');
-  const next = slider.querySelector('.next');
-  let current = 0;
-  let timer;
-
-  function showSlide(index) {
-    current = (index + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
-  }
-
-  function startAutoSlide() {
-    timer = setInterval(() => showSlide(current + 1), 8500);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(timer);
-    startAutoSlide();
-  }
-
-  next.addEventListener('click', () => { showSlide(current + 1); resetAutoSlide(); });
-  prev.addEventListener('click', () => { showSlide(current - 1); resetAutoSlide(); });
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); resetAutoSlide(); }));
-  slider.addEventListener('mouseenter', () => clearInterval(timer));
-  slider.addEventListener('mouseleave', startAutoSlide);
-
-  showSlide(0);
-  startAutoSlide();
-}
-</script>
+</div>
+<script src="site.js" defer></script>
+<script src="qside.js" defer></script>
+<script src="qubi-scenes.js" defer></script>
+<script src="qubi.js" defer></script>
 </body>
 </html>

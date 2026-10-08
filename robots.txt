@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mrinal-phy.github.io/mrinal-kanti-giri.github.io/sitemap.xml
