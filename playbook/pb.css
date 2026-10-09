@@ -352,3 +352,34 @@ main section > h3 { margin-top: 24px; margin-bottom: 6px; font-size: 1.15rem; }
 @media (max-width: 640px) {
   .pm-row.three, .bq-row, .dyk { grid-template-columns: 1fr; }
 }
+
+/* ---------- "How every chapter works" (Playbook map) ---------- */
+.pb-how { margin-top: 34px; }
+.pb-steps { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; counter-reset: step; }
+.pb-steps li {
+  position: relative; counter-increment: step;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px;
+  padding: 14px 8px 12px; border: 1px solid var(--rule); border-radius: 12px; background: var(--card);
+}
+.pb-steps li::before {
+  content: counter(step); position: absolute; top: -9px; left: 50%; translate: -50% 0;
+  width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--bg);
+  font: 700 0.7rem/20px -apple-system, "Segoe UI", sans-serif;
+}
+.pb-steps li:not(:last-child)::after {
+  content: "→"; position: absolute; right: -10px; top: 50%; translate: 0 -50%;
+  color: var(--muted); font-size: 0.9rem; z-index: 1;
+}
+.pb-steps .ico { font-size: 1.7rem; line-height: 1.2; }
+.pb-steps b { font-size: 0.95rem; }
+.pb-steps span:not(.ico) { font-size: 0.78rem; color: var(--muted); line-height: 1.35; font-family: -apple-system, "Segoe UI", sans-serif; }
+.pb-how-note { margin: 14px 0 0; font-size: 0.9rem; color: var(--muted); text-align: center; }
+@media (max-width: 760px) {
+  .pb-steps { grid-template-columns: repeat(3, 1fr); row-gap: 18px; }
+  .pb-steps li:nth-child(3)::after { display: none; }
+}
+@media (max-width: 420px) {
+  .pb-steps { grid-template-columns: repeat(2, 1fr); }
+  .pb-steps li:nth-child(3)::after { display: block; }
+  .pb-steps li:nth-child(even)::after { display: none; }
+}
