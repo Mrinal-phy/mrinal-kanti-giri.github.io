@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch. 1 Bits vs Qubits · Quantum Playbook</title>
+<meta name="description" content="Quantum Playbook, Chapter 1: what a qubit is, amplitudes, the Born rule, measurement and collapse, with interactive widgets, stories and a quiz.">
+<link rel="canonical" href="https://mrinal-phy.github.io/mrinal-kanti-giri.github.io/playbook/ch1-qubits.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="pb.css">
+</head>
+<body>
+<div class="page">
+
+<header>
+<a class="site-name" href="../index.html">Mrinal Kanti Giri</a>
+<p class="site-tagline">Research Fellow · Nanyang Technological University, Singapore</p>
+<nav aria-label="Main navigation">
+<a href="../index.html">About</a>
+<a href="../research.html">Research</a>
+<a href="../publications.html">Publications</a>
+<a href="../experience.html">Experience</a>
+<a href="../reading.html">Reading</a>
+<a class="active" href="../playbook.html">Playbook</a>
+<a href="../cv.pdf">CV</a>
+</nav>
+</header>
+
+<main>
+<p class="pb-crumb sans"><a href="../playbook.html">Quantum Playbook</a> › Level 1 · Qubit Basics › Chapter 1</p>
+<h1 class="pb-title">Bits vs Qubits</h1>
+<p class="pb-sub">Amplitudes, measurement and collapse: the two rules that everything else in quantum computing is built on.</p>
+
+<div class="pb-goals">
+<h3 class="sans">In this chapter you will</h3>
+<ul>
+<li>describe a qubit by two <b>amplitudes</b>, and see why they live on a circle;</li>
+<li>use the <b>Born rule</b> to turn amplitudes into measurement probabilities;</li>
+<li>watch a measurement <b>collapse</b> the state, and see why one shot tells you very little;</li>
+<li>discover why <b>superposition is not the same as "we don't know"</b>.</li>
+</ul>
+<div class="pb-meta sans"><span>⏱ about 25 minutes</span><span>🎮 4 interactive widgets</span><span>✅ 7-question quiz</span><span>📚 no quantum background needed</span></div>
+</div>
+
+<!-- ============ 1. Bits ============ -->
+<section id="bits">
+<span class="pb-step sans">1 · Story</span>
+<h2>A bit is a switch</h2>
+<p>Every computer you have ever used stores information in <b>bits</b>. A bit is like a light switch: it is either <b>0</b> or <b>1</b>, and you can look at it as often as you like without changing it.</p>
+<p>A <b>qubit</b> (quantum bit) also only ever shows 0 or 1 when you look. But try looking at both a few times:</p>
+
+<div class="pb-widget" data-widget="bit-vs-qubit"><span class="pb-widget-title">A bit vs a qubit</span></div>
+
+<aside class="qsay" data-mood="excited">
+<p>Hi, I'm Qubi, a qubit! Did you see? The bit gave the same answer every time. I gave <b>random</b> answers, even though every try started from exactly the same state.</p>
+<p>But my randomness is not chaos. Over many tries you get exactly the odds my state sets, and you can control those odds. They come from two numbers called <b>amplitudes</b>. Let's play with them!</p>
+</aside>
+</section>
+
+<!-- ============ 2. State ============ -->
+<section id="state">
+<span class="pb-step sans">2 · Play</span>
+<h2>Your first qubit: two amplitudes</h2>
+<p>A qubit's state is written</p>
+<p style="text-align:center">\( |\psi\rangle = \alpha\,|0\rangle + \beta\,|1\rangle \)</p>
+<p>The symbols \(|0\rangle\) and \(|1\rangle\) ("ket zero", "ket one") are the two possible outcomes. The numbers \(\alpha\) and \(\beta\) are the <b>amplitudes</b>. In this chapter they are ordinary real numbers (positive <i>or negative</i>); in Chapter 2 they become complex. The one rule is</p>
+<p style="text-align:center">\( \alpha^2 + \beta^2 = 1 \)</p>
+<p>so the pair \((\alpha, \beta)\) is a point on a circle of radius 1. That makes a qubit an <b>arrow</b>. Drag the gold knob:</p>
+
+<div class="pb-widget" data-widget="state-dial"><span class="pb-widget-title">State dial</span></div>
+
+<p>Things to notice:</p>
+<ul>
+<li>The arrow's shadow on each axis is an amplitude: <span style="color:var(--pb-blue)">α</span> on the |0⟩ axis, <span style="color:var(--pb-red)">β</span> on the |1⟩ axis.</li>
+<li>Amplitudes can be <b>negative</b> (try the |−⟩ preset). The probabilities α² and β² never are.</li>
+<li>|+⟩ and |−⟩ have exactly the same probability bars. Remember this; it matters in section 4.</li>
+</ul>
+
+<details class="pb-math">
+<summary>Show me the math</summary>
+<div>
+<p>Kets are column vectors in a two-dimensional space:</p>
+$$ |0\rangle = \begin{pmatrix}1\\0\end{pmatrix},\qquad |1\rangle = \begin{pmatrix}0\\1\end{pmatrix},\qquad |\psi\rangle = \begin{pmatrix}\alpha\\ \beta\end{pmatrix}. $$
+<p>In general \(\alpha, \beta \in \mathbb{C}\) and normalisation reads \(|\alpha|^2 + |\beta|^2 = \langle\psi|\psi\rangle = 1\). With real amplitudes we can write \(\alpha = \cos\varphi,\ \beta = \sin\varphi\): that angle \(\varphi\) is exactly what the dial shows.</p>
+<p>Two arrows pointing in opposite directions, \(|\psi\rangle\) and \(-|\psi\rangle\), describe the <i>same</i> physical state: an overall ("global") sign or phase can never be measured. That is why the full picture of a qubit is not this circle but the <b>Bloch sphere</b> (Chapter 2), where the angle is doubled: \(\theta_{\text{Bloch}} = 2\varphi\).</p>
+</div>
+</details>
+</section>
+
+<!-- ============ 3. Measurement ============ -->
+<section id="measure">
+<span class="pb-step sans">3 · Play</span>
+<h2>Measurement: the Born rule</h2>
+<p>Here's the twist: you can never see α and β directly. When you measure a qubit you get a single bit, and which one is random:</p>
+<p style="text-align:center">\( P(0) = |\alpha|^2, \qquad P(1) = |\beta|^2 \)</p>
+<p>This is the <b>Born rule</b>. And measuring changes the qubit: right after you see 1, the state <i>is</i> \(|1\rangle\). This is called <b>collapse</b>. The lab below uses the state you set on the dial.</p>
+
+<div class="pb-widget" data-widget="measure-lab"><span class="pb-widget-title">Measurement lab</span></div>
+
+<aside class="qsay" data-mood="thinking">
+<p><b>Try this.</b> Pick |+⟩ on the dial and press <i>Measure once</i> a few times: completely random. Now press <i>× 1000</i>: the bars settle onto the dashed Born-rule lines.</p>
+<p>Then switch to <i>keep measuring the same qubit</i>. After the first result, every later shot agrees with it. That's collapse! One shot tells you almost nothing about α and β. You need many <b>fresh copies</b>.</p>
+</aside>
+
+<details class="pb-math">
+<summary>Show me the math</summary>
+<div>
+<p>The probability of outcome \(k\) is the squared overlap with \(|k\rangle\), and the state afterwards is \(|k\rangle\):</p>
+$$ P(k) = |\langle k|\psi\rangle|^2, \qquad |\psi\rangle \;\xrightarrow{\ \text{outcome } k\ }\; |k\rangle . $$
+<p><b>How precise is a measured probability?</b> Say you measure \(N\) fresh copies and get 1 in \(N_1\) of them. Your estimate of \(P(1)\) is the fraction \(\hat p = N_1/N\). How far can it wander from the true \(p\)?</p>
+<p>Each shot is a coin flip that lands on 1 with probability \(p\). For \(N\) independent flips, the count \(N_1\) has average \(Np\) and spread (standard deviation) \(\sqrt{N\,p\,(1-p)}\). That's the standard result for a binomial distribution. Dividing by \(N\) turns the count into a fraction:</p>
+$$ \Delta p \;=\; \frac{\sqrt{N\,p\,(1-p)}}{N} \;=\; \sqrt{\frac{p\,(1-p)}{N}} . $$
+<div class="worked">
+<p><b>Worked example</b> for \(|+\rangle\), where \(p = 0.5\):</p>
+<p>\(p(1-p) = 0.5 \times 0.5 = 0.25\).</p>
+<p>\(N = 100\): \(\;0.25/100 = 0.0025\), and \(\sqrt{0.0025} = 0.05\), so about <b>±5%</b>.</p>
+<p>\(N = 1000\): \(\;0.25/1000 = 0.00025\), and \(\sqrt{0.00025} \approx 0.016\), so about <b>±1.6%</b>.</p>
+</div>
+<p>Rule of thumb: <b>four times more shots halves the error</b>, because of the square root. That's why real quantum experiments repeat every circuit thousands of times. The measurement lab above shows this ± value live as you measure.</p>
+</div>
+</details>
+</section>
+
+<!-- ============ 4. Superposition is not ignorance ============ -->
+<section id="superposition">
+<span class="pb-step sans">4 · Key insight</span>
+<h2>Superposition is not "we don't know"</h2>
+<p>Here is a fair question. When \(|+\rangle\) gives 0 half the time and 1 half the time, maybe the qubit was <b>really</b> 0 or 1 all along, and we just didn't know which? Like a coin hidden under a cup.</p>
+<p>Let's test that idea with an experiment. We have three boxes:</p>
+<ul>
+<li><b>\(|+\rangle\)</b> and <b>\(|-\rangle\)</b>, from the state dial;</li>
+<li>a <b>secret coin</b>: each time, we secretly prepare either \(|0\rangle\) or \(|1\rangle\) at random. This is exactly the "we just don't know" idea.</li>
+</ul>
+<p><b>Step 1.</b> Measure all three. <b>Step 2.</b> Do one extra thing before measuring: apply the <b>Hadamard gate H</b>, a standard quantum operation (you'll meet it properly in Chapter 3). Compare the results.</p>
+
+<div class="pb-widget" data-widget="plus-minus"><span class="pb-widget-title">The secret-coin test</span></div>
+
+<aside class="qsay" data-mood="surprised">
+<p><b>Step 1:</b> all three look the same, 50/50. <b>Step 2:</b> after H, \(|+\rangle\) gives <b>0 every time</b>, \(|-\rangle\) gives <b>1 every time</b>, but the secret coin is <b>still 50/50</b>.</p>
+<p>So \(|+\rangle\) is <b>not</b> a secret coin. Something else is going on.</p>
+</aside>
+
+<h3>What is going on? Follow the amplitudes</h3>
+<p>H takes each part of the state and splits it into a bit of \(|0\rangle\) and a bit of \(|1\rangle\). For \(|+\rangle\), both parts send an amplitude of \(+\tfrac12\) to the outcome 0, and these <b>add up</b> to 1. To the outcome 1, one part sends \(+\tfrac12\) and the other sends \(-\tfrac12\), and these <b>cancel</b> to 0. The widget shows this as coloured blocks after Step 2.</p>
+<p>It works like waves in water: two crests make a bigger wave, but a crest meeting a trough leaves calm water. This is <b>interference</b>.</p>
+<p>The secret coin can't do this. It is <i>either</i> 0 <i>or</i> 1, never both, so there is nothing to add up or cancel: each possibility separately gives 50/50.</p>
+<aside class="qsay" data-mood="love">
+<p><b>The big lesson.</b> "We don't know" means <b>probabilities</b>, which can only add. Superposition means <b>amplitudes</b>, which can be negative, so they can <b>cancel</b>. That cancelling is the engine of every quantum algorithm.</p>
+</aside>
+
+<details class="pb-math">
+<summary>Show me the math</summary>
+<div>
+<p>The Hadamard gate acts on the basis states as</p>
+$$ H|0\rangle = \tfrac{1}{\sqrt2}\big(|0\rangle + |1\rangle\big), \qquad H|1\rangle = \tfrac{1}{\sqrt2}\big(|0\rangle - |1\rangle\big). $$
+<p>Apply it to \(|+\rangle = \tfrac{1}{\sqrt2}(|0\rangle + |1\rangle)\), one part at a time:</p>
+$$ H|+\rangle = \tfrac{1}{\sqrt2}H|0\rangle + \tfrac{1}{\sqrt2}H|1\rangle
+= \big(\tfrac12 + \tfrac12\big)|0\rangle + \big(\tfrac12 - \tfrac12\big)|1\rangle = |0\rangle . $$
+<p>Each \(\tfrac12\) is a product \(\tfrac{1}{\sqrt2}\cdot\tfrac{1}{\sqrt2}\): the block values in the widget. In the same way \(H|-\rangle = |1\rangle\).</p>
+<p>The secret coin is a <i>mixture</i>: \(|0\rangle\) with probability ½ and \(|1\rangle\) with probability ½. After H, each case gives 0 with probability ½, so the total is \(\tfrac12\cdot\tfrac12 + \tfrac12\cdot\tfrac12 = \tfrac12\). Probabilities are never negative, so they can't cancel. (In density-matrix language, the mixture is \(\rho = I/2\) and \(H\rho H^\dagger = I/2\).)</p>
+</div>
+</details>
+</section>
+
+<!-- ============ 5. Challenge ============ -->
+<section id="challenge">
+<span class="pb-step sans">5 · Try it</span>
+<h2>Challenge: a 75% qubit</h2>
+<div class="pb-widget pb-challenge" data-widget="challenge-75"><span class="pb-widget-title">Challenge</span></div>
+</section>
+
+<!-- ============ 6. Why it matters ============ -->
+<section id="story">
+<span class="pb-step sans">6 · Why it matters</span>
+<h2>God, dice and a footnote</h2>
+<div class="pb-story">
+<h3>The story</h3>
+<p>In June 1926, <b>Max Born</b> was trying to understand what Schrödinger's new "wave function" actually meant. In his paper on collisions he first wrote that the wave function itself gave the probability. Then, while correcting the proofs, he added a footnote: the probability is proportional to the <b>square</b>. That footnote is the Born rule you just used, and it won him the Nobel Prize in 1954.</p>
+<p>Not everyone was happy. A few months later Albert Einstein wrote to Born:</p>
+<blockquote class="pb-quote">"Quantum mechanics is certainly imposing. But an inner voice tells me that it is not yet the real thing. The theory says a lot, but does not really bring us any closer to the secret of the 'old one'. I, at any rate, am convinced that He is not playing at dice."
+<cite>Albert Einstein to Max Born, 4 December 1926 (translated by Irene Born)</cite></blockquote>
+<p>Every experiment since has sided with Born: the randomness you saw in the measurement lab is not a gap in our knowledge. It is how nature works.</p>
+<ol class="pb-timeline">
+<li><b class="yr">1926</b>Born's footnote: probability = amplitude squared.</li>
+<li><b class="yr">1935</b>Schrödinger's cat: superposition taken to the absurd (and entanglement is born, Chapter 5).</li>
+<li><b class="yr">1982</b>Richard Feynman: to simulate nature, build a computer out of quantum parts.</li>
+<li><b class="yr">1994</b>Peter Shor: interference of amplitudes can factor large numbers exponentially faster.</li>
+<li><b class="yr">2019</b>A 53-qubit superconducting chip performs a sampling task beyond the comfortable reach of classical supercomputers.</li>
+</ol>
+</div>
+<h3 class="dyk-title">💡 Did you know?</h3>
+<div class="dyk">
+<div class="dyk-card"><span class="ico">🧮</span><p>One qubit needs 2 amplitudes, two qubits need 4, and every extra qubit <b>doubles</b> the count: \(n\) qubits need \(2^n\). Just <b>50 qubits</b> need \(2^{50} \approx 10^{15}\) numbers, about <b>18 petabytes</b> of memory on a classical computer.</p></div>
+<div class="dyk-card"><span class="ico">🌌</span><p>The state of <b>300 qubits</b> needs \(2^{300} \approx 10^{90}\) amplitudes. That's more than the number of atoms in the observable universe (about \(10^{80}\)).</p></div>
+<div class="dyk-card"><span class="ico">🎲</span><p>The randomness you saw in the measurement lab is the real thing, not a computer's fake randomness. <b>Quantum random number generators</b> are sold as devices for cryptography and security.</p></div>
+<div class="dyk-card catch"><span class="ico">🔍</span><p><b>The catch:</b> measuring \(n\) qubits only ever gives you \(n\) bits. You can't read all those amplitudes out! A quantum algorithm has to make the wrong answers <b>cancel</b> and the right ones <b>add up</b> before you look, just like the secret-coin test.</p></div>
+</div>
+</section>
+
+<!-- ============ 7. Quiz ============ -->
+<section id="quiz">
+<span class="pb-step sans">7 · Quiz</span>
+<h2>Check your understanding</h2>
+<p>Seven questions. Pick an answer and Qubi will tell you <i>why</i> it is right or wrong. Only your first try counts toward your stars.</p>
+<div class="pb-quiz" data-widget="quiz"></div>
+</section>
+
+<div class="pb-next sans">
+<a class="qb-like" href="../playbook.html">← Playbook map</a>
+<span class="qb-like" aria-disabled="true">Next: Chapter 2 · The Bloch sphere (coming next week)</span>
+</div>
+</main>
+
+<footer>
+<span>© 2026 Mrinal Kanti Giri · Quantum Playbook</span>
+</footer>
+
+</div>
+
+<script>
+window.PB_QUIZ = {
+  chapter: 'ch1',
+  questions: [
+    { q: 'A qubit is in the state \\(|\\psi\\rangle = 0.6\\,|0\\rangle + 0.8\\,|1\\rangle\\). What is the probability of measuring <b>1</b>?', review: '#measure',
+      options: [
+        { t: '0.8', why: '0.8 is the <i>amplitude</i> \\(\\beta\\), not the probability. The Born rule says to square it: \\(0.8^2 = 0.64\\).' },
+        { t: '0.64', ok: true, why: 'Born rule: \\(P(1) = |\\beta|^2 = 0.8^2 = 0.64\\). And \\(0.36 + 0.64 = 1\\), as probabilities must.' },
+        { t: '0.36', why: 'That is \\(P(0) = 0.6^2\\), the probability of getting <b>0</b>.' },
+        { t: '0.2', why: 'Subtracting amplitudes does not give a probability. Square the amplitude of \\(|1\\rangle\\) instead.' }
+      ] },
+    { q: 'Which of these is a valid (normalised) qubit state?', review: '#state',
+      options: [
+        { t: '\\(\\tfrac12|0\\rangle + \\tfrac12|1\\rangle\\)', why: 'The squares add to \\(\\tfrac14 + \\tfrac14 = \\tfrac12\\), not 1. The normalised version is \\(\\tfrac{1}{\\sqrt2}(|0\\rangle + |1\\rangle)\\).' },
+        { t: '\\(0.8\\,|0\\rangle - 0.6\\,|1\\rangle\\)', ok: true, why: '\\(0.64 + 0.36 = 1\\). The minus sign is perfectly fine: amplitudes can be negative (even complex). Only their squares must add to 1.' },
+        { t: '\\(|0\\rangle + |1\\rangle\\)', why: 'The squares add to 2. Divide by \\(\\sqrt2\\) to normalise it.' },
+        { t: '\\(0.9\\,|0\\rangle + 0.1\\,|1\\rangle\\)', why: '\\(0.81 + 0.01 = 0.82\\), not 1. Close is not enough: probabilities must add to exactly 1.' }
+      ] },
+    { q: 'You measure a qubit in the state \\(\\tfrac{1}{\\sqrt2}(|0\\rangle + |1\\rangle)\\) and get <b>1</b>. You immediately measure the <i>same</i> qubit again. What do you get?', review: '#measure',
+      options: [
+        { t: '1, with certainty', ok: true, why: 'The first measurement collapsed the state to \\(|1\\rangle\\), so the repeat gives 1 every time. You saw this with "keep measuring the same qubit".' },
+        { t: '0 or 1, 50/50', why: 'That would be true for a <i>fresh copy</i> of the state. This qubit has already collapsed to \\(|1\\rangle\\).' },
+        { t: '0, with certainty', why: 'Nothing flips the qubit between the two measurements. After collapse it stays \\(|1\\rangle\\).' },
+        { t: 'Impossible to predict', why: 'Quantum mechanics is precise here: after getting 1 the state is \\(|1\\rangle\\), which gives 1 every time.' }
+      ] },
+    { q: '\\(|+\\rangle\\) and \\(|-\\rangle\\) are each measured 1000 times in the 0/1 basis. What do you see?', review: '#superposition',
+      options: [
+        { t: 'Both about 50/50: this measurement cannot tell them apart', ok: true, why: 'Their amplitudes differ only in sign, and probabilities are squares, so the statistics are identical. You need an operation like H first to reveal the difference.' },
+        { t: '\\(|+\\rangle\\) gives mostly 0, \\(|-\\rangle\\) mostly 1', why: 'That is what happens <i>after</i> applying H. Measured directly, both are 50/50.' },
+        { t: '\\(|-\\rangle\\) gives negative counts', why: 'Counts can never be negative! The minus sign lives in the amplitude, and squaring removes it.' },
+        { t: '\\(|+\\rangle\\) is 50/50, \\(|-\\rangle\\) always gives 0', why: '\\((-1/\\sqrt2)^2 = 1/2\\): the minus sign does not change the probability.' }
+      ] },
+    { q: 'Which statement about superposition is correct?', review: '#superposition',
+      options: [
+        { t: 'The qubit is secretly 0 or 1; we just do not know which', why: 'That describes a classical <i>mixture</i>. It cannot explain the \\(|+\\rangle\\)/\\(|-\\rangle\\) experiment: after H, \\(|+\\rangle\\) always gives 0 and \\(|-\\rangle\\) always gives 1, which a "secret 0 or 1" can never do.' },
+        { t: 'The qubit has amplitudes for both outcomes, and these can interfere', ok: true, why: 'Exactly. Amplitudes, with their signs, can add up or cancel. That interference is what quantum algorithms exploit.' },
+        { t: 'A measurement returns a value between 0 and 1, like 0.7', why: 'A single measurement always returns 0 or 1. Numbers like 0.7 only appear as averages over many shots.' },
+        { t: 'One measurement reveals both \\(\\alpha\\) and \\(\\beta\\)', why: 'One shot gives one bit. Estimating \\(|\\alpha|^2\\) takes many measurements on fresh copies, and the sign needs yet other measurements.' }
+      ] },
+    { q: 'You measure 100 fresh copies of a qubit and get <b>0</b> seventy times. What is your best estimate of \\(|\\alpha|\\)?', review: '#measure',
+      options: [
+        { t: '0.70', why: '0.70 estimates the <i>probability</i> \\(|\\alpha|^2\\), not the amplitude. Take the square root.' },
+        { t: 'about 0.84', ok: true, why: '\\(|\\alpha|^2 \\approx 0.70\\), so \\(|\\alpha| \\approx \\sqrt{0.70} \\approx 0.84\\). With 100 shots the probability itself is uncertain by about \\(\\pm 0.05\\).' },
+        { t: '0.49', why: 'That is \\(0.7^2\\): you squared instead of taking the square root.' },
+        { t: 'It cannot be estimated', why: 'Repeated measurements on fresh copies estimate \\(|\\alpha|^2\\) well. That is exactly how real experiments work.' }
+      ] },
+    { q: 'How many amplitudes do you need to describe a general state of <b>3 qubits</b>?', review: '#story',
+      options: [
+        { t: '3', why: 'That is the number of qubits. Each extra qubit <i>doubles</i> the number of basis states.' },
+        { t: '6', why: 'Two per qubit is only enough for special (unentangled) states. In general you need one amplitude for every basis state.' },
+        { t: '8', ok: true, why: 'There are \\(2^3 = 8\\) basis states, \\(|000\\rangle\\) to \\(|111\\rangle\\), each with its own amplitude. That exponential growth is why quantum systems are so hard to simulate classically.' },
+        { t: '9', why: 'That is \\(3^2\\). The count grows as \\(2^n\\), not \\(n^2\\).' }
+      ] }
+  ]
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" defer></script>
+<script src="../site.js" defer></script>
+<script src="../qubi.js" defer></script>
+<script src="qsim.js" defer></script>
+<script src="pb.js" defer></script>
+</body>
+</html>

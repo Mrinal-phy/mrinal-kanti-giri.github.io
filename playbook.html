@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum Playbook · Mrinal Kanti Giri</title>
+<meta name="description" content="Quantum Playbook: learn quantum computing by playing, from your first qubit to Hamiltonian simulation. Interactive widgets, stories of the physicists, and quizzes that explain every mistake.">
+<link rel="canonical" href="https://mrinal-phy.github.io/mrinal-kanti-giri.github.io/playbook.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="playbook/pb.css">
+</head>
+<body>
+<div class="page">
+
+<header>
+<a class="site-name" href="index.html">Mrinal Kanti Giri</a>
+<p class="site-tagline">Research Fellow · Nanyang Technological University, Singapore</p>
+<nav aria-label="Main navigation">
+<a href="index.html">About</a>
+<a href="research.html">Research</a>
+<a href="publications.html">Publications</a>
+<a href="experience.html">Experience</a>
+<a href="reading.html">Reading</a>
+<a class="active" href="playbook.html">Playbook</a>
+<a href="cv.pdf">CV</a>
+</nav>
+</header>
+
+<main>
+<section class="pb-intro">
+<div>
+<h1>Quantum Playbook</h1>
+<p>Learn quantum computing by <b>playing</b>, with Qubi as your guide. Every chapter has interactive widgets running a real quantum simulation, the stories of the physicists behind the ideas, and a quiz that explains every mistake.</p>
+<p class="muted">Made for undergraduates up to postdocs who have never worked on quantum. No quantum background needed; the maths is always one click away.</p>
+<div class="pb-badges"><span>🎮 interactive</span><span>🧮 maths when you want it</span><span>📜 stories &amp; vision</span><span>✅ quizzes that explain</span><span>📅 a new chapter every week</span></div>
+</div>
+<div class="qsay-face pb-hero" data-mood="excited"></div>
+</section>
+
+<div class="pb-progress"><span class="pb-progress-text">Your progress</span><div class="bar"><i style="width:0%"></i></div><span class="pb-stars-total"></span></div>
+
+<div class="pb-map" id="pb-map"></div>
+
+<aside class="qsay" data-mood="wink" style="margin-top:28px">
+<p><b>How every chapter works:</b> a short <b>story</b>, then <b>play</b> with the widgets, open <b>the maths</b> if you like, take on a <b>challenge</b>, hear <b>why it matters</b> (with stories of the physicists), and finish with a <b>quiz</b>. Your stars are saved in your own browser only.</p>
+</aside>
+</main>
+
+<footer>
+<span>© 2026 Mrinal Kanti Giri · Quantum Playbook</span>
+</footer>
+
+</div>
+
+<script>
+// Curriculum. "ready: true" chapters are published; the rest show as coming soon.
+var PB_LEVELS = [
+  { n: 1, title: 'Qubit Basics', blurb: 'Qubi learns to be a qubit: states, measurement, gates and entanglement.', chapters: [
+    { id: 'ch1', href: 'playbook/ch1-qubits.html', title: 'Bits vs Qubits', blurb: 'Amplitudes, the Born rule and collapse.', ready: true },
+    { id: 'ch2', title: 'The Bloch Sphere', blurb: 'Complex amplitudes, phase, and a qubit as a point on a ball.' },
+    { id: 'ch3', title: 'Single-Qubit Gates', blurb: 'X, Z, H and rotations: steering the Bloch arrow.' },
+    { id: 'ch4', title: 'Measuring in Any Basis', blurb: 'Why the question you ask changes the answer.' },
+    { id: 'ch5', title: 'Two Qubits & Entanglement', blurb: 'Bell states, CNOT, and Einstein\'s "spooky action".' },
+    { id: 'ch6', title: 'Building Circuits', blurb: 'Your own circuit builder, with live probabilities.' }
+  ] },
+  { n: 2, title: 'Quantum Algorithms', blurb: 'Interference as a superpower.', locked: ['Deutsch–Jozsa', 'Bernstein–Vazirani', 'Grover search', 'Quantum Fourier transform', 'Phase estimation', 'Shor\'s algorithm'] },
+  { n: 3, title: 'Information & Communication', blurb: 'Sending and protecting quantum messages.', locked: ['No-cloning', 'Teleportation', 'Superdense coding', 'BB84: catch the eavesdropper', 'Density matrices & noise', 'Quantum entropy'] },
+  { n: 4, title: 'Quantum Simulation', blurb: 'Simulating nature on quantum computers: where it all began.', special: true, locked: ['Hamiltonians & time evolution', 'Trotterization', 'Quantum walks', 'Hamiltonian simulation algorithms', 'Variational eigensolvers (VQE)', 'Error mitigation on real hardware'] },
+  { n: 5, title: 'The Frontier', blurb: 'Where research is happening now.', locked: ['Quantum error correction', 'Surface codes', 'Tensor networks', 'Quantum machine learning', 'Quantum complexity'] }
+];
+
+(function () {
+  var prog = {};
+  try { prog = JSON.parse(localStorage.getItem('pb-progress') || '{}'); } catch (e) {}
+  var map = document.getElementById('pb-map'), current = null, total = 0, done = 0, stars = 0;
+  PB_LEVELS.forEach(function (L) {
+    var sec = document.createElement('section');
+    sec.className = 'pb-level' + (L.special ? ' special' : '');
+    sec.innerHTML = '<div class="pb-level-head"><span class="lvl">Level ' + L.n + '</span><h2>' + L.title + '</h2><p>' + L.blurb + '</p></div>';
+    if (L.chapters) {
+      var ol = document.createElement('ol'); ol.className = 'pb-path';
+      L.chapters.forEach(function (c, i) {
+        total++;
+        var p = prog[c.id], li = document.createElement('li');
+        var state = p ? 'done' : c.ready ? 'available' : 'soon';
+        if (p) { done++; stars += p.stars || 0; }
+        if (!current && c.ready && !p) current = li;
+        li.className = 'pb-node ' + state;
+        var st = state === 'done' ? '★★★'.slice(0, p.stars) + '☆☆☆'.slice(p.stars) + '  ·  ' + p.score + '/' + p.total + ' in the quiz'
+               : state === 'available' ? 'START HERE →' : 'COMING SOON';
+        var inner = '<h3>Ch. ' + (i + 1) + ' · ' + c.title + '</h3><p>' + c.blurb + '</p><span class="st">' + st + '</span>';
+        li.innerHTML = '<div class="pb-dot">' + (state === 'done' ? '✓' : i + 1) + '</div>' +
+          (c.ready ? '<a class="pb-card" href="' + c.href + '">' + inner + '</a>' : '<div class="pb-card">' + inner + '</div>');
+        ol.appendChild(li);
+      });
+      sec.appendChild(ol);
+    } else {
+      total += L.locked.length;
+      var g = document.createElement('div'); g.className = 'pb-locked';
+      L.locked.forEach(function (t) { var s = document.createElement('span'); s.textContent = t; g.appendChild(s); });
+      sec.appendChild(g);
+    }
+    map.appendChild(sec);
+  });
+  document.querySelector('.pb-progress .bar i').style.width = (done / total * 100) + '%';
+  document.querySelector('.pb-progress-text').textContent = 'Your progress: ' + done + ' of ' + total + ' chapters';
+  document.querySelector('.pb-stars-total').textContent = '★ ' + stars;
+
+  // dotted path connecting the chapter dots
+  function drawPaths() {
+    document.querySelectorAll('.pb-path').forEach(function (ol) {
+      var old = ol.querySelector('.pb-path-svg'); if (old) old.remove();
+      var dots = [].slice.call(ol.querySelectorAll('.pb-dot')), r0 = ol.getBoundingClientRect();
+      var pts = dots.map(function (d) { var r = d.getBoundingClientRect(); return [r.left - r0.left + r.width / 2, r.top - r0.top + r.height / 2]; });
+      var d = 'M' + pts[0][0] + ' ' + pts[0][1];
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i], my = (a[1] + b[1]) / 2;
+        d += ' C' + a[0] + ' ' + my + ' ' + b[0] + ' ' + my + ' ' + b[0] + ' ' + b[1];
+      }
+      ol.insertAdjacentHTML('afterbegin', '<svg class="pb-path-svg" aria-hidden="true"><path d="' + d + '"/></svg>');
+    });
+  }
+  window.addEventListener('load', drawPaths);
+  window.addEventListener('resize', drawPaths);
+
+  // Qubi stands on the next chapter to play
+  function placeQubi() {
+    if (!window.QubiAPI) return;
+    document.querySelector('.pb-hero').innerHTML = QubiAPI.svg();
+    if (current) {
+      var h = document.createElement('div'); h.className = 'pb-here'; h.setAttribute('data-mood', 'excited');
+      h.innerHTML = QubiAPI.svg(); current.appendChild(h);
+    }
+  }
+  if (document.readyState === 'complete') placeQubi(); else window.addEventListener('load', placeQubi);
+})();
+</script>
+<script src="site.js" defer></script>
+<script src="qubi.js" defer></script>
+</body>
+</html>

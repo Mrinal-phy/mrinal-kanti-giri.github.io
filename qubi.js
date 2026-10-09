@@ -7,9 +7,12 @@
 //  - A guided tour across all pages, and gentle suggestions once per visit.
 (function () {
   var file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  var page = {
+  var inPlaybook = /\/playbook\//.test(location.pathname);
+  var ROOT = inPlaybook ? '../' : '';          // path back to the site root
+  var page = inPlaybook ? 'chapter' : {
     'index.html': 'about', '': 'about', 'research.html': 'research',
-    'publications.html': 'publications', 'experience.html': 'experience', 'reading.html': 'reading'
+    'publications.html': 'publications', 'experience.html': 'experience', 'reading.html': 'reading',
+    'playbook.html': 'playbook'
   }[file];
   if (!page) return;
 
@@ -485,7 +488,7 @@
       [{ label: 'Another fact!', onClick: quantumFact }]);
   }
   function whatWeDo() {
-    var acts = page === 'research' ? [] : [{ label: 'Show me the research', href: 'research.html' }];
+    var acts = page === 'research' ? [] : [{ label: 'Show me the research', href: ROOT + 'research.html' }];
     openNote(notes.whatWeDo, acts);
   }
 
@@ -609,14 +612,19 @@
     experience: { ask: "Want to hear the story of Mrinal's long quantum walk around the world?",
                 primary: { label: 'Tell me the story', onClick: function () { openNote(notes.travel); } } },
     reading: { ask: "Not sure where to begin? I can pick a starting path for you.",
-                primary: { label: 'Where should I start?', onClick: function () { openNote(notes.startHere, [{ label: 'Email Mrinal', href: 'mailto:mrinalphy333@gmail.com' }]); } } }
+                primary: { label: 'Where should I start?', onClick: function () { openNote(notes.startHere, [{ label: 'Email Mrinal', href: 'mailto:mrinalphy333@gmail.com' }]); } } },
+    playbook: { ask: "Want to learn quantum computing with me? We start with a single qubit, and I promise it's fun!",
+                primary: { label: 'Start Chapter 1', href: 'playbook/ch1-qubits.html' } },
+    chapter: { ask: "Learning with me today? Play with every widget, then try the quiz at the end. I'll explain any mistakes!",
+                primary: { label: 'Tell me a quantum fact', onClick: quantumFact },
+                second: { label: 'Back to the Playbook map', href: ROOT + 'playbook.html' } }
   }[page];
 
   function menu() {
-    var btns = [{ label: pageOptions.primary.label, onClick: pageOptions.primary.onClick, primary: true }];
+    var btns = [{ label: pageOptions.primary.label, onClick: pageOptions.primary.onClick, href: pageOptions.primary.href, primary: true }];
     if (pageOptions.second) btns.push(pageOptions.second);
     btns.push({ label: 'Take the tour', onClick: startTour });
-    btns.push({ label: 'Tell me a quantum fact', onClick: quantumFact });
+    if (page !== 'chapter') btns.push({ label: 'Tell me a quantum fact', onClick: quantumFact });
     if (page === 'about' && !reduceMotion) btns.push({ label: 'Do your quantum walk again!', onClick: function () { hideBubble(); intro(true); } });
     show("Hi! What shall we do?", btns, { menu: true });
     mood('thinking');
@@ -627,7 +635,7 @@
     mood('excited', 1500);
     show(pageOptions.ask, [
       { label: 'Not now', onClick: notNow },
-      { label: 'Yes, please!', primary: true, onClick: pageOptions.primary.onClick }
+      { label: 'Yes, please!', primary: true, onClick: pageOptions.primary.onClick, href: pageOptions.primary.href }
     ]);
   }
 
@@ -694,7 +702,20 @@
       { target: '.tabs', text: "Two lists: classic recommended reading, and interesting recent articles." },
       { target: '.tab-panel:not([hidden]) .topic-grid', text: "Click any card to open its list of papers." },
       { target: '.qside', when: sideShown, text: "This is DMRG sweeping over a matrix product state while the energy converges." },
+      { next: 'playbook.html', text: "One more stop, my favourite: the Quantum Playbook!" }
+    ],
+    playbook: [
+      { target: '.pb-intro', text: "This is the Quantum Playbook: learn quantum computing by playing, with me as your guide." },
+      { target: '.pb-map', text: "Here's the path, from your very first qubit all the way to Hamiltonian simulation. A new chapter arrives every week!" },
+      { target: '.pb-node.available', text: "Start here! Finish a chapter's quiz to earn stars. Your progress is saved in your browser." },
       { text: "That's the whole tour! Click me any time for fun facts and paper stories. Bye for now! 👋", end: true }
+    ],
+    chapter: [
+      { target: '.pb-goals', text: "Here's what you'll learn in this chapter." },
+      { target: '.pb-widget', text: "Widgets like this one are made for playing. Drag, click, measure!" },
+      { target: '.pb-math', text: "Want the equations? Open \"Show me the math\" any time." },
+      { target: '.pb-quiz', text: "The quiz at the end explains every mistake, so you learn from it." },
+      { text: "Have fun! I'll be right here if you need me.", end: true }
     ]
   };
 
@@ -721,7 +742,7 @@
     var counter = '<span class="qb-count">' + (idx + 1) + ' / ' + active.length + '</span>';
     var btns = [];
     if (idx > 0) btns.push({ label: 'Back', onClick: function () { idx--; renderStep(); } });
-    if (s.next) btns.push({ label: 'Hop to next page →', primary: true, href: s.next + '?tour=1' });
+    if (s.next) btns.push({ label: 'Hop to next page →', primary: true, href: ROOT + s.next + '?tour=1' });
     else if (s.end || idx === active.length - 1) btns.push({ label: 'Done', primary: true, onClick: closeAll });
     else btns.push({ label: 'Next', primary: true, onClick: function () { idx++; renderStep(); } });
     show(s.text + counter, btns);
@@ -852,7 +873,7 @@
     show("Hi there! I'm <b>Qubi</b>, a quantum walker who lives on this site. " + pageOptions.ask, [
       { label: 'Not now', onClick: notNow },
       { label: 'Take the tour', onClick: startTour },
-      { label: pageOptions.primary.label, primary: true, onClick: function () { qubi.classList.remove('waving'); pageOptions.primary.onClick(); } }
+      { label: pageOptions.primary.label, primary: true, href: pageOptions.primary.href, onClick: function () { qubi.classList.remove('waving'); pageOptions.primary.onClick(); } }
     ]);
   }
 
@@ -872,4 +893,6 @@
       else setTimeout(suggest, 5000);
     }, continuing ? 200 : 1200);
   }
+  // Small API used by the Quantum Playbook widgets (quiz reactions etc.)
+  window.QubiAPI = { svg: qubiSVG, setMood: setMood, mood: mood, hop: hop };
 })();
