@@ -689,6 +689,40 @@
     say(ctx, caps[regime], 300, 22, 18, C.text);
   };
 
+  // DQCP preprint: frustration knob takes a spin chain from a ferromagnet (all up)
+  // through the critical point to a valence-bond solid (spins paired into singlets)
+  S.dqcp = function (ctx, t) {
+    var T = 12, tt = t % T, g = tt / T, n = 10, x0 = 130, dx = 31, y = 100;
+    var vbs = ease((g - 0.35) / 0.3), fm = 1 - vbs, regime = g < 0.38 ? 0 : g < 0.62 ? 1 : 2;
+    knob(ctx, 52, 120, g, 'frustration');
+    for (var k = 0; k < n / 2; k++) {
+      ctx.globalAlpha = vbs * 0.9;
+      rr(ctx, x0 + 2 * k * dx - 15, y - 24, dx + 30, 48, 22);
+      ctx.fillStyle = C.card; ctx.fill(); ctx.strokeStyle = GREEN; ctx.lineWidth = 2.5; ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+    line(ctx, x0 - 10, y, x0 + (n - 1) * dx + 10, y, C.rule, 3);
+    for (var i = 0; i < n; i++) {
+      var x = x0 + i * dx, wob = Math.sin(t * 2.3 + i * 1.9) * 1.4 * fm * vbs * 4;
+      var a = -Math.PI / 2 + vbs * ((i % 2 ? Math.PI : 0) + t * 1.5) + wob, c = Math.cos(a), s = Math.sin(a);
+      site(ctx, x, y, 5, GOLD);
+      line(ctx, x - 13 * c, y - 13 * s, x + 13 * c, y + 13 * s, BLUE, 3);
+      ctx.fillStyle = BLUE; ctx.beginPath();
+      ctx.moveTo(x + 17 * c, y + 17 * s);
+      ctx.lineTo(x + 9 * c - 5 * s, y + 9 * s + 5 * c); ctx.lineTo(x + 9 * c + 5 * s, y + 9 * s - 5 * c);
+      ctx.closePath(); ctx.fill();
+    }
+    [[440, fm, RED, 'FM'], [464, vbs, GREEN, 'VBS']].forEach(function (b) {
+      ctx.fillStyle = C.rule; ctx.fillRect(b[0] - 7, 70, 14, 80);
+      ctx.fillStyle = b[2]; ctx.fillRect(b[0] - 7, 150 - 80 * b[1], 14, 80 * b[1]);
+      small(ctx, b[3], b[0], 164, C.text);
+    });
+    small(ctx, 'order', 452, 60);
+    var caps = ['low frustration: all spins agree', 'critical point: one fades, one grows!', 'high frustration: spins pair up'];
+    say(ctx, caps[regime], 250, 24, 18, C.text);
+    if (regime === 1) say(ctx, 'Landau says: not allowed! 🙅', 270, 168, 17, C.muted);
+  };
+
   // Travel story (staged)
   var pins = {
     guwahati: [150, 66, 'IIT Guwahati'], kolkata: [118, 104, 'Kolkata'], taiwan: [368, 62, 'NTHU Taiwan'],

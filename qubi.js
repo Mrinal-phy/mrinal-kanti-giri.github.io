@@ -76,6 +76,16 @@
 
   // ================= Content =================
   var papers = {
+    '2610.21761': {
+      scene: 'dqcp',
+      short: 'the deconfined-criticality preprint',
+      title: 'A phase change the textbooks forbid',
+      paras: [
+        "Picture a row of tiny magnets (spins). With a little frustration they all agree and point the same way: a ferromagnet. Crank the frustration up and they pair off instead, each pair locked in a quantum hug: a valence-bond solid.",
+        "The textbook rule (Landau theory) says two such different orders can't hand over smoothly at a single point. At a deconfined quantum critical point they do: one order fades exactly as the other grows, and their curves cross.",
+        "Mrinal prepared these states on a real superconducting quantum computer, squeezing the circuits short with tensor networks, and found the crossing close to big classical simulations. A noise model built from the chip's own calibration explains why the hardware signals come out a bit weaker."
+      ]
+    },
     '2609.37059': {
       scene: 'proximity',
       short: 'the proximity-localization preprint',
